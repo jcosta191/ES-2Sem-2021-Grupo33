@@ -1,7 +1,9 @@
 package com.iscte.ProjetoES.Leitores;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -16,7 +18,10 @@ public class LeitorJava extends AbstractTableModel {
 	private static final long serialVersionUID = -4220550076295049347L;
 	private static LeitorJava INSTANCIA;
 	private Sheet java;
-
+	private int MethodID, NOM_class, LOC_class, WMC_class, LOC_method, CYCLO_method;
+	private String Package, Class, method;
+    
+	
 	private LeitorJava() {
 	}
 
@@ -47,11 +52,53 @@ public class LeitorJava extends AbstractTableModel {
 	public File escolherJava() {
 		JFileChooser escolherJava = new JFileChooser();
 	    escolherJava.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		/*FileNameExtensionFilter filter = new FileNameExtensionFilter("Ficheiro Excel", "xlsx", "excel");*/
+		/*FileNameExtensionFilter filter = new FileNameExtensionFilter("Diretorio", "xlsx", "excel");
 		escolherJava.setAcceptAllFileFilterUsed(false);
-		/*escolherJava.setFileFilter(filter);*/
+		escolherJava.setFileFilter(filter);*/
 		escolherJava.showOpenDialog(null);
 		File java = escolherJava.getSelectedFile();
+
+		 File filesList[] = java.listFiles();
+	      System.out.println("List of files and directories in the specified directory:");
+	      for(File file : filesList) {
+	    	 if(file.getName().endsWith(".java")) {
+	    		 try {
+	    			  int count=0;
+	    			  Scanner myReader = new Scanner(file);
+	    		      while (myReader.hasNextLine()) {
+	    		    	count++;
+	    		        String data = myReader.nextLine();
+	    		        LOC_class++;
+                        
+	    		        
+	    		        if(count==1) {
+	    		        String[] words = data.split(" ");
+	    		        Package = words[1];
+		    		    System.out.println(Package);
+                        }
+	    		        
+	    		        
+	    		        
+	    		        if(data.isBlank()) {
+	    		        	LOC_class--;
+	    		        }
+	    		      }
+	    		      myReader.close();
+	    		    } catch (FileNotFoundException e) {
+	    		      System.out.println("An error occurred.");
+	    		      e.printStackTrace();
+	    		    }
+	        
+	    	      
+	    	      
+	    	      
+	    	      
+	    	 /*System.out.println("File name: "+file.getName());
+	         System.out.println("File path: "+file.getAbsolutePath());
+	         System.out.println("Size :"+file.getTotalSpace());
+	         System.out.println(" ");*/
+	    	 }
+	      }
 		return java;
 		
 		
