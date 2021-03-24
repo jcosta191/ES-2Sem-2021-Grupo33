@@ -1,5 +1,8 @@
 package com.iscte.ProjetoES;
 
+import com.iscte.ProjetoES.Leitores.LeitorDiretorios;
+import com.iscte.ProjetoES.Leitores.LeitorFicheiros;
+
 /**
  * Hello world!
  *
@@ -8,6 +11,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	LeitorDiretorios a = new LeitorDiretorios();
+    	a.openFile();
+        
+
     }
 }
