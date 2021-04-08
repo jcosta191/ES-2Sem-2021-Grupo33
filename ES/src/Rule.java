@@ -47,5 +47,14 @@ public class Rule {
 		return this.limit2;
 	}
 	
+	public String getMode() {
+		if(mode==0) 
+			return "Feature Envy";
+		return "Long Method";
+	}
+	
+	public void setMode(int mode) {
+		this.mode = mode;
+	}
 	
 }
