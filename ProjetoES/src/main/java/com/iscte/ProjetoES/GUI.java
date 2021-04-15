@@ -1,7 +1,5 @@
 package com.iscte.ProjetoES;
 
-import com.sun.deploy.net.MessageHeader;
-
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.OceanTheme;
@@ -20,8 +18,9 @@ public class GUI {
     public static void addComponentsToPane(Container pane) {
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
         addAButton("Criar Regra", pane);
-        FirstButtonAction();
-        addAButton("Button 2", pane);
+        NewRuleButtonAction();
+        addAButton("Alterar Regra Existente", pane);
+        ChangeRuleButtonAction();
         addAButton("Button 3", pane);
     }
 
@@ -39,12 +38,11 @@ public class GUI {
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    private static void FirstButtonAction(){
+    private static void NewRuleButtonAction(){
         JButton button = buttonList.get(0);
        button.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
-            System.out.println("Teste");
                javax.swing.SwingUtilities.invokeLater(new Runnable() {
                    public void run() {
                        try {
@@ -53,6 +51,27 @@ public class GUI {
                            UIManager.setLookAndFeel(new MetalLookAndFeel());
                            GUI_New_Rule rule=new GUI_New_Rule("Define Rule");
                            rule.open();
+                       } catch (UnsupportedLookAndFeelException e) {
+                           e.printStackTrace();
+                       }
+                   }
+               });
+           }
+       });
+    }
+    private static void ChangeRuleButtonAction(){
+        JButton button = buttonList.get(1);
+       button.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                   public void run() {
+                       try {
+                           JFrame.setDefaultLookAndFeelDecorated(true);
+                           MetalLookAndFeel.setCurrentTheme(new OceanTheme());
+                           UIManager.setLookAndFeel(new MetalLookAndFeel());
+                           GUI_Rule_Picker picker = new GUI_Rule_Picker("Pick a Rule");
+                           picker.open();
                        } catch (UnsupportedLookAndFeelException e) {
                            e.printStackTrace();
                        }
@@ -72,7 +91,13 @@ public class GUI {
         frame.setVisible(true);
         frame.setSize(300,200);
         frame.setResizable(true);
-        frame.setLocation(600,300);
+        
+        Point d3 = new Point();
+		d3.x = (int)((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-frame.getWidth()/2);
+		d3.y = (int)((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-frame.getHeight()/2);
+		
+		frame.setLocation(d3);
+
         MouseWheelListener mouseWheelListener = null;
         frame.addMouseWheelListener(mouseWheelListener);
 

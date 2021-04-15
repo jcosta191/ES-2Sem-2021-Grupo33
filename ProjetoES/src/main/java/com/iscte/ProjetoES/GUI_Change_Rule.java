@@ -15,15 +15,15 @@ import java.awt.event.ActionListener;
 
 import static javax.swing.UIManager.setLookAndFeel;
 
-public class GUI_New_Rule {
+public class GUI_Change_Rule {
 	
         private JPanel panel = new JPanel();
-        private JFrame frame = new JFrame("Select Rule");
+        private JFrame frame = new JFrame("Change Rule");
         private String s;
 
-        public GUI_New_Rule(String s) throws UnsupportedLookAndFeelException {
+        public GUI_Change_Rule(String s) throws UnsupportedLookAndFeelException {
             this.addFrameContent(s);
-    		
+    		this.s = s;
             this.frame.setDefaultCloseOperation(2);
         }
 
@@ -31,7 +31,7 @@ public class GUI_New_Rule {
 
         public void open() throws UnsupportedLookAndFeelException {
             this.frame.setVisible(true);
-            this.frame.setSize(700,310);
+            this.frame.setSize(800,310);
            
             Point d3 = new Point();
             
@@ -61,14 +61,15 @@ public class GUI_New_Rule {
             c.insets = new Insets(5,5,5,5);
             panel.add(NomeDaRegra, c);
             
-            JTextField JTNomeDaRegra = new JTextField();
+            JLabel ActualNomeDaRegra = new JLabel(s);
+            ActualNomeDaRegra.setHorizontalAlignment(SwingConstants.CENTER);
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridwidth = 10;
             c.ipady = 10;
             c.gridx = 1;
             c.gridy = 0;
             c.insets = new Insets(5,5,5,5);
-            panel.add(JTNomeDaRegra, c);
+            panel.add(ActualNomeDaRegra, c);
             c.gridwidth = 1;
             
            JLabel NumeroDeLinhasPorClasse = new JLabel("Número de linhas por classe: ");
@@ -78,7 +79,7 @@ public class GUI_New_Rule {
            panel.add(NumeroDeLinhasPorClasse, c);
           
 
-           JLabel Max1 = new JLabel("Máx: ");
+           JLabel Max1 = new JLabel("Max: ");
            Max1.setHorizontalAlignment(SwingConstants.CENTER);
            c.gridx = 1;
            c.gridy = 1;
@@ -313,7 +314,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(OrBox4, c);
             
-            JLabel NumeroDeLinhasDeCodigoDoMetodo = new JLabel("Número de linhas de código do método: ");
+            JLabel NumeroDeLinhasDeCodigoDoMetodo = new JLabel("Número de linhas de código do mtodo: ");
             c.gridx = 0;
             c.gridy = 5;
             c.insets = new Insets(5,5,5,5);
@@ -374,13 +375,12 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(OrBox5, c);
             
-            JButton button = new JButton("Definir Regra");
+            JButton button = new JButton("Alterar Regra");
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridwidth = 20;
             c.gridx = 0;
             c.gridy = 6;
             c.ipady =30;
-            c.insets = new Insets(0,0,0,0);
             panel.add(button, c);
             c.gridwidth =1;
             
@@ -394,8 +394,8 @@ public class GUI_New_Rule {
                         JFrame.setDefaultLookAndFeelDecorated(true);
                         MetalLookAndFeel.setCurrentTheme(new OceanTheme());
                         UIManager.setLookAndFeel(new MetalLookAndFeel());
-                        GUI_New_Rule rule=new GUI_New_Rule("Define Rule");
-                        rule.open();
+                        GUI_Change_Rule ruleChanger =new GUI_Change_Rule("Change Rule");
+                        ruleChanger.open();
                     } catch (UnsupportedLookAndFeelException e) {
                         e.printStackTrace();
                     }
@@ -405,4 +405,3 @@ public class GUI_New_Rule {
 
         }
     }
-
