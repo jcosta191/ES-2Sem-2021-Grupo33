@@ -15,19 +15,18 @@ public class GUI {
     private static List<JButton> buttonList = new ArrayList<>();
 
     public static void addComponentsToPane(Container pane) {
-        pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+        pane.setLayout(new FlowLayout());
         addAButton("Criar Regra", pane);
         FirstButtonAction();
-        addAButton("Button 2", pane);
-        addAButton("Button 3", pane);
+        addAButton("Editar Regra", pane);
+        addAButton("Escolher Ficheiro a analisar", pane);
+        addAButton("Analisar Ficheiro", pane);
     }
 
     private static void addAButton(String text, Container container) {
         JButton button = new JButton(text);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         container.add(button);
-        Dimension MaxSize = new Dimension(300,500);
-        button.setMaximumSize(MaxSize);
         buttonList.add(button);
     }
 
