@@ -21,10 +21,10 @@ public class Regra {
 	public boolean longMethod() {
 		for(int i=0; i != metrics.size(); i++) {
 			for(int j=0; j != metrics.size(); j++) {
-			if(metrics.get(i).getMetrica() == "LOC_Method" && metrics.get(j).getMetrica() == "CYCLO_method" && metrics.get(i).getLop()== "AND") {
+			if(metrics.get(i).getNomeMetrica() == "LOC_Method" && metrics.get(j).getNomeMetrica() == "CYCLO_method" && metrics.get(i).getLop()== "AND") {
 				isCodeSmell=vr.isLongMethod_AND(metrics.get(i).getLimite(), metrics.get(j).getLimite());
 			}else 
-				if(metrics.get(i).getMetrica() == "LOC_Method" && metrics.get(j).getMetrica() == "CYCLO_method" && metrics.get(i).getLop()== "OR") {
+				if(metrics.get(i).getNomeMetrica() == "LOC_Method" && metrics.get(j).getNomeMetrica() == "CYCLO_method" && metrics.get(i).getLop()== "OR") {
 				isCodeSmell=vr.isLongMethod_OR(metrics.get(i).getLimite(), metrics.get(j).getLimite());
 				}
 			}
@@ -40,10 +40,10 @@ public class Regra {
 	public boolean isGodClass() { 
 		for(int i=0; i != metrics.size(); i++) {
 			for(int j=0; j != metrics.size(); j++) {
-			if(metrics.get(i).getMetrica() == "WMC_class" && metrics.get(j).getMetrica() == "NOM_class" && metrics.get(i).getLop()== "AND") {
+			if(metrics.get(i).getNomeMetrica() == "WMC_class" && metrics.get(j).getNomeMetrica() == "NOM_class" && metrics.get(i).getLop()== "AND") {
 				isCodeSmell=vr.isGODClass_AND(metrics.get(i).getLimite(), metrics.get(j).getLimite());
 			}else 
-				if(metrics.get(i).getMetrica() == "LOC_Method" && metrics.get(j).getMetrica() == "CYCLO_method" && metrics.get(i).getLop()== "OR") {
+				if(metrics.get(i).getNomeMetrica() == "LOC_Method" && metrics.get(j).getNomeMetrica() == "CYCLO_method" && metrics.get(i).getLop()== "OR") {
 				isCodeSmell=vr.isGODClass_OR(metrics.get(i).getLimite(), metrics.get(j).getLimite());
 				}
 			}

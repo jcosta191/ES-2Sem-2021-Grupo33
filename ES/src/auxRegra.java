@@ -21,7 +21,7 @@ public class auxRegra {
 		this.lop=lop;
 	}
 
-	public String getMetrica() {
+	public String getNomeMetrica() {
 		return nomeMetrica;
 	}
 
@@ -35,6 +35,24 @@ public class auxRegra {
 	
 	public int getResultadoMetrica(){
 		return resultadoMetrica;
+	}
+
+	/*Os set são para o caso do user quiser redefinir as regras*/
+
+	public void setNomeMetrica(String nomeMetrica) {
+		this.nomeMetrica = nomeMetrica;
+	}
+
+	public void setLimite(int limite) {
+		this.limite = limite;
+	}
+
+	public void setResultadoMetrica(int resultadoMetrica) {
+		this.resultadoMetrica = resultadoMetrica;
+	}
+
+	public void setLop(String lop) {
+		this.lop = lop;
 	}
 
 	
