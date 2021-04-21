@@ -20,6 +20,42 @@ public class GUI_New_Rule {
         private JPanel panel = new JPanel();
         private JFrame frame = new JFrame("Select Rule");
         private String s;
+        
+        private JTextField JTNomeDaRegra;        
+        //AND = 0 , OR = 1;
+        private JTextField   JTOperadorLogico;
+        
+        private JLabel NumeroDeLinhasPorClasse;
+        private JTextField JTMax1 ;
+        private JTextField JTMin1 ;
+        private JCheckBox AndBox1 ;
+        private JCheckBox OrBox1;
+        
+        private JLabel NumeroDeMetodosPorClasse;
+        private JTextField JTMax2 ;
+        private JTextField JTMin2 ;
+        private JCheckBox AndBox2 ;
+        private JCheckBox OrBox2;
+        
+        private JLabel ComplexidadeCiclomaticaDaClasse;
+        private JTextField JTMax3 ;
+        private JTextField JTMin3 ;
+        private JCheckBox AndBox3 ;
+        private JCheckBox OrBox3;
+        
+        private JLabel ComplexidadeCiclomaticaDoMetodo;
+        private JTextField JTMax4 ;
+        private JTextField JTMin4 ;
+        private JCheckBox AndBox4 ;
+        private JCheckBox OrBox4 ;
+        
+        private JLabel NumeroDeLinhasDeCodigoDoMetodo;
+        private JTextField JTMax5 ;
+        private JTextField JTMin5 ;
+        private JCheckBox AndBox5 ;
+        private JCheckBox OrBox5 ;
+        
+        
 
         public GUI_New_Rule(String s) throws UnsupportedLookAndFeelException {
             this.addFrameContent(s);
@@ -31,7 +67,7 @@ public class GUI_New_Rule {
 
         public void open() throws UnsupportedLookAndFeelException {
             this.frame.setVisible(true);
-            this.frame.setSize(700,310);
+            this.frame.setSize(700,350);
            
             Point d3 = new Point();
             
@@ -61,7 +97,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(5,5,5,5);
             panel.add(NomeDaRegra, c);
             
-            JTextField JTNomeDaRegra = new JTextField();
+             JTNomeDaRegra = new JTextField();
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridwidth = 10;
             c.ipady = 10;
@@ -71,7 +107,7 @@ public class GUI_New_Rule {
             panel.add(JTNomeDaRegra, c);
             c.gridwidth = 1;
             
-           JLabel NumeroDeLinhasPorClasse = new JLabel("Número de linhas por classe: ");
+           NumeroDeLinhasPorClasse = new JLabel("Número de linhas por classe: ");
            c.gridx = 0;
            c.gridy = 1;
            c.insets = new Insets(0,5,5,5);
@@ -85,7 +121,7 @@ public class GUI_New_Rule {
            c.insets = new Insets(1,0,5,5);
            panel.add(Max1, c);
 
-           JTextField JTMax1 = new JTextField();
+           JTMax1 = new JTextField();
            c.gridx = 2;
            c.gridy = 1;
            c.gridwidth = 1;
@@ -99,7 +135,7 @@ public class GUI_New_Rule {
            c.insets = new Insets(0,0,5,5);
            panel.add(Min1, c);
 
-           JTextField JTMin1 = new JTextField();
+            JTMin1 = new JTextField();
            c.gridx = 4;
            c.gridy = 1;
            c.insets = new Insets(1,1,5,5);
@@ -112,7 +148,7 @@ public class GUI_New_Rule {
            c.insets = new Insets(0,0,5,5);
            panel.add(AndLabel1, c);
            
-           JCheckBox AndBox1 = new JCheckBox();
+           AndBox1 = new JCheckBox();
            AndBox1.setHorizontalAlignment(SwingConstants.CENTER);
            c.gridx = 6;
            c.gridy = 1;
@@ -126,14 +162,14 @@ public class GUI_New_Rule {
            c.insets = new Insets(0,0,5,5);
            panel.add(OrLabel1, c);
            
-           JCheckBox OrBox1 = new JCheckBox();
+            OrBox1 = new JCheckBox();
            OrBox1.setHorizontalAlignment(SwingConstants.CENTER);
            c.gridx = 8;
            c.gridy = 1;
            c.insets = new Insets(0,0,5,5);
            panel.add(OrBox1, c);
             
-            JLabel NumeroDeMetodosPorClasse = new JLabel("Número de métodos por classe: ");
+            NumeroDeMetodosPorClasse = new JLabel("Número de métodos por classe: ");
             c.gridx = 0;
             c.gridy = 2;
             c.insets = new Insets(5,5,5,5);
@@ -146,7 +182,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(Max2, c);
             
-            JTextField JTMax2 = new JTextField();
+             JTMax2 = new JTextField();
             c.gridx = 2;
             c.gridy = 2;
             c.insets = new Insets(1,1,5,5);
@@ -159,7 +195,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(Min2, c);
             
-            JTextField JTMin2 = new JTextField();
+             JTMin2 = new JTextField();
             c.gridx = 4;
             c.gridy = 2;
             c.insets = new Insets(1,1,5,5);
@@ -172,7 +208,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(AndLabel2, c);
             
-            JCheckBox AndBox2 = new JCheckBox();
+             AndBox2 = new JCheckBox();
             AndBox2.setHorizontalAlignment(SwingConstants.CENTER);
             c.gridx = 6;
             c.gridy = 2;
@@ -186,14 +222,14 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(OrLabel2, c);
             
-            JCheckBox OrBox2 = new JCheckBox();
+            OrBox2 = new JCheckBox();
             OrBox2.setHorizontalAlignment(SwingConstants.CENTER);
             c.gridx = 8;
             c.gridy = 2;
             c.insets = new Insets(0,0,5,5);
             panel.add(OrBox2, c);
             
-            JLabel ComplexidadeCiclomaticaDaClasse = new JLabel("Complexidade Ciclomática da classe: ");
+            ComplexidadeCiclomaticaDaClasse = new JLabel("Complexidade Ciclomática da classe: ");
             c.gridx = 0;
             c.gridy = 3;
             c.insets = new Insets(5,5,5,5);
@@ -206,7 +242,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(Max3, c);
             
-            JTextField JTMax3 = new JTextField();
+             JTMax3 = new JTextField();
             c.gridx = 2;
             c.gridy = 3;
             c.insets = new Insets(1,1,5,5);
@@ -219,7 +255,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(Min3, c);
             
-            JTextField JTMin3 = new JTextField();
+             JTMin3 = new JTextField();
             c.gridx = 4;
             c.gridy = 3;
             c.insets = new Insets(1,1,5,5);
@@ -232,7 +268,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(AndLabel3, c);
             
-            JCheckBox AndBox3 = new JCheckBox();
+            AndBox3 = new JCheckBox();
             AndBox3.setHorizontalAlignment(SwingConstants.CENTER);
             c.gridx = 6;
             c.gridy = 3;
@@ -246,14 +282,14 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(OrLabel3, c);
             
-            JCheckBox OrBox3 = new JCheckBox();
+            OrBox3 = new JCheckBox();
             OrBox3.setHorizontalAlignment(SwingConstants.CENTER);
             c.gridx = 8;
             c.gridy = 3;
             c.insets = new Insets(0,0,5,5);
             panel.add(OrBox3, c);
             
-            JLabel ComplexidadeCiclomaticaDoMetodo= new JLabel("Complexidade Ciclomática do método: ");
+            ComplexidadeCiclomaticaDoMetodo= new JLabel("Complexidade Ciclomática do método: ");
             c.gridx = 0;
             c.gridy = 4;
             c.insets = new Insets(5,5,5,5);
@@ -266,7 +302,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(Max4, c);
             
-            JTextField JTMax4 = new JTextField();
+             JTMax4 = new JTextField();
             c.gridx = 2;
             c.gridy = 4;
             c.insets = new Insets(1,1,5,5);
@@ -279,7 +315,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(Min4, c);
             
-            JTextField JTMin4 = new JTextField();
+             JTMin4 = new JTextField();
             c.gridx = 4;
             c.gridy = 4;
             c.insets = new Insets(1,1,5,5);
@@ -292,7 +328,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(AndLabel4, c);
             
-            JCheckBox AndBox4 = new JCheckBox();
+            AndBox4 = new JCheckBox();
             AndBox4.setHorizontalAlignment(SwingConstants.CENTER);
             c.gridx = 6;
             c.gridy = 4;
@@ -306,14 +342,14 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(OrLabel4, c);
             
-            JCheckBox OrBox4 = new JCheckBox();
+             OrBox4 = new JCheckBox();
             OrBox4.setHorizontalAlignment(SwingConstants.CENTER);
             c.gridx = 8;
             c.gridy = 4;
             c.insets = new Insets(0,0,5,5);
             panel.add(OrBox4, c);
             
-            JLabel NumeroDeLinhasDeCodigoDoMetodo = new JLabel("Número de linhas de código do método: ");
+            NumeroDeLinhasDeCodigoDoMetodo = new JLabel("Número de linhas de código do método: ");
             c.gridx = 0;
             c.gridy = 5;
             c.insets = new Insets(5,5,5,5);
@@ -327,7 +363,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(Max5, c);
             
-            JTextField JTMax5 = new JTextField();
+           JTMax5 = new JTextField();
             c.gridx = 2;
             c.gridy = 5;
             c.insets = new Insets(1,1,5,5);
@@ -340,7 +376,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(Min5, c);
             
-            JTextField JTMin5 = new JTextField();
+             JTMin5 = new JTextField();
             c.gridx = 4;
             c.gridy = 5;
             c.insets = new Insets(1,1,5,5);
@@ -353,7 +389,7 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(AndLabel5, c);
             
-            JCheckBox AndBox5 = new JCheckBox();
+           AndBox5 = new JCheckBox();
             AndBox5.setHorizontalAlignment(SwingConstants.CENTER);
             c.gridx = 6;
             c.gridy = 5;
@@ -367,25 +403,111 @@ public class GUI_New_Rule {
             c.insets = new Insets(0,0,5,5);
             panel.add(OrLabel5, c);
             
-            JCheckBox OrBox5 = new JCheckBox();
+            OrBox5 = new JCheckBox();
             OrBox5.setHorizontalAlignment(SwingConstants.CENTER);
             c.gridx = 8;
             c.gridy = 5;
             c.insets = new Insets(0,0,5,5);
             panel.add(OrBox5, c);
             
-            JButton button = new JButton("Definir Regra");
+            JLabel OperadorLogico = new JLabel("Operador Logico ( E = 0 , OU = 1 ) : ");
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridwidth = 20;
             c.gridx = 0;
             c.gridy = 6;
             c.ipady =30;
+            c.ipadx = 10;
             c.insets = new Insets(0,0,0,0);
-            panel.add(button, c);
-            c.gridwidth =1;
+            panel.add(OperadorLogico, c);
             
+            JTOperadorLogico = new JTextField();
+            c.fill = GridBagConstraints.HORIZONTAL;
+            c.gridwidth = 1;
+            c.gridx = 2;
+            c.gridy = 6;
+            c.ipady =10;
+            c.insets = new Insets(0,0,0,0);
+            panel.add(JTOperadorLogico, c);
+           
+            
+            JButton DefinirRegra = new JButton("Definir Regra");
+            c.fill = GridBagConstraints.HORIZONTAL;
+            c.gridwidth = 20;
+            c.gridx = 0;
+            c.gridy = 7;
+            c.ipady =30;
+            c.insets = new Insets(0,0,0,0);
+            
+            class ListenerDefinirRegra implements ActionListener {
+    			
+    			public void actionPerformed ( ActionEvent e ) {
+    					
+    				if((AndBox1.isSelected() && (JTMax1 !=null || JTMin1 != null )) || (AndBox2.isSelected() && (JTMax2 !=null || JTMin2 != null )) || 
+    					(AndBox3.isSelected() && (JTMax3 !=null || JTMin3 != null )) || (AndBox4.isSelected() && (JTMax4 !=null || JTMin4 != null )) || 
+    					(AndBox5.isSelected() && (JTMax5 !=null || JTMin5 != null )) || 
+    					(OrBox1.isSelected() && (JTMax1 !=null || JTMin1 != null )) || (OrBox2.isSelected() && (JTMax2 !=null || JTMin2 != null )) || 
+    					(OrBox3.isSelected() && (JTMax3 !=null || JTMin3 != null )) || (OrBox4.isSelected() && (JTMax4 !=null || JTMin4 != null )) || 
+    					(OrBox5.isSelected() && (JTMax5 !=null || JTMin5 != null ))) {
+    					
+    					if(!JTNomeDaRegra.equals("")) {
+    					
+    					System.out.println("Nova Regra Pronta a ser criada com os seguintes parametros: ");
+    					System.out.println("");
+    					System.out.println("Nome da Regra: " + JTNomeDaRegra);
+    					
+    					
+    					DataInserTester(NumeroDeLinhasPorClasse, JTMax1, JTMin1,AndBox1,OrBox1);
+    					DataInserTester(NumeroDeMetodosPorClasse, JTMax2, JTMin2,AndBox2,OrBox2);
+    					DataInserTester(ComplexidadeCiclomaticaDaClasse, JTMax3, JTMin3,AndBox3,OrBox3);
+    					DataInserTester(ComplexidadeCiclomaticaDoMetodo, JTMax4, JTMin4,AndBox4,OrBox4);
+    					DataInserTester(NumeroDeLinhasDeCodigoDoMetodo, JTMax5, JTMin5,AndBox5,OrBox5);
+    					}
+    				}
+    				
+    				else {
+    					
+    					System.out.println("Por favor preencha os parametros da nova regra ");
+    				}
+    			}
+    		}
+            
+    		DefinirRegra.addActionListener(new ListenerDefinirRegra());
+            panel.add(DefinirRegra, c);
+            c.gridwidth = 1;
 
        }
+        
+        public void DataInserTester(JLabel labelName , JTextField JTMax, JTextField JTMin, JCheckBox AndBox , JCheckBox OrBox) {
+        	
+        	if(JTMax != null || JTMin != null)
+				if(AndBox.isSelected() || OrBox.isSelected()) {
+					
+					System.out.println(labelName.getText());
+					
+					if(AndBox.isSelected()) {
+						
+						if(!JTMin.getText().equals("") && !JTMax.getText().equals(""))
+							System.out.println(" --> [ "+JTMin.getText()+", "+JTMax.getText()+"]");
+						
+						if(!JTMin.getText().equals("") && JTMax.getText().equals(""))
+							System.out.println(" --> ["+JTMin.getText()+", + ∞]");
+						
+						if(JTMin.getText().equals("") && !JTMax.getText().equals(""))
+							System.out.println(" --> [ 0 , "+JTMax.getText()+"]");
+					}
+					if(OrBox.isSelected() && AndBox.isSelected()==false) {
+					
+					if(!JTMin.getText().equals("") && !JTMax.getText().equals(""))
+					System.out.println(" --> ["+JTMin.getText()+", + ∞]" + " ["+JTMax.getText()+", 0]");
+					
+					//if(!JTMin.getText().equals("") && JTMax.getText().equals(""))
+						
+					//if(JTMin.getText().equals("") && !JTMax.getText().equals(""))
+					
+					
+					}
+				}
+        }
 
         public static void main(String[] args) {
             javax.swing.SwingUtilities.invokeLater(new Runnable() {

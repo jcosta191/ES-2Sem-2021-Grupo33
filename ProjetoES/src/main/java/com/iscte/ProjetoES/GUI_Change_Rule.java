@@ -20,6 +20,36 @@ public class GUI_Change_Rule {
         private JPanel panel = new JPanel();
         private JFrame frame = new JFrame("Change Rule");
         private String s;
+        
+        private JLabel NumeroDeLinhasPorClasse;
+        private JTextField JTMax1 ;
+        private JTextField JTMin1 ;
+        private JCheckBox AndBox1 ;
+        private JCheckBox OrBox1;
+        
+        private JLabel NumeroDeMetodosPorClasse;
+        private JTextField JTMax2 ;
+        private JTextField JTMin2 ;
+        private JCheckBox AndBox2 ;
+        private JCheckBox OrBox2;
+        
+        private JLabel ComplexidadeCiclomaticaDaClasse;
+        private JTextField JTMax3 ;
+        private JTextField JTMin3 ;
+        private JCheckBox AndBox3 ;
+        private JCheckBox OrBox3;
+        
+        private JLabel ComplexidadeCiclomaticaDoMetodo;
+        private JTextField JTMax4 ;
+        private JTextField JTMin4 ;
+        private JCheckBox AndBox4 ;
+        private JCheckBox OrBox4 ;
+        
+        private JLabel NumeroDeLinhasDeCodigoDoMetodo;
+        private JTextField JTMax5 ;
+        private JTextField JTMin5 ;
+        private JCheckBox AndBox5 ;
+        private JCheckBox OrBox5 ;
 
         public GUI_Change_Rule(String s) throws UnsupportedLookAndFeelException {
             this.addFrameContent(s);
