@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JPanel;
 
 public class GUI {
 
@@ -48,6 +49,19 @@ public class GUI {
 	public GUI() {
 		initialize();
 	}
+	
+	/**
+	 * Abre nova Janela
+	 */
+/*	public void abreFrame() {
+		frmCodequalityassesso = new JFrame();
+		frmCodequalityassesso.getContentPane().setBackground(Color.GRAY);
+		frmCodequalityassesso.setTitle("CodeQualityAssessor");
+		frmCodequalityassesso.setBounds(100, 100, 616, 494);
+		frmCodequalityassesso.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCodequalityassesso.getContentPane().setLayout(null);
+	}*/
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -86,9 +100,17 @@ public class GUI {
 		btnNewButton.setBounds(434, 38, 116, 28);
 		frmCodequalityassesso.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Importar e visualizar extra\u00E7\u00E3o das m\u00E9tricas");
+		JButton btnNewButton_1 = new JButton("Visualizar extra\u00E7\u00E3o das m\u00E9tricas");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//mostar o ficheiro excel gerado numa nova janela
+				showFilexlsx excel= new showFilexlsx();
+				excel.setVisible(true);  //preciso fazer com que volte a Janela inicial
+				
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton_1.setBounds(52, 90, 498, 39);
+		btnNewButton_1.setBounds(52, 99, 498, 39);
 		frmCodequalityassesso.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Calcular resumo das caracteristicas do projeto");
