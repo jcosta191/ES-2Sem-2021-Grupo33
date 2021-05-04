@@ -66,7 +66,7 @@ public class GUI_Rule_Picker {
 
         public void open() throws UnsupportedLookAndFeelException {
             this.frame.setVisible(true);
-            this.frame.setSize(300,200);
+            this.frame.setSize(400,200);
            
             Point d3 = new Point();
             

@@ -1,12 +1,15 @@
 package com.iscte.ProjetoES;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.OceanTheme;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseWheelListener;
+import java.io.File;
+import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,23 +17,31 @@ import static javax.swing.JFrame.*;
 
 public class GUI {
     private static List<JButton> buttonList = new ArrayList<>();
-
+    private static JTextField txtChooseAFile = new JTextField("Nome do Ficheiro");
+   
     public static void addComponentsToPane(Container pane) {
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
         addAButton("Criar Regra", pane);
         NewRuleButtonAction();
         addAButton("Alterar Regra Existente", pane);
-        
-        
         ChangeRuleButtonAction();
+        addAButton("Procurar Ficheiro", pane);
+        ProcurarFicheiroButtonAction();
+        
+        txtChooseAFile.setHorizontalAlignment(JTextField.CENTER);
+
+        txtChooseAFile.setMaximumSize(new Dimension(400,500));
+        pane.add(txtChooseAFile);
+        
         addAButton("Visualizar Extração das Métricas", pane);
+        VisualizarExtraçãoButtonAction();
     }
 
     private static void addAButton(String text, Container container) {
         JButton button = new JButton(text);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         container.add(button);
-        Dimension MaxSize = new Dimension(300,500);
+        Dimension MaxSize = new Dimension(400,500);
         button.setMaximumSize(MaxSize);
         buttonList.add(button);
     }
@@ -61,25 +72,6 @@ public class GUI {
            }
        });
     }
-    private static void ShowFilesLsx(){
-        JButton button = buttonList.get(2);
-       button.addActionListener(new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            	   public void run() {
-            			try {
-            				showFilexlsx frame = new showFilexlsx();
-            				frame.setTitle("Excel gerado com resultado das métricas");
-            				frame.setVisible(true);
-            			} catch (Exception e) {
-            				e.printStackTrace();
-            			}
-            		}
-               });
-           }
-       });
-    }
    
     private static void ChangeRuleButtonAction(){
         JButton button = buttonList.get(1);
@@ -102,6 +94,40 @@ public class GUI {
            }
        });
     }
+    
+    private static void ProcurarFicheiroButtonAction(){
+        JButton button = buttonList.get(2);
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Selecionar um ficheiro e filtrar ficheiros java
+				JFileChooser fc= new JFileChooser();
+			
+				FileNameExtensionFilter filter=new FileNameExtensionFilter("*Java Files","JAVA", "Ficheiro JAVA");
+				fc.setFileFilter(filter);
+				//Verificar o File filter
+				int returnVal= fc.showOpenDialog(fc);
+				if(returnVal == JFileChooser.APPROVE_OPTION) {
+				File selectedFile= fc.getSelectedFile();
+				txtChooseAFile.setText(selectedFile.getPath());
+				}
+			}
+		});
+    }
+    
+    private static void VisualizarExtraçãoButtonAction(){
+        JButton button = buttonList.get(3);
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//mostar o ficheiro excel gerado numa nova janela
+				showFilexlsx excel= new showFilexlsx();
+				excel.setVisible(true);  //preciso fazer com que volte a Janela inicial
+				
+			}
+		});
+    }
+    
     private static void createAndShowGUI() throws UnsupportedLookAndFeelException {
         JFrame.setDefaultLookAndFeelDecorated(true);
         MetalLookAndFeel.setCurrentTheme(new OceanTheme());
@@ -111,7 +137,7 @@ public class GUI {
         addComponentsToPane(frame.getContentPane());
         frame.pack();
         frame.setVisible(true);
-        frame.setSize(300,200);
+        frame.setSize(400,200);
         frame.setResizable(true);
         
         Point d3 = new Point();
