@@ -212,7 +212,7 @@ public class GUI_New_Rule {
      
           
             
-            JLabel OperadorLogico = new JLabel("Operador Logico ( E = 0 , OU = 1 ) : ");
+            JLabel OperadorLogico = new JLabel(" Operador Logico : ");
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridx = 0;
             c.gridy = 6;
