@@ -20,8 +20,10 @@ public class GUI {
         addAButton("Criar Regra", pane);
         NewRuleButtonAction();
         addAButton("Alterar Regra Existente", pane);
+        
+        
         ChangeRuleButtonAction();
-        addAButton("Button 3", pane);
+        addAButton("Visualizar Extração das Métricas", pane);
     }
 
     private static void addAButton(String text, Container container) {
@@ -59,6 +61,26 @@ public class GUI {
            }
        });
     }
+    private static void ShowFilesLsx(){
+        JButton button = buttonList.get(2);
+       button.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            	   public void run() {
+            			try {
+            				showFilexlsx frame = new showFilexlsx();
+            				frame.setTitle("Excel gerado com resultado das métricas");
+            				frame.setVisible(true);
+            			} catch (Exception e) {
+            				e.printStackTrace();
+            			}
+            		}
+               });
+           }
+       });
+    }
+   
     private static void ChangeRuleButtonAction(){
         JButton button = buttonList.get(1);
        button.addActionListener(new ActionListener() {

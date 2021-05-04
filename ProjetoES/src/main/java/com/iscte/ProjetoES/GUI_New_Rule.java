@@ -28,32 +28,35 @@ public class GUI_New_Rule {
         private JLabel NumeroDeLinhasPorClasse;
         private JTextField JTMax1 ;
         private JTextField JTMin1 ;
-        private JCheckBox AndBox1 ;
-        private JCheckBox OrBox1;
+//        private JCheckBox AndBox1 ;
+//        private JCheckBox OrBox1;
         
         private JLabel NumeroDeMetodosPorClasse;
         private JTextField JTMax2 ;
         private JTextField JTMin2 ;
-        private JCheckBox AndBox2 ;
-        private JCheckBox OrBox2;
+//        private JCheckBox AndBox2 ;
+//        private JCheckBox OrBox2;
         
         private JLabel ComplexidadeCiclomaticaDaClasse;
         private JTextField JTMax3 ;
         private JTextField JTMin3 ;
-        private JCheckBox AndBox3 ;
-        private JCheckBox OrBox3;
+//        private JCheckBox AndBox3 ;
+//        private JCheckBox OrBox3;
         
         private JLabel ComplexidadeCiclomaticaDoMetodo;
         private JTextField JTMax4 ;
         private JTextField JTMin4 ;
-        private JCheckBox AndBox4 ;
-        private JCheckBox OrBox4 ;
+//        private JCheckBox AndBox4 ;
+//        private JCheckBox OrBox4 ;
         
         private JLabel NumeroDeLinhasDeCodigoDoMetodo;
         private JTextField JTMax5 ;
         private JTextField JTMin5 ;
-        private JCheckBox AndBox5 ;
-        private JCheckBox OrBox5 ;
+//        private JCheckBox AndBox5 ;
+//        private JCheckBox OrBox5 ;
+        
+        private JCheckBox AND ;
+        private JCheckBox OR ;
         
         
 
@@ -141,33 +144,33 @@ public class GUI_New_Rule {
            c.insets = new Insets(1,1,5,5);
            panel.add(JTMin1, c);
            
-           JLabel AndLabel1 = new JLabel("AND");
-           AndLabel1.setHorizontalAlignment(SwingConstants.CENTER);
-           c.gridx = 5;
-           c.gridy = 1;
-           c.insets = new Insets(0,0,5,5);
-           panel.add(AndLabel1, c);
-           
-           AndBox1 = new JCheckBox();
-           AndBox1.setHorizontalAlignment(SwingConstants.CENTER);
-           c.gridx = 6;
-           c.gridy = 1;
-           c.insets = new Insets(0,0,5,5);
-           panel.add(AndBox1, c);
-           
-           JLabel OrLabel1 = new JLabel("OR");
-           OrLabel1.setHorizontalAlignment(SwingConstants.CENTER);
-           c.gridx = 7;
-           c.gridy = 1;
-           c.insets = new Insets(0,0,5,5);
-           panel.add(OrLabel1, c);
-           
-            OrBox1 = new JCheckBox();
-           OrBox1.setHorizontalAlignment(SwingConstants.CENTER);
-           c.gridx = 8;
-           c.gridy = 1;
-           c.insets = new Insets(0,0,5,5);
-           panel.add(OrBox1, c);
+//           JLabel AndLabel1 = new JLabel("AND");
+//           AndLabel1.setHorizontalAlignment(SwingConstants.CENTER);
+//           c.gridx = 5;
+//           c.gridy = 1;
+//           c.insets = new Insets(0,0,5,5);
+//           panel.add(AndLabel1, c);
+//           
+//           AndBox1 = new JCheckBox();
+//           AndBox1.setHorizontalAlignment(SwingConstants.CENTER);
+//           c.gridx = 6;
+//           c.gridy = 1;
+//           c.insets = new Insets(0,0,5,5);
+//           panel.add(AndBox1, c);
+//           
+//           JLabel OrLabel1 = new JLabel("OR");
+//           OrLabel1.setHorizontalAlignment(SwingConstants.CENTER);
+//           c.gridx = 7;
+//           c.gridy = 1;
+//           c.insets = new Insets(0,0,5,5);
+//           panel.add(OrLabel1, c);
+//           
+//            OrBox1 = new JCheckBox();
+//           OrBox1.setHorizontalAlignment(SwingConstants.CENTER);
+//           c.gridx = 8;
+//           c.gridy = 1;
+//           c.insets = new Insets(0,0,5,5);
+//           panel.add(OrBox1, c);
             
             NumeroDeMetodosPorClasse = new JLabel("Número de métodos por classe: ");
             c.gridx = 0;
@@ -201,33 +204,33 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(JTMin2, c);
             
-            JLabel AndLabel2 = new JLabel("AND");
-            AndLabel2.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 5;
-            c.gridy = 2;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(AndLabel2, c);
-            
-             AndBox2 = new JCheckBox();
-            AndBox2.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 6;
-            c.gridy = 2;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(AndBox2, c);
-            
-            JLabel OrLabel2 = new JLabel("OR");
-            OrLabel2.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 7;
-            c.gridy = 2;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(OrLabel2, c);
-            
-            OrBox2 = new JCheckBox();
-            OrBox2.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 8;
-            c.gridy = 2;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(OrBox2, c);
+//            JLabel AndLabel2 = new JLabel("AND");
+//            AndLabel2.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 5;
+//            c.gridy = 2;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(AndLabel2, c);
+//            
+//             AndBox2 = new JCheckBox();
+//            AndBox2.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 6;
+//            c.gridy = 2;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(AndBox2, c);
+//            
+//            JLabel OrLabel2 = new JLabel("OR");
+//            OrLabel2.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 7;
+//            c.gridy = 2;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(OrLabel2, c);
+//            
+//            OrBox2 = new JCheckBox();
+//            OrBox2.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 8;
+//            c.gridy = 2;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(OrBox2, c);
             
             ComplexidadeCiclomaticaDaClasse = new JLabel("Complexidade Ciclomática da classe: ");
             c.gridx = 0;
@@ -261,33 +264,33 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(JTMin3, c);
             
-            JLabel AndLabel3 = new JLabel("AND");
-            AndLabel3.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 5;
-            c.gridy = 3;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(AndLabel3, c);
-            
-            AndBox3 = new JCheckBox();
-            AndBox3.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 6;
-            c.gridy = 3;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(AndBox3, c);
-            
-            JLabel OrLabel3 = new JLabel("OR");
-            OrLabel3.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 7;
-            c.gridy = 3;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(OrLabel3, c);
-            
-            OrBox3 = new JCheckBox();
-            OrBox3.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 8;
-            c.gridy = 3;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(OrBox3, c);
+//            JLabel AndLabel3 = new JLabel("AND");
+//            AndLabel3.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 5;
+//            c.gridy = 3;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(AndLabel3, c);
+//            
+//            AndBox3 = new JCheckBox();
+//            AndBox3.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 6;
+//            c.gridy = 3;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(AndBox3, c);
+//            
+//            JLabel OrLabel3 = new JLabel("OR");
+//            OrLabel3.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 7;
+//            c.gridy = 3;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(OrLabel3, c);
+//            
+//            OrBox3 = new JCheckBox();
+//            OrBox3.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 8;
+//            c.gridy = 3;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(OrBox3, c);
             
             ComplexidadeCiclomaticaDoMetodo= new JLabel("Complexidade Ciclomática do método: ");
             c.gridx = 0;
@@ -321,33 +324,33 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(JTMin4, c);
             
-            JLabel AndLabel4 = new JLabel("AND");
-            AndLabel4.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 5;
-            c.gridy = 4;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(AndLabel4, c);
-            
-            AndBox4 = new JCheckBox();
-            AndBox4.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 6;
-            c.gridy = 4;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(AndBox4, c);
-            
-            JLabel OrLabel4 = new JLabel("OR");
-            OrLabel4.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 7;
-            c.gridy = 4;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(OrLabel4, c);
-            
-             OrBox4 = new JCheckBox();
-            OrBox4.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 8;
-            c.gridy = 4;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(OrBox4, c);
+//            JLabel AndLabel4 = new JLabel("AND");
+//            AndLabel4.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 5;
+//            c.gridy = 4;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(AndLabel4, c);
+//            
+//            AndBox4 = new JCheckBox();
+//            AndBox4.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 6;
+//            c.gridy = 4;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(AndBox4, c);
+//            
+//            JLabel OrLabel4 = new JLabel("OR");
+//            OrLabel4.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 7;
+//            c.gridy = 4;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(OrLabel4, c);
+//            
+//             OrBox4 = new JCheckBox();
+//            OrBox4.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 8;
+//            c.gridy = 4;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(OrBox4, c);
             
             NumeroDeLinhasDeCodigoDoMetodo = new JLabel("Número de linhas de código do método: ");
             c.gridx = 0;
@@ -382,52 +385,68 @@ public class GUI_New_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(JTMin5, c);
             
-            JLabel AndLabel5 = new JLabel("AND");
-            AndLabel5.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 5;
-            c.gridy = 5;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(AndLabel5, c);
+//            JLabel AndLabel5 = new JLabel("AND");
+//            AndLabel5.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 5;
+//            c.gridy = 5;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(AndLabel5, c);
             
-           AndBox5 = new JCheckBox();
-            AndBox5.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 6;
-            c.gridy = 5;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(AndBox5, c);
-            
-            JLabel OrLabel5 = new JLabel("OR");
-            OrLabel5.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 7;
-            c.gridy = 5;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(OrLabel5, c);
-            
-            OrBox5 = new JCheckBox();
-            OrBox5.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 8;
-            c.gridy = 5;
-            c.insets = new Insets(0,0,5,5);
-            panel.add(OrBox5, c);
+//           AndBox5 = new JCheckBox();
+//            AndBox5.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 6;
+//            c.gridy = 5;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(AndBox5, c);
+//            
+//            JLabel OrLabel5 = new JLabel("OR");
+//            OrLabel5.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 7;
+//            c.gridy = 5;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(OrLabel5, c);
+//            
+//            OrBox5 = new JCheckBox();
+//            OrBox5.setHorizontalAlignment(SwingConstants.CENTER);
+//            c.gridx = 8;
+//            c.gridy = 5;
+//            c.insets = new Insets(0,0,5,5);
+//            panel.add(OrBox5, c);
             
             JLabel OperadorLogico = new JLabel("Operador Logico ( E = 0 , OU = 1 ) : ");
             c.fill = GridBagConstraints.HORIZONTAL;
-            c.gridwidth = 20;
             c.gridx = 0;
             c.gridy = 6;
-            c.ipady =30;
-            c.ipadx = 10;
-            c.insets = new Insets(0,0,0,0);
+            c.insets = new Insets(1,1,5,5);
             panel.add(OperadorLogico, c);
             
-            JTOperadorLogico = new JTextField();
-            c.fill = GridBagConstraints.HORIZONTAL;
-            c.gridwidth = 1;
-            c.gridx = 2;
-            c.gridy = 6;
-            c.ipady =10;
-            c.insets = new Insets(0,0,0,0);
-            panel.add(JTOperadorLogico, c);
+	          JLabel AndLabel = new JLabel("AND");
+	         AndLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	          c.gridx = 1;
+	         c.gridy = 6;
+	         c.insets = new Insets(1,1,5,5);
+	         panel.add(AndLabel, c);
+	          
+	         AND = new JCheckBox();
+	         AND.setHorizontalAlignment(SwingConstants.CENTER);
+	         c.gridx = 2;
+	          c.gridy = 6;
+	          c.insets = new Insets(1,1,5,5);
+	          panel.add(AND, c);
+	         
+	         JLabel OrLabel = new JLabel("OR");
+	        OrLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	         c.gridx = 3;
+	        c.gridy = 6;
+	        c.insets = new Insets(1,1,5,5);
+	        panel.add(OrLabel, c);
+	         
+	         OR = new JCheckBox();
+	         OR.setHorizontalAlignment(SwingConstants.CENTER);
+	        c.gridx = 4;
+	         c.gridy = 6;
+	         c.insets = new Insets(1,1,5,5);
+	         panel.add(OR, c);
            
             
             JButton DefinirRegra = new JButton("Definir Regra");
@@ -442,27 +461,27 @@ public class GUI_New_Rule {
     			
     			public void actionPerformed ( ActionEvent e ) {
     					
-    				if((AndBox1.isSelected() && (JTMax1 !=null || JTMin1 != null )) || (AndBox2.isSelected() && (JTMax2 !=null || JTMin2 != null )) || 
-    					(AndBox3.isSelected() && (JTMax3 !=null || JTMin3 != null )) || (AndBox4.isSelected() && (JTMax4 !=null || JTMin4 != null )) || 
-    					(AndBox5.isSelected() && (JTMax5 !=null || JTMin5 != null )) || 
-    					(OrBox1.isSelected() && (JTMax1 !=null || JTMin1 != null )) || (OrBox2.isSelected() && (JTMax2 !=null || JTMin2 != null )) || 
-    					(OrBox3.isSelected() && (JTMax3 !=null || JTMin3 != null )) || (OrBox4.isSelected() && (JTMax4 !=null || JTMin4 != null )) || 
-    					(OrBox5.isSelected() && (JTMax5 !=null || JTMin5 != null ))) {
+//    				if((AndBox1.isSelected() && (JTMax1 !=null || JTMin1 != null )) || (AndBox2.isSelected() && (JTMax2 !=null || JTMin2 != null )) || 
+//    					(AndBox3.isSelected() && (JTMax3 !=null || JTMin3 != null )) || (AndBox4.isSelected() && (JTMax4 !=null || JTMin4 != null )) || 
+//    					(AndBox5.isSelected() && (JTMax5 !=null || JTMin5 != null )) || 
+//    					(OrBox1.isSelected() && (JTMax1 !=null || JTMin1 != null )) || (OrBox2.isSelected() && (JTMax2 !=null || JTMin2 != null )) || 
+//    					(OrBox3.isSelected() && (JTMax3 !=null || JTMin3 != null )) || (OrBox4.isSelected() && (JTMax4 !=null || JTMin4 != null )) || 
+//    					(OrBox5.isSelected() && (JTMax5 !=null || JTMin5 != null ))) {
     					
     					if(!JTNomeDaRegra.equals("")) {
     					
     					System.out.println("Nova Regra Pronta a ser criada com os seguintes parametros: ");
-    					System.out.println("");
-    					System.out.println("Nome da Regra: " + JTNomeDaRegra);
-    					
-    					
-    					DataInserTester(NumeroDeLinhasPorClasse, JTMax1, JTMin1,AndBox1,OrBox1);
-    					DataInserTester(NumeroDeMetodosPorClasse, JTMax2, JTMin2,AndBox2,OrBox2);
-    					DataInserTester(ComplexidadeCiclomaticaDaClasse, JTMax3, JTMin3,AndBox3,OrBox3);
-    					DataInserTester(ComplexidadeCiclomaticaDoMetodo, JTMax4, JTMin4,AndBox4,OrBox4);
-    					DataInserTester(NumeroDeLinhasDeCodigoDoMetodo, JTMax5, JTMin5,AndBox5,OrBox5);
+//    					System.out.println("");
+//    					System.out.println("Nome da Regra: " + JTNomeDaRegra);
+//    					
+//    					
+//    					DataInserTester(NumeroDeLinhasPorClasse, JTMax1, JTMin1,AndBox1,OrBox1);
+//    					DataInserTester(NumeroDeMetodosPorClasse, JTMax2, JTMin2,AndBox2,OrBox2);
+//    					DataInserTester(ComplexidadeCiclomaticaDaClasse, JTMax3, JTMin3,AndBox3,OrBox3);
+//    					DataInserTester(ComplexidadeCiclomaticaDoMetodo, JTMax4, JTMin4,AndBox4,OrBox4);
+//    					DataInserTester(NumeroDeLinhasDeCodigoDoMetodo, JTMax5, JTMin5,AndBox5,OrBox5);
     					}
-    				}
+    				
     				
     				else {
     					
