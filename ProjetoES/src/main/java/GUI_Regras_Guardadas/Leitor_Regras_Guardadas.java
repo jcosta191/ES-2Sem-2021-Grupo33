@@ -9,20 +9,18 @@ import java.util.ArrayList;
 public class Leitor_Regras_Guardadas {
     private static String filePath;
     private BufferedReader reader;
-
+    private ArrayList<String> text = new ArrayList();
     public Leitor_Regras_Guardadas(String filePath){
         this.filePath = filePath;
 
     }
     public ArrayList lineReaderFile(){
-        ArrayList<String> text = new ArrayList();
-
         File file = new File(filePath);
         try {
             reader = new BufferedReader(new FileReader(filePath));
             String line = reader.readLine();
             while (line!=null){
-                //String[] arrOfStr = line.split(";", -2);
+                //
                 text.add(line);
                 line=reader.readLine();
             }
@@ -32,14 +30,19 @@ public class Leitor_Regras_Guardadas {
         }
         return text;
     }
-    public ArrayList getSavedRuleNames(ArrayList<String> text){
+    public ArrayList getSavedRuleNames(){
        ArrayList<String> ruleNames = new ArrayList();
-
+       this.lineReaderFile();
+        for (String s : text){
+            String[] arrOfStr = s.split(";", -2);
+            ruleNames.add(arrOfStr[0]);
+        }
+        System.out.println(ruleNames);
         return ruleNames;
     }
 
     public static void main(String[] args) {
         Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\berna\\OneDrive\\Ambiente de Trabalho\\testfile.txt");
-        l.lineReaderFile();
+        l.getSavedRuleNames();
     }
 }
