@@ -132,7 +132,7 @@ public class GUI {
         JFrame.setDefaultLookAndFeelDecorated(true);
         MetalLookAndFeel.setCurrentTheme(new OceanTheme());
         UIManager.setLookAndFeel(new MetalLookAndFeel());
-        JFrame frame = new JFrame("Option Selector");
+        JFrame frame = new JFrame("CodeQualityAssessor - Option Selector");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         addComponentsToPane(frame.getContentPane());
         frame.pack();

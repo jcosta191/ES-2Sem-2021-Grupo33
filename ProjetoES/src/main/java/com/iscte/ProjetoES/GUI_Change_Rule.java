@@ -23,27 +23,28 @@ public class GUI_Change_Rule {
         
         private JLabel NumeroDeLinhasPorClasse;
         private JTextField JTMax1 ;
-        private JTextField JTMin1 ;
+
 
         
         private JLabel NumeroDeMetodosPorClasse;
         private JTextField JTMax2 ;
-        private JTextField JTMin2 ;
+
  
         
         private JLabel ComplexidadeCiclomaticaDaClasse;
         private JTextField JTMax3 ;
-        private JTextField JTMin3 ;
+
  
         
         private JLabel ComplexidadeCiclomaticaDoMetodo;
         private JTextField JTMax4 ;
-        private JTextField JTMin4 ;
+ 
 
         
         private JLabel NumeroDeLinhasDeCodigoDoMetodo;
         private JTextField JTMax5 ;
-        private JTextField JTMin5 ;
+
+        
         private JCheckBox AND ;
         private JCheckBox OR ;
 
@@ -98,168 +99,115 @@ public class GUI_Change_Rule {
             panel.add(ActualNomeDaRegra, c);
             c.gridwidth = 1;
             
-           JLabel NumeroDeLinhasPorClasse = new JLabel("Número de linhas por classe: ");
-           c.gridx = 0;
-           c.gridy = 1;
-           c.insets = new Insets(0,5,5,5);
-           panel.add(NumeroDeLinhasPorClasse, c);
-          
-
-           JLabel Max1 = new JLabel("Max: ");
-           Max1.setHorizontalAlignment(SwingConstants.CENTER);
-           c.gridx = 1;
-           c.gridy = 1;
-           c.insets = new Insets(1,0,5,5);
-           panel.add(Max1, c);
-
-           JTextField JTMax1 = new JTextField();
-           c.gridx = 2;
-           c.gridy = 1;
-           c.gridwidth = 1;
-           c.insets = new Insets(0,0,5,5);
-           panel.add(JTMax1, c);
+            NumeroDeLinhasPorClasse = new JLabel("Número de linhas por classe: ");
+            c.gridx = 0;
+            c.gridy = 1;
+            c.insets = new Insets(0,5,5,5);
+            panel.add(NumeroDeLinhasPorClasse, c);
            
-           JLabel Min1 = new JLabel("Min: ");
-           Min1.setHorizontalAlignment(SwingConstants.CENTER);
-           c.gridx = 3;
-           c.gridy = 1;
-           c.insets = new Insets(0,0,5,5);
-           panel.add(Min1, c);
 
-           JTextField JTMin1 = new JTextField();
-           c.gridx = 4;
-           c.gridy = 1;
-           c.insets = new Insets(1,1,5,5);
-           panel.add(JTMin1, c);
-            
-            JLabel NumeroDeMetodosPorClasse = new JLabel("Número de métodos por classe: ");
-            c.gridx = 0;
-            c.gridy = 2;
-            c.insets = new Insets(5,5,5,5);
-            panel.add(NumeroDeMetodosPorClasse, c);
-            
-            JLabel Max2 = new JLabel("Max: ");
-            Max2.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 1;
-            c.gridy = 2;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(Max2, c);
-            
-            JTextField JTMax2 = new JTextField();
+            JLabel Max1 = new JLabel("Máx: ");
+            Max1.setHorizontalAlignment(SwingConstants.CENTER);
             c.gridx = 2;
-            c.gridy = 2;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(JTMax2, c);
-            
-            JLabel Min2 = new JLabel("Min: ");
-            Min2.setHorizontalAlignment(SwingConstants.CENTER);
+            c.gridy = 1;
+            c.insets = new Insets(1,0,5,5);
+            panel.add(Max1, c);
+
+            JTMax1 = new JTextField();
             c.gridx = 3;
-            c.gridy = 2;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(Min2, c);
+            c.gridy = 1;
+            c.gridwidth = 1;
+            c.insets = new Insets(0,0,5,5);
+            panel.add(JTMax1, c);
             
-            JTextField JTMin2 = new JTextField();
-            c.gridx = 4;
-            c.gridy = 2;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(JTMin2, c);
             
-            JLabel ComplexidadeCiclomaticaDaClasse = new JLabel("Complexidade Ciclomática da classe: ");
-            c.gridx = 0;
-            c.gridy = 3;
-            c.insets = new Insets(5,5,5,5);
-            panel.add(ComplexidadeCiclomaticaDaClasse, c);
+             
+             NumeroDeMetodosPorClasse = new JLabel("Número de métodos por classe: ");
+             c.gridx = 0;
+             c.gridy = 2;
+             c.insets = new Insets(5,5,5,5);
+             panel.add(NumeroDeMetodosPorClasse, c);
+             
+             JLabel Max2 = new JLabel("Max: ");
+             Max2.setHorizontalAlignment(SwingConstants.CENTER);
+             c.gridx = 2;
+             c.gridy = 2;
+             c.insets = new Insets(1,1,5,5);
+             panel.add(Max2, c);
+             
+              JTMax2 = new JTextField();
+             c.gridx = 3;
+             c.gridy = 2;
+             c.insets = new Insets(1,1,5,5);
+             panel.add(JTMax2, c);
+             
            
-            JLabel Max3 = new JLabel("Max: ");
-            Max3.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 1;
-            c.gridy = 3;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(Max3, c);
+
+             
+             ComplexidadeCiclomaticaDaClasse = new JLabel("Complexidade Ciclomática da classe: ");
+             c.gridx = 0;
+             c.gridy = 3;
+             c.insets = new Insets(5,5,5,5);
+             panel.add(ComplexidadeCiclomaticaDaClasse, c);
             
-            JTextField JTMax3 = new JTextField();
-            c.gridx = 2;
-            c.gridy = 3;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(JTMax3, c);
+             JLabel Max3 = new JLabel("Max: ");
+             Max3.setHorizontalAlignment(SwingConstants.CENTER);
+             c.gridx = 2;
+             c.gridy = 3;
+             c.insets = new Insets(1,1,5,5);
+             panel.add(Max3, c);
+             
+              JTMax3 = new JTextField();
+             c.gridx = 3;
+             c.gridy = 3;
+             c.insets = new Insets(1,1,5,5);
+             panel.add(JTMax3, c);
+             
+             
+             
+             ComplexidadeCiclomaticaDoMetodo= new JLabel("Complexidade Ciclomática do método: ");
+             c.gridx = 0;
+             c.gridy = 4;
+             c.insets = new Insets(5,5,5,5);
+             panel.add( ComplexidadeCiclomaticaDoMetodo, c);
+             
+             JLabel Max4 = new JLabel("Max: ");
+             Max4.setHorizontalAlignment(SwingConstants.CENTER);
+             c.gridx = 2;
+             c.gridy = 4;
+             c.insets = new Insets(1,1,5,5);
+             panel.add(Max4, c);
+             
+              JTMax4 = new JTextField();
+             c.gridx = 3;
+             c.gridy = 4;
+             c.insets = new Insets(1,1,5,5);
+             panel.add(JTMax4, c);
+             
             
-            JLabel Min3 = new JLabel("Min: ");
-            Min3.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 3;
-            c.gridy = 3;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(Min3, c);
+             
+             
+             NumeroDeLinhasDeCodigoDoMetodo = new JLabel("Número de linhas de código do método: ");
+             c.gridx = 0;
+             c.gridy = 5;
+             c.insets = new Insets(5,5,5,5);
+             panel.add( NumeroDeLinhasDeCodigoDoMetodo, c);
             
-            JTextField JTMin3 = new JTextField();
-            c.gridx = 4;
-            c.gridy = 3;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(JTMin3, c);
-            
-            JLabel ComplexidadeCiclomaticaDoMetodo= new JLabel("Complexidade Ciclomática do método: ");
-            c.gridx = 0;
-            c.gridy = 4;
-            c.insets = new Insets(5,5,5,5);
-            panel.add( ComplexidadeCiclomaticaDoMetodo, c);
-            
-            JLabel Max4 = new JLabel("Max: ");
-            Max4.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 1;
-            c.gridy = 4;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(Max4, c);
-            
-            JTextField JTMax4 = new JTextField();
-            c.gridx = 2;
-            c.gridy = 4;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(JTMax4, c);
-            
-            JLabel Min4 = new JLabel("Min: ");
-            Min4.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 3;
-            c.gridy = 4;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(Min4, c);
-            
-            JTextField JTMin4 = new JTextField();
-            c.gridx = 4;
-            c.gridy = 4;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(JTMin4, c);
-            
-            JLabel NumeroDeLinhasDeCodigoDoMetodo = new JLabel("Número de linhas de código do mtodo: ");
-            c.gridx = 0;
-            c.gridy = 5;
-            c.insets = new Insets(5,5,5,5);
-            panel.add( NumeroDeLinhasDeCodigoDoMetodo, c);
-           
-            
-            JLabel Max5 = new JLabel("Max: ");
-            Max5.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 1;
-            c.gridy = 5;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(Max5, c);
-            
-            JTextField JTMax5 = new JTextField();
-            c.gridx = 2;
-            c.gridy = 5;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(JTMax5, c);
+             
+             JLabel Max5 = new JLabel("Max: ");
+             Max5.setHorizontalAlignment(SwingConstants.CENTER);
+             c.gridx = 2;
+             c.gridy = 5;
+             c.insets = new Insets(1,1,5,5);
+             panel.add(Max5, c);
+             
+            JTMax5 = new JTextField();
+             c.gridx = 3;
+             c.gridy = 5;
+             c.insets = new Insets(1,1,5,5);
+             panel.add(JTMax5, c);
      
-            JLabel Min5 = new JLabel("Min: ");
-            Min5.setHorizontalAlignment(SwingConstants.CENTER);
-            c.gridx = 3;
-            c.gridy = 5;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(Min5, c);
-            
-            JTextField JTMin5 = new JTextField();
-            c.gridx = 4;
-            c.gridy = 5;
-            c.insets = new Insets(1,1,5,5);
-            panel.add(JTMin5, c);
+         
             
             JLabel OperadorLogico = new JLabel("Operador Logico ( E = 0 , OU = 1 ) : ");
             c.fill = GridBagConstraints.HORIZONTAL;
