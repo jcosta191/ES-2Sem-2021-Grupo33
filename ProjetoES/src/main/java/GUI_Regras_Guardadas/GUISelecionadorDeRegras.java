@@ -27,7 +27,7 @@ import java.awt.event.*;
                     (int)(buttonSize.getHeight() * 6.5)+maxGap * 3));
 
             ArrayList<String> ruleNames;
-            Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\berna\\OneDrive\\Ambiente de Trabalho\\testfile.txt");
+            Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\Miguel\\OneDrive\\Ambiente de Trabalho\\testfile.txt");
             ruleNames = l.getSavedRuleNames();
             for (String s: ruleNames){
                 compsToExperiment.add(new JLabel(s));
@@ -47,12 +47,14 @@ import java.awt.event.*;
          * event dispatch thread.
          */
         private static void createAndShowGUI() {
+        	
             //Create and set up the window.
             GUISelecionadorDeRegras frame = new GUISelecionadorDeRegras("Selecionar Regras");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             //Set up the content pane.
             frame.addComponentsToPane(frame.getContentPane());
+            
             //Display the window.
             frame.pack();
             frame.setResizable(true);

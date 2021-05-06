@@ -42,7 +42,7 @@ public class Leitor_Regras_Guardadas {
     }
 
     public static void main(String[] args) {
-        Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\berna\\OneDrive\\Ambiente de Trabalho\\testfile.txt");
+        Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\Miguel\\OneDrive\\Ambiente de Trabalho\\testfile.txt");
         l.getSavedRuleNames();
     }
 }
