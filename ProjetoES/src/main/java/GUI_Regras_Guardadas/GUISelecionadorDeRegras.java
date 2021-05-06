@@ -16,15 +16,15 @@ import java.awt.event.*;
 
         public void addComponentsToPane(final Container pane) {
             final JPanel compsToExperiment = new JPanel();
+            //JScrollPane scrollPane = new JScrollPane(compsToExperiment);
+            //scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             compsToExperiment.setLayout(layout);
-            JPanel controls = new JPanel();
-            controls.setLayout(new GridLayout(2,3));
 
             //Set up components preferred size
             JButton b = new JButton("Just fake button");
             Dimension buttonSize = b.getPreferredSize();
-            compsToExperiment.setPreferredSize(new Dimension((int)(buttonSize.getWidth() * 2.5)+maxGap,
-                    (int)(buttonSize.getHeight() * 3.5)+maxGap * 2));
+            compsToExperiment.setPreferredSize(new Dimension((int)(buttonSize.getWidth() * 5.5)+maxGap,
+                    (int)(buttonSize.getHeight() * 6.5)+maxGap * 3));
 
             ArrayList<String> ruleNames;
             Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\berna\\OneDrive\\Ambiente de Trabalho\\testfile.txt");
@@ -33,14 +33,12 @@ import java.awt.event.*;
                 compsToExperiment.add(new JLabel(s));
                 compsToExperiment.add(new JCheckBox());
             }
-            layout.setHgap(20);
+            layout.setHgap(5);
             //Set up the vertical gap value
-            layout.setVgap(20);
+            layout.setVgap(5);
             //Set up the layout of the buttons
             layout.layoutContainer(compsToExperiment);
             pane.add(compsToExperiment, BorderLayout.NORTH);
-            pane.add(new JSeparator(), BorderLayout.CENTER);
-            pane.add(controls, BorderLayout.SOUTH);
         }
 
         /**
@@ -50,13 +48,16 @@ import java.awt.event.*;
          */
         private static void createAndShowGUI() {
             //Create and set up the window.
-            GUISelecionadorDeRegras frame = new GUISelecionadorDeRegras("GridLayoutDemo");
+            GUISelecionadorDeRegras frame = new GUISelecionadorDeRegras("Selecionar Regras");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
             //Set up the content pane.
             frame.addComponentsToPane(frame.getContentPane());
             //Display the window.
             frame.pack();
+            frame.setResizable(true);
             frame.setVisible(true);
+
         }
 
         public static void main(String[] args) {
