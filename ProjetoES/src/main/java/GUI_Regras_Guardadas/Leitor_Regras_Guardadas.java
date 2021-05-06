@@ -7,9 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Leitor_Regras_Guardadas {
+	
     private static String filePath;
     private BufferedReader reader;
+    
     private ArrayList<String> text = new ArrayList();
+    
     public Leitor_Regras_Guardadas(String filePath){
         this.filePath = filePath;
 
@@ -23,6 +26,7 @@ public class Leitor_Regras_Guardadas {
                 //
                 text.add(line);
                 line=reader.readLine();
+                
             }
            // System.out.println(text);
         } catch (IOException e){
@@ -33,11 +37,12 @@ public class Leitor_Regras_Guardadas {
     public ArrayList getSavedRuleNames(){
        ArrayList<String> ruleNames = new ArrayList();
        this.lineReaderFile();
-        for (String s : text){
+       
+       for (String s : text){
             String[] arrOfStr = s.split(";", -2);
             ruleNames.add(arrOfStr[0]);
         }
-        System.out.println(ruleNames);
+       
         return ruleNames;
     }
 

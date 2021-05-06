@@ -259,7 +259,7 @@ public class GUI_New_Rule {
             class ListenerDefinirRegra implements ActionListener {
     			
     			public void actionPerformed ( ActionEvent e ) {
-
+    				
     			}
     		}
             

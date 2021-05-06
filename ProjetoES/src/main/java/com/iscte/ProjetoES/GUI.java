@@ -30,18 +30,23 @@ public class GUI {
         
         txtChooseAFile.setHorizontalAlignment(JTextField.CENTER);
 
-        txtChooseAFile.setMaximumSize(new Dimension(400,500));
+        txtChooseAFile.setMaximumSize(new Dimension(600,500));
         pane.add(txtChooseAFile);
+        
+        addAButton("Importar Regras Existentes", pane);
+        ImportarRegrasButtonAction();
         
         addAButton("Visualizar Extração das Métricas", pane);
         VisualizarExtraçãoButtonAction();
+        
+        
     }
 
     private static void addAButton(String text, Container container) {
         JButton button = new JButton(text);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         container.add(button);
-        Dimension MaxSize = new Dimension(400,500);
+        Dimension MaxSize = new Dimension(600,500);
         button.setMaximumSize(MaxSize);
         buttonList.add(button);
     }
@@ -115,8 +120,28 @@ public class GUI {
 		});
     }
     
-    private static void VisualizarExtraçãoButtonAction(){
+    private static void ImportarRegrasButtonAction(){
         JButton button = buttonList.get(3);
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//mostar o ficheiro excel gerado numa nova janela
+				GUISelecionadorDeRegras selecionador;
+				try {
+					selecionador = new GUISelecionadorDeRegras();
+					selecionador.open();
+					selecionador.setVisible(true);  //preciso fazer com que volte a Janela inicial
+				} catch (UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+    }
+    
+    private static void VisualizarExtraçãoButtonAction(){
+        JButton button = buttonList.get(4);
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -137,7 +162,7 @@ public class GUI {
         addComponentsToPane(frame.getContentPane());
         frame.pack();
         frame.setVisible(true);
-        frame.setSize(400,200);
+        frame.setSize(600,200);
         frame.setResizable(true);
         
         Point d3 = new Point();
