@@ -1,13 +1,17 @@
+
 package com.iscte.ProjetoES;
 
+import com.iscte.ProjetoES.Escritores.EscritorJTable;
+
 /**
- * Hello world!
+ * Inicia o programa
+ * 
+ * @author dariop
  *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+public class App {
+	public static void main(String[] args) {
+		EscritorJTable a = new EscritorJTable();
+		a.openFile();
+	}
 }
