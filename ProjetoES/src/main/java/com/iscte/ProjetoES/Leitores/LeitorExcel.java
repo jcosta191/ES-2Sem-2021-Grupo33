@@ -1,4 +1,5 @@
 package com.iscte.ProjetoES.Leitores;
+
 import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
@@ -16,35 +17,57 @@ import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 
-public class LeitorExcel  extends AbstractTableModel {
+/**
+ * Classe para vizualizar os dados importados do ficheiro Excel
+ * 
+ * 
+ * @author jcosta191
+ *
+ */
+public class LeitorExcel extends AbstractTableModel {
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = -4220550076295049347L;
-	private static LeitorExcel INSTANCIA;
-	private Sheet excel;
+	private static LeitorExcel INSTANCE;
+	private Sheet sheet;
+	public int numberP, numberLOC;
 
 	private LeitorExcel() {
 	}
 
-	public void abrirExcel() {
+	/**
+	 * Abre o filechooser para escolher o ficheiro Excel
+	 */
+	public void addFile() {
 		Workbook workbook;
 		try {
-			workbook = WorkbookFactory.create(escolherExcel());
-			excel = workbook.getSheetAt(0);
+			workbook = WorkbookFactory.create(fileChooser());
+			sheet = workbook.getSheetAt(0);
+			numberP=1;
 		} catch (NullPointerException | InvalidFormatException | IOException e) {
-			System.out.println("Não foi possível abrir o ficheiro!");
+			System.out.println("Ficheiro não aberto!");
 			System.exit(0);
 		}
 	}
 
-	/*REVEEEEERRR
-	 * public ArrayList<Metodo> puxarExcel() throws EncryptedDocumentException, InvalidFormatException, IOException {
-
+	/**
+	 * 
+	 * @return um ArrayList que contém todos os metodos presentes no ficheiro excel
+	 * @throws EncryptedDocumentException
+	 * @throws InvalidFormatException
+	 * @throws IOException
+	 */
+	public ArrayList<Metodo> getContent() throws EncryptedDocumentException, InvalidFormatException, IOException {
 		ArrayList<Metodo> metodos = new ArrayList<Metodo>();
-		if (excel != null) {
+        int numberLOC1=0;
+		if (sheet != null) {
 			DataFormatter dataFormatter = new DataFormatter();
-
 			int j = 1;
-			while (j <= excel.getLastRowNum()) {
-				Row linha = excel.getRow(j);
+			while (j <= sheet.getLastRowNum()) {
+
+				Row linha = sheet.getRow(j);
 				int methodID = (int) linha.getCell(0).getNumericCellValue();
 				String Package = dataFormatter.formatCellValue(linha.getCell(1));
 				String Class = dataFormatter.formatCellValue(linha.getCell(2));
@@ -52,32 +75,53 @@ public class LeitorExcel  extends AbstractTableModel {
 				int NOM_class = (int) linha.getCell(4).getNumericCellValue();
 				int LOC_class = (int) linha.getCell(5).getNumericCellValue();
 				int WMC_class = (int) linha.getCell(6).getNumericCellValue();
-				boolean is_God_Class = (boolean) linha.getCell(7).getBooleanCellValue();
-				int LOC_method = (int) linha.getCell(8).getNumericCellValue();
-				int CYCLO_method = (int) linha.getCell(9).getNumericCellValue();
-				boolean is_Long_Method = (boolean) linha.getCell(10).getBooleanCellValue();
-				Metodo met = new Metodo(methodID, Package, Class, method, NOM_class, LOC_class, WMC_class, is_God_Class, LOC_method, CYCLO_method, is_Long_Method);
+				int LOC_method = (int) linha.getCell(7).getNumericCellValue();
+				int CYCLO_method = (int) linha.getCell(8).getNumericCellValue();
+				numberLOC1+=LOC_method;
+				setNumberLOC(numberLOC1);
+				System.out.print("LOCCCCC"+numberLOC);
+			    System.out.print("PACKAGE:   "+numberP);
+				Metodo met = new Metodo(methodID, Package, Class, method, NOM_class, LOC_class, WMC_class, LOC_method,
+						CYCLO_method);
 				metodos.add(met);
 				j++;
 			}
 		}
 		return metodos;
-	}*/
+	}
 
 	@Override
 	public int getColumnCount() {
-		if (excel != null) {
-			int last_cell = excel.getRow(0).getLastCellNum();
+		if (sheet != null) {
+			int last_cell = sheet.getRow(0).getLastCellNum();
 			return last_cell;
 		} else {
 			return 0;
 		}
 	}
 
+	public int getNumberPackages() {
+		return numberP;
+	}
+	
+	public void setNumberPackage(int a) {
+		numberP=a;
+		
+	}
+	
+	public void setNumberLOC(int a) {
+		numberLOC=a;
+		
+	}
+	
+	public int getNumberLOC() {
+		return numberLOC;
+	}
+
 	@Override
 	public int getRowCount() {
-		if (excel != null) {
-			return excel.getLastRowNum();
+		if (sheet != null) {
+			return sheet.getLastRowNum();
 		} else {
 			return 0;
 		}
@@ -85,43 +129,37 @@ public class LeitorExcel  extends AbstractTableModel {
 
 	@Override
 	public String getColumnName(int arg0) {
-		if (excel != null) {
-			Cell cell = excel.getRow(0).getCell(arg0);
+		if (sheet != null) {
+			Cell cell = sheet.getRow(0).getCell(arg0);
 			return cell.getStringCellValue();
 		} else {
 			return "";
 		}
 	}
 
-	/*MUDAR E REVER*/
 	@Override
 	public Object getValueAt(int arg0, int arg1) {
-		if (excel != null) {
-			Cell cell = excel.getRow(arg0).getCell(arg1);
+		if (sheet != null) {
+			DataFormatter dataFormatter = new DataFormatter();
+			arg0++;
+			Cell cell = sheet.getRow(arg0).getCell(arg1);
 
 			switch (arg1) {
 			case 0:
 				return (int) cell.getNumericCellValue();
 			case 1:
-				return cell.getStringCellValue();
-
 			case 2:
-				return cell.getStringCellValue();
-
 			case 3:
 				return cell.getStringCellValue();
 			case 4:
-				return (int) cell.getNumericCellValue();
 			case 5:
-				return (int) cell.getNumericCellValue();
 			case 6:
-				return (int) cell.getNumericCellValue();
 			case 7:
+			case 8:
 				return (int) cell.getNumericCellValue();
+
 			default:
-				return (int) cell.getNumericCellValue();
-
-
+				return null;
 			}
 		} else {
 			return "";
@@ -129,27 +167,60 @@ public class LeitorExcel  extends AbstractTableModel {
 
 	}
 
-	
+	/**
+	 * 
+	 * @return a Instance of this class
+	 */
 	public static LeitorExcel getInstance() {
-		if (INSTANCIA == null)
-			INSTANCIA = new LeitorExcel();
-		return INSTANCIA;
+		if (INSTANCE == null)
+			INSTANCE = new LeitorExcel();
+		return INSTANCE;
 	}
 
+	/**
+	 * 
+	 * @return a new Instance of this class
+	 */
 	public static LeitorExcel newInstance() {
-		INSTANCIA = new LeitorExcel();
-		return INSTANCIA;
+		INSTANCE = new LeitorExcel();
+		return INSTANCE;
 	}
 
-	public File escolherExcel() {
-		JFileChooser escolherExcel = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("Ficheiro Excel", "xlsx", "excel");
-		escolherExcel.setAcceptAllFileFilterUsed(false);
-		escolherExcel.setFileFilter(filter);
-		escolherExcel.showOpenDialog(null);
-		File excel = escolherExcel.getSelectedFile();
-		return excel;
-		
-		
+	/**
+	 * Abre um seletor de ficheiros para o utilizador poder abrir um ficheiro do
+	 * tipo Excel
+	 * 
+	 * @return o ficheiro selecionado pelo utilizador (null se não foi selecionado
+	 *         nenhum)
+	 */
+	public File fileChooser() {
+		JFileChooser filechooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("Excel File", "xlsx", "excel");
+		filechooser.setAcceptAllFileFilterUsed(false);
+		filechooser.setFileFilter(filter);
+		filechooser.showOpenDialog(null);
+		File excelfile = filechooser.getSelectedFile();
+		return excelfile;
+
 	}
+
+	/**
+	 * Adiciona o ficheiro do tipo excel diretamente do diretorio a fim de uso para
+	 * testes
+	 */
+	public void setFile(boolean s) {
+		File f = null;
+		if (s) {
+			f = new File(System.getProperty("user.dir") + "/Long-Method.xlsx");
+		}
+		Workbook workbook;
+		try {
+			workbook = WorkbookFactory.create(f);
+			sheet = workbook.getSheetAt(0);
+		} catch (NullPointerException | InvalidFormatException | IOException e) {
+			System.out.println("Ficheiro não aberto!");
+		}
+
+	}
+
 }

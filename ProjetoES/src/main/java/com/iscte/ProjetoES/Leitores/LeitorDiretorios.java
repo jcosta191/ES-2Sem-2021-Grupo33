@@ -5,7 +5,9 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -15,13 +17,20 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
-
+import javax.swing.filechooser.FileNameExtensionFilter;
+/**
+ * Classe para importar um diretório
+ * 
+ * 
+ * @author jcosta191
+ *
+ */
 public class LeitorDiretorios extends JFrame{
 	private static final long serialVersionUID = -22324213434235555L;
 	private JPanel contentPane, excel_panel, info_panel;
 	private JTable table;
 	private JMenuBar menuBar;
-	private JMenu Ficheiro;
+	private JMenu Diretorio;
 	private JMenuItem ImportarDiretorio;
 
 	public LeitorDiretorios() {
@@ -75,22 +84,37 @@ public class LeitorDiretorios extends JFrame{
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
-		Ficheiro = new JMenu("Diretorio");
-		menuBar.add(Ficheiro);
+		Diretorio = new JMenu("Diretorio");
+		menuBar.add(Diretorio);
 
 		ImportarDiretorio = new JMenuItem("Importar Diretorio");
-		Ficheiro.add(ImportarDiretorio);
+		Diretorio.add(ImportarDiretorio);
 
 		ImportarDiretorio.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				LeitorExcel.newInstance().abrirExcel();
-				table.setModel(LeitorExcel.getInstance());
+				escolherDiretorio();
 			}
 		});
 	}
+    
+    public void escolherDiretorio() {
+		JFileChooser escolherDiretorio = new JFileChooser();
+		escolherDiretorio.setAcceptAllFileFilterUsed(false);
+		escolherDiretorio.showOpenDialog(null);
+		File dir = escolherDiretorio.getSelectedFile();
+		File[] listOfFiles = dir.listFiles();
+        for (File file : listOfFiles) {
+		    if (file.isFile()) {
+		    	
+		    }
+		}
+	}
+		
 	
-	public void openFile() {
+	
+	public void openDir() {
+		
 		LeitorJava.getInstance().abrirJava();
 		table.setModel(LeitorJava.getInstance());
 		info_panel.add(new JLabel(LeitorJava.getInstance().getRowCount() + " métodos"));

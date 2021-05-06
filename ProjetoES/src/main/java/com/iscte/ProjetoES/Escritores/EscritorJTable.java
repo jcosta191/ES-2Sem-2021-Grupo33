@@ -1,4 +1,4 @@
-package com.iscte.ProjetoES.Leitores;
+package com.iscte.ProjetoES.Escritores;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -8,29 +8,47 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
-public class LeitorFicheiros extends JFrame{
+import com.iscte.ProjetoES.Leitores.LeitorExcel;
 
-	private static final long serialVersionUID = -22324213434235555L;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
+/**
+ * Classe para visualizar um ficheiro Excel
+ * 
+ * @author jcosta191
+ *
+ */
+public class EscritorJTable extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUI3D = 5646410931104674210L;
 	private JPanel contentPane, excel_panel, info_panel;
 	private JTable table;
 	private JMenuBar menuBar;
 	private JMenu mnFicheiro;
 	private JMenuItem mImportarExcel, mNovaRegra, mComparador;
+	public int numberPackage = 1;
 
-	public LeitorFicheiros() {
-	initContentPanel();
-	initTable();
+	/**
+	 * Create the frame.
+	 */
+	public EscritorJTable() {
+		initContentPanel();
+		initTable();
 	}
 
-	void initContentPanel() {
+	/**
+	 * Inicializa o painel onde vão ficar os componentes.
+	 */
+	private void initContentPanel() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(50, 100, 1300, 600);
 		initMenus();
@@ -42,8 +60,11 @@ public class LeitorFicheiros extends JFrame{
 		info_panel = new JPanel();
 		contentPane.add(info_panel, BorderLayout.SOUTH);
 	}
-	
-    void initTable() {
+
+	/**
+	 * Inicializa a tabela.
+	 */
+	private void initTable() {
 		table = new JTable() {
 			/**
 			 * 
@@ -71,8 +92,11 @@ public class LeitorFicheiros extends JFrame{
 		excel_panel.add(scrollPane);
 		scrollPane.setViewportView(table);
 	}
-    
-    private void initMenus() {
+
+	/**
+	 * Inicializa a MenuBar e os menus
+	 */
+	void initMenus() {
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
@@ -85,23 +109,52 @@ public class LeitorFicheiros extends JFrame{
 		mImportarExcel.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				LeitorExcel.newInstance().abrirExcel();
+				LeitorExcel.newInstance().addFile();
 				table.setModel(LeitorExcel.getInstance());
 			}
 		});
+
 	}
-	
+
+	/**
+	 * Torna visivel a janela e abre a o JFileChooser para escolher o ficheiro
+	 */
 	public void openFile() {
-		LeitorExcel.getInstance().abrirExcel();
+		LeitorExcel.getInstance().addFile();
 		table.setModel(LeitorExcel.getInstance());
-		info_panel.add(new JLabel(LeitorExcel.getInstance().getRowCount() + " métodos"));
-		setVisible(true);
+
+		for (int i = 0; i <= LeitorExcel.getInstance().getRowCount(); i++) {
+			/* String a1 = (String) DataModel.getInstance().getValueAt(i,1); */
+			/*
+			 * String a2 = (String)DataModel.getInstance().getValueAt(i+1,2);
+			 * if(a1.compareTo(a2)==1){ numberPackage++; }
+			 */
+
 		}
-	
+
+		info_panel.add(new JLabel(LeitorExcel.getInstance().getNumberPackages() + " Packages"));
+		info_panel.add(new JLabel(LeitorExcel.getInstance().getRowCount() + "Métodos"));
+		// info_panel.add(new JLabel(DataModel.getInstance().getValueAt() + " Linhas"));
+		setVisible(true);
+
+	}
+
+	public boolean contPackages(Object a, Object c) {
+		if (a.toString() == c.toString()) {
+			return true;
+
+		}
+		return false;
+
+	}
+
+	/**
+	 * 
+	 * @return a JTable que guarda os dados do Excel
+	 */
 	public JTable getTable() {
 		return table;
 
 	}
-
 
 }
