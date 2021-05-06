@@ -1,19 +1,11 @@
 package com.iscte.ProjetoES;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
 import javax.swing.plaf.metal.MetalLookAndFeel;
-import javax.swing.plaf.metal.MetalTheme;
 import javax.swing.plaf.metal.OceanTheme;
-
-import org.junit.runners.model.FrameworkMethod;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import static javax.swing.UIManager.setLookAndFeel;
 
 public class GUI_New_Rule {
 	

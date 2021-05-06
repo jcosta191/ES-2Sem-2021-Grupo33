@@ -27,12 +27,9 @@ public class GUI {
         ChangeRuleButtonAction();
         addAButton("Procurar Ficheiro", pane);
         ProcurarFicheiroButtonAction();
-        
         txtChooseAFile.setHorizontalAlignment(JTextField.CENTER);
-
         txtChooseAFile.setMaximumSize(new Dimension(400,500));
         pane.add(txtChooseAFile);
-        
         addAButton("Visualizar Extração das Métricas", pane);
         VisualizarExtraçãoButtonAction();
     }
@@ -45,7 +42,6 @@ public class GUI {
         button.setMaximumSize(MaxSize);
         buttonList.add(button);
     }
-
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -114,7 +110,7 @@ public class GUI {
 			}
 		});
     }
-    
+
     private static void VisualizarExtraçãoButtonAction(){
         JButton button = buttonList.get(3);
 		button.addActionListener(new ActionListener() {
@@ -123,7 +119,6 @@ public class GUI {
 				//mostar o ficheiro excel gerado numa nova janela
 				showFilexlsx excel= new showFilexlsx();
 				excel.setVisible(true);  //preciso fazer com que volte a Janela inicial
-				
 			}
 		});
     }
@@ -139,16 +134,12 @@ public class GUI {
         frame.setVisible(true);
         frame.setSize(400,200);
         frame.setResizable(true);
-        
         Point d3 = new Point();
 		d3.x = (int)((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-frame.getWidth()/2);
 		d3.y = (int)((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-frame.getHeight()/2);
-		
 		frame.setLocation(d3);
-
         MouseWheelListener mouseWheelListener = null;
         frame.addMouseWheelListener(mouseWheelListener);
-
     }
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
