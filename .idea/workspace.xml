@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fc98a48-4ca5-4a4b-8a6c-58ec44c51f62" name="Default Changelist" comment="" />
+    <list default="true" id="3fc98a48-4ca5-4a4b-8a6c-58ec44c51f62" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,7 +197,7 @@
       <workItem from="1619011858053" duration="163000" />
       <workItem from="1620131236196" duration="1607000" />
       <workItem from="1620136978212" duration="14132000" />
-      <workItem from="1620304209027" duration="1021000" />
+      <workItem from="1620304209027" duration="1330000" />
     </task>
     <task id="LOCAL-00001" summary="1º GUI adicionado ao branch faltar dar merge com o master">
       <created>1617741541788</created>
@@ -267,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620304524911</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update branch">
+      <created>1620305273134</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1620305273134</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +314,7 @@
     <MESSAGE value="Alteração ao leitor de regras para poder selecionar apenas os nomes das regras" />
     <MESSAGE value="GUI já apresenta as regras que irá utilizar e as respetivas checkboxes, falta colocar os Listeners para selecionar msm a regra" />
     <MESSAGE value="Limpeza de código" />
-    <option name="LAST_COMMIT_MESSAGE" value="Limpeza de código" />
+    <MESSAGE value="Update branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update branch" />
   </component>
 </project>

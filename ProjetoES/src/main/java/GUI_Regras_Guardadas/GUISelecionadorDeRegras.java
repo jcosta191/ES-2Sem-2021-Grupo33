@@ -1,7 +1,7 @@
 package GUI_Regras_Guardadas;
 
     import java.awt.*;
-import java.awt.event.*;
+    import java.awt.event.*;
     import java.util.ArrayList;
     import javax.swing.*;
 
@@ -25,7 +25,6 @@ import java.awt.event.*;
             Dimension buttonSize = b.getPreferredSize();
             compsToExperiment.setPreferredSize(new Dimension((int)(buttonSize.getWidth() * 5.5)+maxGap,
                     (int)(buttonSize.getHeight() * 6.5)+maxGap * 3));
-
             ArrayList<String> ruleNames;
             Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\berna\\OneDrive\\Ambiente de Trabalho\\testfile.txt");
             ruleNames = l.getSavedRuleNames();
@@ -40,7 +39,6 @@ import java.awt.event.*;
             layout.layoutContainer(compsToExperiment);
             pane.add(compsToExperiment, BorderLayout.NORTH);
         }
-
         /**
          * Create the GUI and show it.  For thread safety,
          * this method is invoked from the
@@ -50,14 +48,12 @@ import java.awt.event.*;
             //Create and set up the window.
             GUISelecionadorDeRegras frame = new GUISelecionadorDeRegras("Selecionar Regras");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
             //Set up the content pane.
             frame.addComponentsToPane(frame.getContentPane());
             //Display the window.
             frame.pack();
             frame.setResizable(true);
             frame.setVisible(true);
-
         }
 
         public static void main(String[] args) {
