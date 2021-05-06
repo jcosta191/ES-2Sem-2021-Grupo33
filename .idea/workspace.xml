@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fc98a48-4ca5-4a4b-8a6c-58ec44c51f62" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Saver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_05_2021_13_44__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_05_2021_13_44__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_04_2021_10_43__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_04_2021_10_43__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,7 @@
       <command value="mvn clean package" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.GUISelecionadorDeRegras">
+  <component name="RunManager" selected="Application.Leitor_Regras_Guardadas">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.App" />
       <module name="ProjetoES" />
@@ -171,8 +173,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GUISelecionadorDeRegras" />
         <item itemvalue="Application.Leitor_Regras_Guardadas" />
+        <item itemvalue="Application.GUISelecionadorDeRegras" />
         <item itemvalue="Application.GUI_New_Rule" />
         <item itemvalue="Application.GUI" />
         <item itemvalue="Application.App" />

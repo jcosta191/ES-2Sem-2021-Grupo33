@@ -42,6 +42,18 @@ public class Leitor_Regras_Guardadas {
     }
 
     public static void main(String[] args) {
+        ArrayList<String> ruleNames = new ArrayList();
+        ruleNames.add("pilinha");
+        ruleNames.add("pilinha");
+        ruleNames.add("pilinha");
+        ruleNames.add("pilinha");
+        ruleNames.add("pilinha");
+        Saver s = new Saver();
+        try {
+            s.writeRule(ruleNames);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\berna\\OneDrive\\Ambiente de Trabalho\\testfile.txt");
         l.getSavedRuleNames();
     }
