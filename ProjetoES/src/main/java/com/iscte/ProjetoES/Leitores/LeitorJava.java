@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.AbstractTableModel;
 
@@ -28,19 +29,24 @@ public class LeitorJava extends AbstractTableModel {
 	private Sheet java;
 	private int MethodID, NOM_class, LOC_class, WMC_class, LOC_method, CYCLO_method;
 	private String Package, Classe, method;
+	private String filepath;
+	private String name;
+	private File file;
 
 	private LeitorJava() {
 	}
 
 	public void abrirJava(){
 		Workbook workbook;
-		try {
-			workbook = WorkbookFactory.create(escolherJava());
-			java = workbook.getSheetAt(0);
-		} catch (NullPointerException | InvalidFormatException | IOException e) {
-			System.out.println("Não foi possível abrir o ficheiro!");
-			System.exit(0);
-		}
+		
+		escolherJava();
+		//try {
+			//workbook = WorkbookFactory.create(escolherJava());
+			//java = workbook.getSheetAt(0);
+		//} catch (NullPointerException | InvalidFormatException | IOException e) {
+//			System.out.println("Não foi possível abrir o ficheiro!" + e);
+//			System.exit(0);
+//		}
 	}
 
 	public static LeitorJava getInstance() {
@@ -53,17 +59,42 @@ public class LeitorJava extends AbstractTableModel {
 		INSTANCIA = new LeitorJava();
 		return INSTANCIA;
 	}
-
+	
 	public File escolherJava(){
 		JFileChooser escolherJava = new JFileChooser();
 		escolherJava.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		
+		int option = escolherJava.showOpenDialog(null);
+        if(option == escolherJava.APPROVE_OPTION){
+           file = escolherJava.getSelectedFile();
+           filepath =  (String) file.getAbsolutePath();
+           name = (String) file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("\\")+1);
+          
+           listAllFiles(file);
+        }
 
-		escolherJava.showOpenDialog(null);
-		File java = escolherJava.getSelectedFile();
+		System.out.println("List of files and directories in the specified directory:" + file.getName());
+		
+		return file;
 
-		File filesList[] = java.listFiles();
-		System.out.println("List of files and directories in the specified directory:");
-		for (File file : filesList) {
+	}
+	
+	public void listAllFiles(File folder){
+	    File[] fileNames = folder.listFiles();
+	    
+	    for(File file : fileNames){
+	      if(file.isDirectory()){
+    	  //Caso identifique que é uma subpasta lança outra vez o ListAllFiles
+	         listAllFiles(file);
+	      }else{
+	        if(file.getName().endsWith("java")) {
+	        	lerFicheiro(file);
+			}
+	      }
+	    }
+	  }
+	
+	private void lerFicheiro(File file) {
 			if (file.getName().endsWith(".java")) {
 				try {
 					/*Class cls = Class.forName(Classe);
@@ -76,7 +107,7 @@ public class LeitorJava extends AbstractTableModel {
 						LOC_class++;
 						String[] words = data.split(" ");
 						Classe = file.getName().replace(".java","");
-						if (count == 1) {
+						if (count == 1 && words.length > 0) {
 							if (words[0] == "package") {
 								Package = words[1];
 							}
@@ -90,7 +121,8 @@ public class LeitorJava extends AbstractTableModel {
 						
 						
 						
-						if (data.isBlank()) {
+						if (data.isEmpty()) {
+//							if (data.isBlank()) {
 							LOC_class--;
 						}
 						Metodo met = new Metodo(MethodID, Package, Classe, method, NOM_class, LOC_class, WMC_class,
@@ -109,9 +141,6 @@ public class LeitorJava extends AbstractTableModel {
 				 * System.out.println("Size :"+file.getTotalSpace()); System.out.println(" ");
 				 */
 			}
-		}
-		return java;
-
 	}
 	
 	public boolean procurarCYCLO(String a, String b) {
