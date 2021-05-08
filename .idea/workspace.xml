@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8918c3e-2842-455a-a220-173567cc4048" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ProjetoES/ProjetoES.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_05_2021_13_44__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_05_2021_13_44__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_04_2021_10_43__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_04_2021_10_43__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoES/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Saver.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Saver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_New_Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_New_Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Leitores/LeitorJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Leitores/LeitorJava.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,12 +28,24 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1sCeDiusZn7axyGEbLJh2Vx5gCV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager" selected="Application.GUI_New_Rule (1)">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.App" />
       <module name="ProjetoES" />
@@ -39,12 +59,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.GUI" />
+    <configuration name="GUI_Change_Rule" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.Gui.GUI_Change_Rule" />
       <module name="ProjetoES" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.iscte.ProjetoES.*" />
+          <option name="PATTERN" value="com.iscte.ProjetoES.Gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -52,12 +72,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI_New_Rule" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.GUI_New_Rule" />
+    <configuration name="GUI_New_Rule (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.Gui.GUI_New_Rule" />
       <module name="ProjetoES" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.iscte.ProjetoES.*" />
+          <option name="PATTERN" value="com.iscte.ProjetoES.Gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GUI_Rule_Picker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.Gui.GUI_Rule_Picker" />
+      <module name="ProjetoES" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iscte.ProjetoES.Gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Leitor_Regras_Guardadas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI_Regras_Guardadas.Leitor_Regras_Guardadas" />
+      <module name="ProjetoES" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI_Regras_Guardadas.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,17 +171,22 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.GUI" />
-      <item itemvalue="Application.GUI_New_Rule" />
+      <item itemvalue="Application.GUI_Rule_Picker" />
+      <item itemvalue="Application.GUI_Change_Rule" />
+      <item itemvalue="Application.GUI_New_Rule (1)" />
+      <item itemvalue="Application.Leitor_Regras_Guardadas" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GUI_New_Rule" />
-        <item itemvalue="Application.GUI" />
+        <item itemvalue="Application.GUI_New_Rule (1)" />
+        <item itemvalue="Application.Leitor_Regras_Guardadas" />
+        <item itemvalue="Application.GUI_Change_Rule" />
+        <item itemvalue="Application.GUI_Rule_Picker" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Update branch">
       <created>1620330026615</created>
@@ -144,8 +195,21 @@
       <option name="project" value="LOCAL" />
       <updated>1620330026615</updated>
     </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c8918c3e-2842-455a-a220-173567cc4048" name="Default Changelist" comment="" />
+      <created>1620380885707</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620380885707</updated>
+      <workItem from="1620380893650" duration="295000" />
+      <workItem from="1620385261086" duration="1282000" />
+      <workItem from="1620396417672" duration="11519000" />
+    </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="oldMeFiltersMigrated" value="true" />

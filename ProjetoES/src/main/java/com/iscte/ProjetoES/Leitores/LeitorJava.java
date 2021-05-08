@@ -90,9 +90,9 @@ public class LeitorJava extends AbstractTableModel {
 						
 						
 						
-						if (data.isBlank()) {
-							LOC_class--;
-						}
+						//if (data.isBlank()) {
+						//	LOC_class--;
+						//}
 						Metodo met = new Metodo(MethodID, Package, Classe, method, NOM_class, LOC_class, WMC_class,
 								LOC_method, CYCLO_method);
 						EscritorExcel.adicionaLista(met);
