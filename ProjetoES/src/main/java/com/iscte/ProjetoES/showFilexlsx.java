@@ -35,6 +35,10 @@ public class showFilexlsx extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+			
+	//esta é a unica janela do projeto que foi desenhada com o window builder,
+	// o codigo é automaticamente gerado e no construtor adiciona logo tudo ao panel da janela
+	
 	public showFilexlsx() {
 		setTitle("Excel gerado");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

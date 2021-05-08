@@ -21,6 +21,8 @@ public class GUI {
    
     public static void addComponentsToPane(Container pane) {
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
+        
+        //Criação dos botões e do textfield da janela inicial da GUI
         addAButton("Criar Regra", pane);
         NewRuleButtonAction();
         addAButton("Alterar Regra Existente", pane);
@@ -42,6 +44,7 @@ public class GUI {
         
     }
 
+    //função para automatizar a criação de botões
     private static void addAButton(String text, Container container) {
         JButton button = new JButton(text);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -57,6 +60,7 @@ public class GUI {
      * event-dispatching thread.
      */
     private static void NewRuleButtonAction(){
+    	//acesso à lista de botões e implementação do listener do botão selecionado
         JButton button = buttonList.get(0);
        button.addActionListener(new ActionListener() {
            @Override
@@ -67,6 +71,7 @@ public class GUI {
                            JFrame.setDefaultLookAndFeelDecorated(true);
                            MetalLookAndFeel.setCurrentTheme(new OceanTheme());
                            UIManager.setLookAndFeel(new MetalLookAndFeel());
+                           //lançamento da janela de criar nova regra
                            GUI_New_Rule rule=new GUI_New_Rule("Define Rule");
                            rule.open();
                        } catch (UnsupportedLookAndFeelException e) {
@@ -79,6 +84,7 @@ public class GUI {
     }
    
     private static void ChangeRuleButtonAction(){
+    	//acesso à lista de botões e implementação do listener do botão selecionado
         JButton button = buttonList.get(1);
        button.addActionListener(new ActionListener() {
            @Override
@@ -89,6 +95,7 @@ public class GUI {
                            JFrame.setDefaultLookAndFeelDecorated(true);
                            MetalLookAndFeel.setCurrentTheme(new OceanTheme());
                            UIManager.setLookAndFeel(new MetalLookAndFeel());
+                           // lançamento da janela de escolher regra para alterar
                            GUI_Rule_Picker picker = new GUI_Rule_Picker("Pick a Rule");
                            picker.open();
                        } catch (UnsupportedLookAndFeelException e) {
@@ -101,6 +108,7 @@ public class GUI {
     }
     
     private static void ProcurarFicheiroButtonAction(){
+    	//acesso à lista de botões e implementação do listener do botão selecionado
         JButton button = buttonList.get(2);
 		button.addActionListener(new ActionListener() {
 			@Override
@@ -121,6 +129,7 @@ public class GUI {
     }
     
     private static void ImportarRegrasButtonAction(){
+    	//acesso à lista de botões e implementação do listener do botão selecionado
         JButton button = buttonList.get(3);
 		button.addActionListener(new ActionListener() {
 			@Override
@@ -128,6 +137,7 @@ public class GUI {
 				//mostar o ficheiro excel gerado numa nova janela
 				GUISelecionadorDeRegras selecionador;
 				try {
+					//lançamento da janela que permite selecionar e editar as regras a alterar
 					selecionador = new GUISelecionadorDeRegras();
 					selecionador.open();
 					selecionador.setVisible(true);  //preciso fazer com que volte a Janela inicial
@@ -141,6 +151,7 @@ public class GUI {
     }
     
     private static void VisualizarExtraçãoButtonAction(){
+    	//acesso à lista de botões e implementação do listener do botão selecionado
         JButton button = buttonList.get(4);
 		button.addActionListener(new ActionListener() {
 			@Override
@@ -154,6 +165,7 @@ public class GUI {
     }
     
     private static void createAndShowGUI() throws UnsupportedLookAndFeelException {
+    	//Lançamento da gui e de especificações de visualização da frame
         JFrame.setDefaultLookAndFeelDecorated(true);
         MetalLookAndFeel.setCurrentTheme(new OceanTheme());
         UIManager.setLookAndFeel(new MetalLookAndFeel());

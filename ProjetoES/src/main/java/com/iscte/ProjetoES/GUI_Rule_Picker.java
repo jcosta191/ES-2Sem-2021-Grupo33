@@ -30,13 +30,14 @@ public class GUI_Rule_Picker {
 
         public GUI_Rule_Picker(String s) throws UnsupportedLookAndFeelException {
             
-            // LISTA TESTE
+            // Inicialização da lista retirada do ficheiro .txt (que nos permite guardar as regras)
         	 ArrayList<String> ruleNames;
              Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\\\Users\\\\Miguel\\\\OneDrive\\\\Ambiente de Trabalho\\\\testfile.txt");
              ruleNames = l.getSavedRuleNames();
                
               list = new JList<String>(ruleNames.toArray(new String[ruleNames.size()]));
             
+              //para utilizar esta lista basta carregar duas vezes na regra que se deseja alterar.
             MouseListener mouseListener = new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     if (e.getClickCount() == 2) {
@@ -62,7 +63,7 @@ public class GUI_Rule_Picker {
         }
 
 
-
+      //método open torna a janela visivel e permite o começo da sua utilização
         public void open() throws UnsupportedLookAndFeelException {
             this.frame.setVisible(true);
             this.frame.setSize(600,200);
@@ -78,7 +79,7 @@ public class GUI_Rule_Picker {
         }
 
         public void addFrameContent(String s) throws UnsupportedLookAndFeelException {
-        	
+        	//adicionada uma scroll list para escolher uma regra a alterar, dois cliques.
         	JScrollPane scrollPane = new JScrollPane();
         	scrollPane.setViewportView(list);
         	list.setLayoutOrientation(JList.VERTICAL);
