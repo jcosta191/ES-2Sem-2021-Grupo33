@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.OceanTheme;
 
+import com.iscte.ProjetoES.CodeSmells.SeletorCodeSm;
 import com.iscte.ProjetoES.Escritores.EscritorJTable;
 import com.iscte.ProjetoES.Leitores.LeitorDiretorios;
 
@@ -37,6 +38,8 @@ public class GUI {
         NewRuleButtonAction();
         addAButton("Alterar Regra Existente", pane);
         ChangeRuleButtonAction();
+        addAButton("Detetar CodeSmells", pane);
+        acaoBotaoDetetarCodesmells();
         txtChooseAFile.setHorizontalAlignment(JTextField.CENTER);
         txtChooseAFile.setMaximumSize(new Dimension(400,500));
         pane.add(txtChooseAFile);
@@ -99,6 +102,32 @@ public class GUI {
            }
        });
     }
+    
+    private static void acaoBotaoDetetarCodesmells(){
+        JButton button = buttonList.get(4);
+       button.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                   public void run() {
+                	SeletorCodeSm dialog = new SeletorCodeSm();
+           			dialog.setVisible(true);
+//           			try {
+//           				dialog.detecaoLongMethod(filepath + "/" + name + "_metrics.xls",metrica1.getSelectedItem().toString(), Integer.parseInt(textField1.getText()),  andor1.getSelectedItem().toString(), metrica2.getSelectedItem().toString(), Integer.parseInt(textField2.getText()));
+//           				dialog.detecaoGodClass(filepath + "/" + name + "_metrics.xls",metrica3.getSelectedItem().toString(), Integer.parseInt(textField3.getText()), andor2.getSelectedItem().toString(), metrica4.getSelectedItem().toString(), Integer.parseInt(textField4.getText()));
+//           			} catch (NumberFormatException | IOException e1) {
+//           				// TODO Auto-generated catch block
+//           				e1.printStackTrace();
+//           			}
+                   }
+               });
+           }
+       });
+    }
+    
+    
+
+			
     
     private static void ProcurarFicheiroButtonAction(){
         JButton button = buttonList.get(0);
