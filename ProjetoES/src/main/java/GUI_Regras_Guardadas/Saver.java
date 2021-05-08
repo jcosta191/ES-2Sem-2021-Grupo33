@@ -18,7 +18,6 @@ public class Saver {
         path.createNewFile();
     }
     public void  writeRule(ArrayList<String> rule) throws IOException, NullPointerException {
-        System.out.println("Im here");
         if(!(new File("RuleFile.txt")).isFile()){
             System.out.println("File created");
             createFile();

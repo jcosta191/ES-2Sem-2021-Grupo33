@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8918c3e-2842-455a-a220-173567cc4048" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_05_2021_13_44__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_05_2021_13_44__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_04_2021_10_43__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_04_2021_10_43__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Saver.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Saver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_New_Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_New_Rule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Leitores/LeitorJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Leitores/LeitorJava.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,9 +195,16 @@
       <updated>1620380885707</updated>
       <workItem from="1620380893650" duration="295000" />
       <workItem from="1620385261086" duration="1282000" />
-      <workItem from="1620396417672" duration="11519000" />
+      <workItem from="1620396417672" duration="11778000" />
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="GUI_New_Rule já guarda as regras efetivamente">
+      <created>1620488514529</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620488514529</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +215,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update branch" />
+    <MESSAGE value="GUI_New_Rule já guarda as regras efetivamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI_New_Rule já guarda as regras efetivamente" />
   </component>
 </project>
