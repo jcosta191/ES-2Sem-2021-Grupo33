@@ -1,4 +1,4 @@
-package CodeSmells;
+package com.iscte.ProjetoES.CodeSmells;
 
 import java.awt.Color;
 import java.awt.EventQueue;

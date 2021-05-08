@@ -1,4 +1,4 @@
-package CodeSmells;
+package com.iscte.ProjetoES.CodeSmells;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import java.io.IOException;
