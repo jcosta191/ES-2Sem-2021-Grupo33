@@ -12,11 +12,7 @@ public class Regras {
 	public String nome;
 	public int lop;
 	private boolean isCodeSmell;
-//	private VerificarRegras vr;
-
-/*	public Regra(ArrayList <AuxRegra> metrics) {
-		this.metrics=metrics;
-	}*/
+//	private Verificacao vr;
 
 	public Regras(String name, int a, int b, int c, int d, int e, int lop){
 		this.nome=name;
