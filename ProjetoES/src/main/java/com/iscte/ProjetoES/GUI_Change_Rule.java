@@ -55,7 +55,7 @@ public class GUI_Change_Rule {
         }
 
 
-
+      //método open torna a janela visivel e permite o começo da sua utilização
         public void open() throws UnsupportedLookAndFeelException {
             this.frame.setVisible(true);
             this.frame.setSize(800,350);
@@ -71,7 +71,9 @@ public class GUI_Change_Rule {
         }
 
         public void addFrameContent(String s) throws UnsupportedLookAndFeelException {
-        	
+        	// aqui optámos por utilizar um gridBagLayout() porque era mais fácil de posicionar os elementos no local desejado
+        	// a partir dos atributos gridx e gridy conseguimos colocar cada elemento criado na sua "coordenada" certa
+        	// os valores dos JTextField e das CheckBoxes foram guardados como atributos da classe para serem mais facilmente acessíveis
         	GridBagLayout layout = new GridBagLayout();
         	GridBagConstraints c = new GridBagConstraints();
         	panel.setLayout(layout);

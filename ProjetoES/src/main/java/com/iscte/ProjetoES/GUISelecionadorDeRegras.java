@@ -19,9 +19,9 @@ import GUI_Regras_Guardadas.Leitor_Regras_Guardadas;
 
         public GUISelecionadorDeRegras() throws UnsupportedLookAndFeelException {
             
-            // LISTA TESTE
+            // Inicialização da lista retirada do ficheiro .txt (que nos permite guardar as regras)
           ArrayList<String> ruleNames;
-          Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\\\Users\\\\Miguel\\\\OneDrive\\\\Ambiente de Trabalho\\\\testfile.txt");
+          Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\migue\\OneDrive\\Documentos\\3ºAno\\testfile.txt");
           ruleNames = l.getSavedRuleNames();
             
            list = new JList<String>(ruleNames.toArray(new String[ruleNames.size()]));
@@ -31,10 +31,10 @@ import GUI_Regras_Guardadas.Leitor_Regras_Guardadas;
         }
 
 
-
+      //método open torna a janela visivel e permite o começo da sua utilização
         public void open() throws UnsupportedLookAndFeelException {
             this.frame.setVisible(true);
-            this.frame.setSize(600,200);
+            this.frame.setSize(600,215);
            
             Point d3 = new Point();
             
@@ -47,12 +47,25 @@ import GUI_Regras_Guardadas.Leitor_Regras_Guardadas;
         }
 
         public void addFrameContent() throws UnsupportedLookAndFeelException {
-        	
+        	//Adicionada uma scroll list com as regras existentes, com dois botões Editar e Selecionar, é possivel escolher varios resultados
         	JScrollPane scrollPane = new JScrollPane();
         	scrollPane.setViewportView(list);
         	list.setLayoutOrientation(JList.VERTICAL);
         	DefaultListCellRenderer renderer = (DefaultListCellRenderer) list.getCellRenderer();
         	renderer.setHorizontalAlignment(SwingConstants.CENTER);
+        	
+        	JButton EditarRegras = new JButton("Editar Regras");
+        	
+        	class ListenerEditarRegras implements ActionListener {
+    			
+    			public void actionPerformed ( ActionEvent e ) {
+    				for(String seleção : list.getSelectedValuesList()) {
+    					System.out.println(seleção);
+    				}
+    			}
+    		}
+            
+    		EditarRegras.addActionListener(new ListenerEditarRegras());
 
         	JButton SelecionarRegras = new JButton("Selecionar Regras");
         	
@@ -66,9 +79,17 @@ import GUI_Regras_Guardadas.Leitor_Regras_Guardadas;
     		}
             
     		SelecionarRegras.addActionListener(new ListenerSelecionarRegras());
-        	
+    		
+    		
+        	scrollPane.setSize(600, 150);
         	frame.add(scrollPane, BorderLayout.NORTH);
-        	frame.add(SelecionarRegras,BorderLayout.SOUTH);
+        	
+        	JPanel panelSouth = new JPanel();
+        	panelSouth.setSize(600,50);
+        	panelSouth.add(EditarRegras, BorderLayout.EAST);
+        	panelSouth.add(SelecionarRegras,BorderLayout.WEST);
+        	
+        	frame.add(panelSouth, BorderLayout.SOUTH);
         	
            // this.frame.getContentPane().add(panel, BorderLayout.NORTH);   
         	

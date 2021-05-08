@@ -17,6 +17,7 @@ public class Leitor_Regras_Guardadas {
         this.filePath = filePath;
 
     }
+    //Lê o ficheiro e retira a arraylist de string nele presente.
     public ArrayList lineReaderFile(){
         File file = new File(filePath);
         try {
@@ -34,6 +35,8 @@ public class Leitor_Regras_Guardadas {
         }
         return text;
     }
+    
+    //corre o ficheiro e retira os nomes das regras guardadas
     public ArrayList getSavedRuleNames(){
        ArrayList<String> ruleNames = new ArrayList();
        this.lineReaderFile();
@@ -47,7 +50,7 @@ public class Leitor_Regras_Guardadas {
     }
 
     public static void main(String[] args) {
-        Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\Miguel\\OneDrive\\Ambiente de Trabalho\\testfile.txt");
+        Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("C:\\Users\\migue\\OneDrive\\Documentos\\3ºAno\\testfile.txt");
         l.getSavedRuleNames();
     }
 }
