@@ -17,17 +17,27 @@ public class Saver {
         path = new File("RuleFile.txt");
         path.createNewFile();
     }
-    public void  writeRule(ArrayList<String> rule) throws IOException, NullPointerException {
-        if(!(new File("RuleFile.txt")).isFile()){
+    public void  writeRule(ArrayList<String> rule, String pathname) throws IOException, NullPointerException {
+        if(!(new File(pathname)).isFile()){
             System.out.println("File created");
             createFile();
         }
-        FileWriter fw = new FileWriter("RuleFile.txt", true);
+        FileWriter fw = new FileWriter(pathname, true);
         BufferedWriter bw = new BufferedWriter(fw);
         for(String ruleargument: rule) {
             bw.write(ruleargument + ";");
         }
         bw.newLine();
+        bw.close();
+        fw.close();
+    }
+    public void EditRule(ArrayList<String> newRules, String pathname) throws IOException {
+        FileWriter fw = new FileWriter(pathname, false);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for(String ruleargument: newRules) {
+            bw.write(ruleargument);
+            bw.newLine();
+        }
         bw.close();
         fw.close();
     }

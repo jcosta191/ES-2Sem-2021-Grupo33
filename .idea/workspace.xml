@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8918c3e-2842-455a-a220-173567cc4048" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Saver.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Saver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_New_Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_New_Rule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +40,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
-  <component name="RunManager" selected="Application.GUI_New_Rule (1)">
+  <component name="RunManager" selected="Application.Leitor_Regras_Guardadas">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.App" />
       <module name="ProjetoES" />
@@ -170,8 +173,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GUI_New_Rule (1)" />
         <item itemvalue="Application.Leitor_Regras_Guardadas" />
+        <item itemvalue="Application.GUI_New_Rule (1)" />
         <item itemvalue="Application.GUI_Change_Rule" />
         <item itemvalue="Application.GUI_Rule_Picker" />
         <item itemvalue="Application.App" />
@@ -195,7 +198,7 @@
       <updated>1620380885707</updated>
       <workItem from="1620380893650" duration="295000" />
       <workItem from="1620385261086" duration="1282000" />
-      <workItem from="1620396417672" duration="11778000" />
+      <workItem from="1620396417672" duration="23290000" />
     </task>
     <task id="LOCAL-00002" summary="GUI_New_Rule já guarda as regras efetivamente">
       <created>1620488514529</created>
@@ -204,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620488514529</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Limpeza de código">
+      <created>1620489556037</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620489556037</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +226,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update branch" />
     <MESSAGE value="GUI_New_Rule já guarda as regras efetivamente" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI_New_Rule já guarda as regras efetivamente" />
+    <MESSAGE value="Limpeza de código" />
+    <option name="LAST_COMMIT_MESSAGE" value="Limpeza de código" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

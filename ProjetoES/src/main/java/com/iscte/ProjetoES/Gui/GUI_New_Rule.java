@@ -328,7 +328,7 @@ public class GUI_New_Rule {
             regraGuardada.add("0");
         }
         try {
-            saver.writeRule(regraGuardada);
+            saver.writeRule(regraGuardada, "RuleFile.txt");
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
