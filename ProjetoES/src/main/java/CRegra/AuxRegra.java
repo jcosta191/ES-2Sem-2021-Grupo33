@@ -1,5 +1,5 @@
 
-package Regra;
+package CRegra;
 
 /*
  * Classe auxiliar que permite criar um �nico objeto que cont�m a metrica, limite, oplog e resultado da metrica
@@ -9,7 +9,7 @@ package Regra;
  * lop-operador l�gico
  */
 public class AuxRegra {
-	private int metrica;
+	public final int metrica;
 	private String nomeMetrica;
 	private int limite; 
 	private int resultadoMetrica;

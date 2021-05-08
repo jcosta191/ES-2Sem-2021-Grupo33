@@ -1,4 +1,4 @@
-package Regra;
+package CRegra;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *a considerar para a forma��o de express�es com as metricas.
  */
 public class Regras {
-//	public ArrayList<AuxRegra> metrics=new ArrayList<AuxRegra>();
+	public ArrayList<AuxRegra> metrics=new ArrayList<AuxRegra>();
 	public int[] args;
 	public String nome;
 	public int lop;
@@ -32,6 +32,7 @@ public class Regras {
 				metrics.add(ar);
 			}
 		this.args=args;
+		this.metrics=metrics;
 	}
 
 

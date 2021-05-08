@@ -1,4 +1,4 @@
-package Regra;
+package CRegra;
 
 //import java.io.File;
 import java.io.BufferedWriter;

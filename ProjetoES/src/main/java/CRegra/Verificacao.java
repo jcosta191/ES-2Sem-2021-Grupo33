@@ -1,9 +1,9 @@
-package Regra;
+package CRegra;
 
 import java.util.ArrayList;
 
 public class Verificacao { //incompleto
-/*	boolean result=false;
+	boolean result=false;
 	ArrayList<Integer> leituras=new ArrayList<>();
 	public boolean check(int limite, int contagem){
 		return limite<=contagem;
@@ -15,12 +15,16 @@ public class Verificacao { //incompleto
     	else // and
     		result=true;
     	for(AuxRegra condition: r.metrics)
-			for(int resultado: leituras)
+			for(int i=0;i< leituras.size();i++)
 				//falta verificar se tipo do limite corresponde ao tipo da leitura
 				//seja pelo nome ou pelo id [1,5]
-   		 		if (check(condition.getLimite(), resultado)!=result)
-    				return !result;
+				if(condition.metrica==i)
+   		 			if (check(condition.getLimite(), leituras.get(i))!=result)
+    					return !result;
     return result;
 
     }
-*/}
+
+
+
+}
