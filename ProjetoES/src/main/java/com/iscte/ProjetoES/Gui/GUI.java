@@ -19,6 +19,11 @@ import static javax.swing.JFrame.*;
 public class GUI {
     private static List<JButton> buttonList = new ArrayList<>();
     private static JTextField txtChooseAFile = new JTextField("Nome do Ficheiro");
+    
+    private static String excelLocation;
+    
+    protected String name;
+    protected String filepath;
    
     public static void addComponentsToPane(Container pane) {
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
@@ -147,4 +152,11 @@ public class GUI {
             }
         });
     }
+    
+    public static String getLocation() {
+		return excelLocation;
+	}
+	public void setLocation() {
+		excelLocation = filepath + "/" + name + "_metrics.xls";
+	}
 }
