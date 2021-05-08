@@ -1,14 +1,13 @@
 package com.iscte.ProjetoES.CodeSmells;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.FileInputStream;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
-
-import com.iscte.ProjetoES.Gui.GUI;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 import org.apache.poi.ss.usermodel.Row;
+import com.iscte.ProjetoES.Gui.GUI;
 import org.apache.poi.ss.usermodel.Cell;
 import java.io.Serializable;
 
@@ -24,54 +23,37 @@ public class ComparadorCodeSm implements Serializable {
 	private int VN2;
 	private int FN2;
 
-	public int getVP1() {
-		return VP1;
-	}
+	public int getVP1() { return VP1; }
 
-	public int getFP1() {
-		return FP1;
-	}
+	public int getFP1() { return FP1; }
 
-	public int getVN1() {
-		return VN1;
-	}
+	public int getVN1() { return VN1; }
 
-	public int getFN1() {
-		return FN1;
-	}
+	public int getFN1() { return FN1; }
 
-	public int getVP2() {
-		return VP2;
-	}
+	public int getVP2() { return VP2; }
 
-	public int getFP2() {
-		return FP2;
-	}
+	public int getFP2() { return FP2; }
 
-	public int getVN2() {
-		return VN2;
-	}
+	public int getVN2() { return VN2; }
 
-	public int getFN2() {
-		return FN2;
-	}
+	public int getFN2() { return FN2; }
 
 	public void compararLongMethod() throws IOException {
-		VP1 = 0;
-		FP1 = 0;
-		VN1 = 0;
-		FN1 = 0;
-		InputStream excelFile = new FileInputStream(GUI.getLocation());
-		workbookread = new HSSFWorkbook(excelFile);
-		org.apache.poi.ss.usermodel.Sheet sheet = workbookread.getSheetAt(0);
+		
+		VP1 = 0; FP1 = 0; VN1 = 0; FN1 = 0;
+		
+		InputStream ficheiroExcel = new FileInputStream(GUI.getLocation());
+		workbookread = new HSSFWorkbook(ficheiroExcel);
+		org.apache.poi.ss.usermodel.Sheet folhaExcel = workbookread.getSheetAt(0);
 		InputStream excelFile3 = new FileInputStream("Code_Smells.xls");
 		workbookread3 = new HSSFWorkbook(excelFile3);
 		org.apache.poi.ss.usermodel.Sheet sheet3 = workbookread3.getSheetAt(0);
-		for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-			Row excelrow = sheet.getRow(i);
-			Cell classname = excelrow.getCell(2);
-			Cell methodname = excelrow.getCell(3);
-			Cell isLongMethod = excelrow.getCell(9);
+		for (int i = 1; i <= folhaExcel.getLastRowNum(); i++) {
+			Row linhaExcel = folhaExcel.getRow(i);
+			Cell classname = linhaExcel.getCell(2);
+			Cell methodname = linhaExcel.getCell(3);
+			Cell isLongMethod = linhaExcel.getCell(9);
 			for (int j = 1; j <= sheet3.getLastRowNum(); j++) {
 				Row excelrow2 = sheet3.getRow(j);
 				Cell classname2 = excelrow2.getCell(2);
@@ -101,16 +83,16 @@ public class ComparadorCodeSm implements Serializable {
 		FP2 = 0;
 		VN2 = 0;
 		FN2 = 0;
-		InputStream excelFile = new FileInputStream(GUI.getLocation());
-		workbookread = new HSSFWorkbook(excelFile);
-		org.apache.poi.ss.usermodel.Sheet sheet = workbookread.getSheetAt(0);
+		InputStream ficheiroExcel = new FileInputStream(GUI.getLocation());
+		workbookread = new HSSFWorkbook(ficheiroExcel);
+		org.apache.poi.ss.usermodel.Sheet folhaExcel = workbookread.getSheetAt(0);
 		InputStream excelFile3 = new FileInputStream("Code_Smells.xls");
 		workbookread3 = new HSSFWorkbook(excelFile3);
 		org.apache.poi.ss.usermodel.Sheet sheet3 = workbookread3.getSheetAt(0);
-		for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-			Row excelrow = sheet.getRow(i);
-			Cell classname = excelrow.getCell(2);
-			Cell isGodClass = excelrow.getCell(10);
+		for (int i = 1; i <= folhaExcel.getLastRowNum(); i++) {
+			Row linhaExcel = folhaExcel.getRow(i);
+			Cell classname = linhaExcel.getCell(2);
+			Cell isGodClass = linhaExcel.getCell(10);
 			if (isGodClass != null) {
 				for (int j = 1; j <= sheet3.getLastRowNum(); j++) {
 					Row excelrow2 = sheet3.getRow(j);
