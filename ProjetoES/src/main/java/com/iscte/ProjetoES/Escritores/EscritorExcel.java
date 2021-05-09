@@ -16,7 +16,7 @@ public class EscritorExcel {
 	private static List<Metodo> methods = new ArrayList<>();
 
 	// Initializing employees data to insert into the excel file
-	
+
 	private EscritorExcel() {
 	}
 
@@ -44,7 +44,18 @@ public class EscritorExcel {
 		headerCellStyle.setFont(headerFont);
 
 		// Create a Row
-		Row headerRow = sheet.createRow(0);
+
+		Row r = sheet.createRow(0);
+
+		r.createCell(0).setCellValue("MethodID");
+		r.createCell(1).setCellValue("package");
+		r.createCell(2).setCellValue("class");
+		r.createCell(3).setCellValue("method");
+		r.createCell(4).setCellValue("NOM_class");
+		r.createCell(5).setCellValue("LOC_class");
+		r.createCell(6).setCellValue("WMC_class");
+		r.createCell(7).setCellValue("LOC_method");
+		r.createCell(8).setCellValue("CYCLO_method");
 
 		// Create Other rows and cells with employees data
 		int rowNum = 1;
@@ -58,11 +69,11 @@ public class EscritorExcel {
 			row.createCell(2).setCellValue(method.getClasse());
 
 			row.createCell(3).setCellValue(method.getMethod());
-			
+
 			row.createCell(4).setCellValue(method.getNOM_class());
-		
+
 			row.createCell(5).setCellValue(method.getLOC_class());
-			
+
 			row.createCell(6).setCellValue(method.getWMC_class());
 			
 			row.createCell(7).setCellValue(method.getLOC_method());
@@ -76,7 +87,7 @@ public class EscritorExcel {
 		}
 
 		// Write the output to a file
-		FileOutputStream fileOut = new FileOutputStream(a+"_metrics.xlsx");
+		FileOutputStream fileOut = new FileOutputStream(a + "_metrics.xlsx");
 		workbook.write(fileOut);
 		fileOut.close();
 
@@ -84,7 +95,8 @@ public class EscritorExcel {
 		workbook.close();
 	}
 	
+
 	public static void adicionaLista(Metodo a) {
 		methods.add(a);
-		}
+	}
 }

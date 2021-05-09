@@ -41,7 +41,6 @@ public class LeitorDiretorios extends JFrame{
 	void initContentPanel() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(50, 100, 1300, 600);
-		initMenus();
 		contentPane = new JPanel(new BorderLayout());
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -79,38 +78,7 @@ public class LeitorDiretorios extends JFrame{
 		excel_panel.add(scrollPane);
 		scrollPane.setViewportView(table);
 	}
-    
-    private void initMenus() {
-		menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
-
-		Diretorio = new JMenu("Diretorio");
-		menuBar.add(Diretorio);
-
-		ImportarDiretorio = new JMenuItem("Importar Diretorio");
-		Diretorio.add(ImportarDiretorio);
-
-		ImportarDiretorio.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-				escolherDiretorio();
-			}
-		});
-	}
-    
-    public void escolherDiretorio() {
-		JFileChooser escolherDiretorio = new JFileChooser();
-		escolherDiretorio.setAcceptAllFileFilterUsed(false);
-		escolherDiretorio.showOpenDialog(null);
-		File dir = escolherDiretorio.getSelectedFile();
-		File[] listOfFiles = dir.listFiles();
-        for (File file : listOfFiles) {
-		    if (file.isFile()) {
-		    	
-		    }
-		}
-	}
-		
+  
 	
 	
 	public void openDir() {
