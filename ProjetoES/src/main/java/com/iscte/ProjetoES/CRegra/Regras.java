@@ -7,23 +7,22 @@ import java.util.ArrayList;
  *a considerar para a forma��o de express�es com as metricas.
  */
 public class Regras {
-	public ArrayList<AuxRegra> metrics=new ArrayList<AuxRegra>();
+	public ArrayList<AuxRegra> metrics=new ArrayList<AuxRegra>(); // conjunto de condicoes que compoem a regra
 
-	public int[] args;
-	public String nome;
-	public int lop;
-	private boolean isCodeSmell;
-//	private Verificacao vr;
+	public int[] args; //array the thresholds
+	public String nome; // nome da regra
+	public int lop; // 0-OR 1-AND
+	private boolean isCodeSmell; // boolean a usar na coluna da regra, culminar da sua verificacao perante um metodo
 
 	public Regras(String name, int a, int b, int c, int d, int e, int lop){
 		this.nome=name;
-		if (lop!=0 && lop!=1)
+		if (lop!=0 && lop!=1) // se nao fpr 0 ou 1 nao corresponde a um dos operadores logicos suportados
 			throw new IllegalArgumentException (" lop invalido");
 		this.lop=lop;
 		int args[]={a,b,c,d,e};
 		ArrayList<AuxRegra> metrics=new ArrayList<AuxRegra>();
 		for (int i =0; i<args.length;i++)
-			if (args[i]>0) // valor 0 ou < é considerado nulo
+			if (args[i]>0) // valor 0 ou menor é considera-se que nao é para verificar a metrica em questao, logo nao se cria auxregra(condicão da regra)
 			{
 				AuxRegra ar=new AuxRegra(i + 1, args[i]);
 				metrics.add(ar);
@@ -31,43 +30,23 @@ public class Regras {
 		this.args=args;
 		this.metrics=metrics;
 	}
-
-
-/*
- * Metodo que verifica se existe o codeSmell isLongMethod quando o operador � AND ou OR, usando as classes auxiliares Verifica Regra e auxRegra
- *Este metodo verifica se as metricas necess�rias foram selecionadas pelo user(e utiliza os respetivos limites)
- * , caso sim, verifica se estamos perante um Long Method tendo em conta o operador l�gico selecionado pelo user.
- */
-/*	public boolean longMethod() {
-		for(int i=0; i != metrics.size(); i++) {
-			for(int j=0; j != metrics.size(); j++) {
-			if(metrics.get(i).getNomeMetrica() == "LOC_Method" && metrics.get(j).getNomeMetrica() == "CYCLO_method" && metrics.get(i).getLop()== "AND") {
-				isCodeSmell=vr.isLongMethod_AND(metrics.get(i).getLimite(), metrics.get(j).getLimite());
-			}else 
-				if(metrics.get(i).getNomeMetrica() == "LOC_Method" && metrics.get(j).getNomeMetrica() == "CYCLO_method" && metrics.get(i).getLop()== "OR") {
-				isCodeSmell=vr.isLongMethod_OR(metrics.get(i).getLimite(), metrics.get(j).getLimite());
-				}
-			}
-		}
-		return isCodeSmell;
+	ArrayList<Integer> leituras=new ArrayList<>();
+	public boolean check(int limite, int contagem){
+		return limite<=contagem;
 	}
-*/
-/*
- * Metodo que verifica se existe o codeSmell isGodClass quando o operador � AND ou OR, usando as classes auxiliares Verifica Regra e auxRegra
- * Este metodo verifica se as metricas necess�rias foram selecionadas pelo user(e utiliza os respetivos limites)
- * , caso sim, verifica se estamos perante uma God Class tendo em conta o operador l�gico selecionado pelo user.
 
-	public boolean isGodClass() { 
-		for(int i=0; i != metrics.size(); i++) {
-			for(int j=0; j != metrics.size(); j++) {
-			if(metrics.get(i).getNomeMetrica() == "WMC_class" && metrics.get(j).getNomeMetrica() == "NOM_class" && metrics.get(i).getLop()== "AND") {
-				isCodeSmell=vr.isGODClass_AND(metrics.get(i).getLimite(), metrics.get(j).getLimite());
-			}else 
-				if(metrics.get(i).getNomeMetrica() == "LOC_Method" && metrics.get(j).getNomeMetrica() == "CYCLO_method" && metrics.get(i).getLop()== "OR") {
-				isCodeSmell=vr.isGODClass_OR(metrics.get(i).getLimite(), metrics.get(j).getLimite());
-				}
-			}
+	public void verify(Regras r, ArrayList<Integer> leituras){
+		if(this.metrics.size()>0) { // evitar resultados falsos
+			if (this.lop == 0) //or
+				isCodeSmell = false;
+			else // and
+				isCodeSmell = true;
+			for (AuxRegra condition : this.metrics)
+				if (check(condition.getLimite(), leituras.get(condition.metrica)) != isCodeSmell)
+					// se o lop for OR o primeiro true acaba a verificação
+					// se for AND o primeiro false termina o processo
+					isCodeSmell = !isCodeSmell; // troca caso refutacao
 		}
-		return isCodeSmell;
-	}*/
+		else System.out.println("Regra vazia!"); // nao deve acontecer
+	}
 }
