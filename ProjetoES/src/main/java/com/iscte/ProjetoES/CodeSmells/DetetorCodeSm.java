@@ -204,7 +204,7 @@ public class DetetorCodeSm implements Serializable {
 		                	}
 		                }
 		                
-		                if (metrica3.equals("LOC_class") && etrica4.equals("WMC_class")) {
+		                if (metrica3.equals("LOC_class") && metrica4.equals("WMC_class")) {
 		                	if(Integer.parseInt(loc) > valor3 || Integer.parseInt(wmc) > valor4) {
 		                		a=true;
 		                	}
