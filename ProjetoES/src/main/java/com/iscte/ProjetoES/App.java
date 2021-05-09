@@ -28,7 +28,7 @@ public class App {
 		leituras1.add(29);leituras1.add(1371);leituras1.add(328);leituras1.add(20);leituras1.add(50);
 
 
-	
+
 		System.out.println("L-God Class or "+godor.isCodeSmell);
 		System.out.println("L");
 		System.out.println("OR => God_Class ->"+Verificacao.verifyBaseOR(leituras)[0]+"    Long_Method ->"+Verificacao.verifyBaseOR(leituras)[1]);
