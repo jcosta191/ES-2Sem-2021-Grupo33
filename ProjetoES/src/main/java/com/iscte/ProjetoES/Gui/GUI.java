@@ -37,6 +37,7 @@ public class GUI {
 
         txtChooseAFile.setMaximumSize(new Dimension(600,500));
         pane.add(txtChooseAFile);
+
         
         addAButton("Importar Regras Existentes", pane);
         ImportarRegrasButtonAction();

@@ -117,7 +117,6 @@ public class LeitorDiretorios extends JFrame{
 		
 		LeitorJava.getInstance().abrirJava();
 		table.setModel(LeitorJava.getInstance());
-		info_panel.add(new JLabel(LeitorJava.getInstance().getRowCount() + " métodos"));
 		setVisible(true);
 		}
 	
