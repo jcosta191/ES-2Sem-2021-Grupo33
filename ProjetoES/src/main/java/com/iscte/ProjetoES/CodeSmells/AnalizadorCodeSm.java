@@ -15,20 +15,20 @@ import org.jfree.chart.ChartPanel;
 public class AnalizadorCodeSm extends JDialog {
 
 	// Variáveis
-	DefaultPieDataset dataset = null;
+	DefaultPieDataset dadosGrafico = null;
 	
-	public JFreeChart createChart(DefaultPieDataset dataset, String CodeSmells) {
+	public JFreeChart createChart(DefaultPieDataset dadosGrafico, String CodeSmells) {
 
         JFreeChart graficoTarte = ChartFactory.createPieChart(
-                "Avaliação da detecção dos CodeSmells em termos de qualidade - " + CodeSmells, dataset, false, true, false);
+                "Avaliação da detecção dos CodeSmells em termos de qualidade - " + CodeSmells, dadosGrafico, false, true, false);
 
         return graficoTarte;
     }
 
     public void createChart(int VP, int FP, int VN, int FN, String CodeSmell) {
         // Criação Gráfico
-    	dataset = createDataset(VP,FP,VN,FN);
-        JFreeChart grafico = createChart(dataset, CodeSmell);
+    	dadosGrafico = criarDataSet(VP,FP,VN,FN);
+        JFreeChart grafico = createChart(dadosGrafico, CodeSmell);
         ChartPanel janelaGraficos = new ChartPanel(grafico);
         
         // Criação Janela
@@ -44,20 +44,21 @@ public class AnalizadorCodeSm extends JDialog {
         
     }
     
-    public DefaultPieDataset createDataset(int VP, int FP, int VN, int FN) {
+    public DefaultPieDataset criarDataSet(int VP, int FP, int VN, int FN) {
 
-        DefaultPieDataset dataset = new DefaultPieDataset();
+    	// Criação do dataset e atribuição dos respetivos valores, no final devolve-se o dataset
+        DefaultPieDataset dadosGrafico = new DefaultPieDataset();
         
-        dataset.setValue("Verdadeiros Positivos (VP) = " +VP, VP);
-        dataset.setValue("Falsos Positivos (FP) = " +FP, FP);
-        dataset.setValue("Verdadeiros Negativos (VN) = " +VN, VN);
-        dataset.setValue("Falsos Negativos (FN) = " +FN, FN);
+        dadosGrafico.setValue("Verdadeiros Positivos (VP) = " +VP, VP);
+        dadosGrafico.setValue("Falsos Positivos (FP) = " +FP, FP);
+        dadosGrafico.setValue("Verdadeiros Negativos (VN) = " +VN, VN);
+        dadosGrafico.setValue("Falsos Negativos (FN) = " +FN, FN);
 
-        return dataset;
+        return dadosGrafico;
     }
 
+    // Metodo para correr o Analizador dos CodeSmells
     public static void main(String[] args) {
-
         EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {

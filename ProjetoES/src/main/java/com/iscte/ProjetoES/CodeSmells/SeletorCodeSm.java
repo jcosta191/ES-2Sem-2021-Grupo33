@@ -19,41 +19,40 @@ import java.io.IOException;
 public class SeletorCodeSm extends JDialog {
 
 	private static final long serialVersionUID = 1L;
+	
+	// Definição das variáveis e constantes a serem usadas
 	private DetetorCodeSm DetetorCodeSm = new DetetorCodeSm();
 	private ComparadorCodeSm ComparadorCodeSm = new ComparadorCodeSm();
-	private final JPanel contentPanel = new JPanel();
+	private final JPanel janelaPrincipal = new JPanel();
 		
-	/**
-	 * Launch the application.
-	 */
+	// Ligar o Seletor de CodeSmells (So para debug)
 	public static void main(String[] args) {
 		try {
 			SeletorCodeSm dialog = new SeletorCodeSm();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception excecao) {
+			System.out.println("Erro ocorrido: " + excecao);
 		}
 	}
-		/**
-	 * Create the dialog.
-	 */
+
+	// Criação da janela principal e adição dos botões
 	public SeletorCodeSm() {
-		setTitle("Deteção de Code Smells");
+		setTitle("CodeSmells - LM, GC & Avaliador de Qualidade");
 		setBounds(100, 100, 1104, 693);
-		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		contentPanel.setLayout(null);
 		
-		JScrollPane scrollPane1 = new JScrollPane();
-		scrollPane1.setBounds(10, 39, 526, 565);
-		contentPanel.add(scrollPane1);
+		getContentPane().setLayout(new BorderLayout());
+		janelaPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(janelaPrincipal, BorderLayout.CENTER);
+		janelaPrincipal.setLayout(null);
+		
+		JScrollPane painelDaEsquerda = new JScrollPane();
+		JScrollPane painelDaDireita = new JScrollPane();
 		
 		DetetorCodeSm.setTableLongMethod(new JTable());
 		DetetorCodeSm.getTableLongMethod().setModel(new DefaultTableModel(
 			new Object[][] {},
-			new String[] { "Method ID", "is Long Method" }) {
+			new String[] { "ID do Método", "is_LM" }) {
 			Class[] columnTypes = new Class[] {
 				String.class, String.class
 			};
@@ -61,15 +60,11 @@ public class SeletorCodeSm extends JDialog {
 				return columnTypes[columnIndex];
 			}
 		});
-		scrollPane1.setViewportView(DetetorCodeSm.getTableLongMethod());
-		
-		JScrollPane scrollPane2 = new JScrollPane();
-		scrollPane2.setBounds(573, 39, 493, 565);
-		contentPanel.add(scrollPane2);
+		painelDaEsquerda.setViewportView(DetetorCodeSm.getTableLongMethod());
 		
 		DetetorCodeSm.setTableGodClass(new JTable());
 		DetetorCodeSm.getTableGodClass().setModel(new DefaultTableModel(
-			new Object[][] {}, new String[] {"Class", "is God Class"}) {
+			new Object[][] {}, new String[] {"Classe", "is_GC"}) {
 			Class[] columnTypes = new Class[] {
 				String.class, String.class
 			};
@@ -77,47 +72,53 @@ public class SeletorCodeSm extends JDialog {
 				return columnTypes[columnIndex];
 			}
 		});
-		scrollPane2.setViewportView(DetetorCodeSm.getTableGodClass());
+		painelDaDireita.setViewportView(DetetorCodeSm.getTableGodClass());
 		
-		JLabel lblLongMethod = new JLabel("Long Method:");
-		lblLongMethod.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblLongMethod.setBounds(10, 11, 204, 26);
-		contentPanel.add(lblLongMethod);
+		JLabel tituloDosLM = new JLabel("Long Methods");
+		tituloDosLM.setFont(new Font("Calibri", Font.BOLD, 16));
+
+		JLabel tituloDasGC = new JLabel("God Classes");
+		tituloDasGC.setFont(new Font("Calibri", Font.BOLD, 16));
 		
-		JLabel lblGodClass = new JLabel("God Class:");
-		lblGodClass.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblGodClass.setBounds(573, 11, 204, 26);
-		contentPanel.add(lblGodClass);
-		
-		JButton btnqualidade = new JButton("Avaliar Qualidade dos Code Smells Detetados");
-		btnqualidade.addActionListener(new ActionListener() {
+		JButton botaoAvaliarQualidade = new JButton("Avaliador Qualidade CodeSmells");
+		botaoAvaliarQualidade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					ComparadorCodeSm.comparadorLM();
 					ComparadorCodeSm.comparadorGC();
-					AnalizadorCodeSm c = new AnalizadorCodeSm();
-					c.createChart(ComparadorCodeSm.getVP1(), ComparadorCodeSm.getFP1(), ComparadorCodeSm.getVN1(), ComparadorCodeSm.getFN1(),"LongMethod");
-					c.setVisible(true);
-					AnalizadorCodeSm c1 = new AnalizadorCodeSm();
-					c1.createChart(ComparadorCodeSm.getVP2(), ComparadorCodeSm.getFP2(), ComparadorCodeSm.getVN2(), ComparadorCodeSm.getFN2(), "GodClass");
-					c1.setVisible(true);
 					
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					AnalizadorCodeSm anaCodeSm = new AnalizadorCodeSm();
+					anaCodeSm.createChart(ComparadorCodeSm.getVP1(), ComparadorCodeSm.getFP1(), ComparadorCodeSm.getVN1(), ComparadorCodeSm.getFN1(),"LongMethod");
+					anaCodeSm.setVisible(true);
+					
+					AnalizadorCodeSm anaCodeSm1 = new AnalizadorCodeSm();
+					anaCodeSm1.createChart(ComparadorCodeSm.getVP2(), ComparadorCodeSm.getFP2(), ComparadorCodeSm.getVN2(), ComparadorCodeSm.getFN2(), "GodClass");
+					anaCodeSm1.setVisible(true);
+				} catch (IOException excecao) {
+					System.out.println("Erro ocorrido: " + excecao);
 				}
 				
 			}
 		});
-		btnqualidade.setBounds(10, 615, 249, 28);
-		contentPanel.add(btnqualidade);
+		
+		painelDaEsquerda.setBounds(10, 39, 526, 565);
+		painelDaDireita.setBounds(573, 39, 493, 565);
+		tituloDosLM.setBounds(10, 11, 204, 26);
+		tituloDasGC.setBounds(573, 11, 204, 26);
+		botaoAvaliarQualidade.setBounds(10, 615, 249, 28);
+		
+		janelaPrincipal.add(painelDaEsquerda);
+		janelaPrincipal.add(painelDaDireita);
+		janelaPrincipal.add(tituloDosLM);
+		janelaPrincipal.add(tituloDasGC);
+		janelaPrincipal.add(botaoAvaliarQualidade);
 	}
 	
-	public void detecaoLongMethod (String file, String metrica1 , int valor1,  String andor1, String metrica2, int valor2) throws IOException {
-		DetetorCodeSm.detecaoLongMethod(file, metrica1, valor1, andor1, metrica2, valor2);	
+	public void detetorLM(String ficheiroALer, String escolhaMetrica1 , int escolhaValor1,  String regraAndOr, String escolhaMetrica2, int escolhaValor2) throws IOException {
+		DetetorCodeSm.detetorLM(ficheiroALer, escolhaMetrica1, escolhaValor1, regraAndOr, escolhaMetrica2, escolhaValor2);	
 	}
 		
-	public void detecaoGodClass (String file, String metrica3 , int valor3,  String andor2, String metrica4, int valor4) throws IOException {
-		DetetorCodeSm.detecaoGodClass(file, metrica3, valor3, andor2, metrica4, valor4);
+	public void detetorGC(String ficheiroALer, String escolhaMetrica1 , int escolhaValor1,  String regraAndOr, String escolhaMetrica2, int escolhaValor2) throws IOException {
+		DetetorCodeSm.detetorGC(ficheiroALer, escolhaMetrica1, escolhaValor1, regraAndOr, escolhaMetrica2, escolhaValor2);
 	}		
 }
