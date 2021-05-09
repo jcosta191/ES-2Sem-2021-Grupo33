@@ -14,6 +14,12 @@ public class Regras {
 	public int lop; // 0-OR 1-AND
 	private boolean isCodeSmell; // boolean a usar na coluna da regra, culminar da sua verificacao perante um metodo
 
+	public int a;
+	public int b;
+	public int c;
+	public int d;
+	public int e;
+	
 	public Regras(String name, int a, int b, int c, int d, int e, int lop){
 		this.nome=name;
 		if (lop!=0 && lop!=1) // se nao fpr 0 ou 1 nao corresponde a um dos operadores logicos suportados
@@ -49,4 +55,11 @@ public class Regras {
 		}
 		else System.out.println("Regra vazia!"); // nao deve acontecer
 	}
+	
+	public int getLOCC() { return a; }
+	public int getNOM() { return b; }
+	public int getWMC() { return c; }
+	public int getCYCLOM() { return d; }
+	public int getLOCM() { return e; }
+	public int getLOP() { return lop; }
 }

@@ -7,6 +7,8 @@ import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.OceanTheme;
 
+import com.iscte.ProjetoES.CRegra.Regras;
+import com.iscte.ProjetoES.Gui.GUI;
 import com.iscte.ProjetoES.Historico.LeitorRegrasGuardadas;
 
     public class GUISelecionadorDeRegras extends JFrame {
@@ -14,12 +16,12 @@ import com.iscte.ProjetoES.Historico.LeitorRegrasGuardadas;
         private JPanel panel = new JPanel();
         private JFrame frame = new JFrame("Selecione as Regras        (CTRL para selecionar várias)"); 
         private JList<String> list = null;
-      
+        private  LeitorRegrasGuardadas l = new LeitorRegrasGuardadas("RuleFile.txt");
         public GUISelecionadorDeRegras() throws UnsupportedLookAndFeelException {
             
             // Inicialização da lista retirada do ficheiro .txt (que nos permite guardar as regras)
           ArrayList<String> ruleNames;
-          LeitorRegrasGuardadas l = new LeitorRegrasGuardadas("RuleFile.txt");
+         
           ruleNames = l.getSavedRuleNames();
             
            list = new JList<String>(ruleNames.toArray(new String[ruleNames.size()]));
@@ -57,7 +59,9 @@ import com.iscte.ProjetoES.Historico.LeitorRegrasGuardadas;
         	class ListenerEditarRegras implements ActionListener {
     			
     			public void actionPerformed ( ActionEvent e ) {
+    				
     				for(String seleção : list.getSelectedValuesList()) {
+    					
     					System.out.println(seleção);
     				}
     			}
@@ -70,8 +74,15 @@ import com.iscte.ProjetoES.Historico.LeitorRegrasGuardadas;
         	class ListenerSelecionarRegras implements ActionListener {
     			
     			public void actionPerformed ( ActionEvent e ) {
+    				ArrayList<String> rules = new ArrayList<>();
+    				ArrayList<String> selectedRule = new ArrayList<>();
+    				rules=l.lineReaderFile();
     				for(String seleção : list.getSelectedValuesList()) {
-    					System.out.println(seleção);
+    					l.getRule(seleção, rules, selectedRule);
+    					Regras regra = new Regras(selectedRule.get(0), Integer.parseInt(selectedRule.get(1)), Integer.parseInt(selectedRule.get(2)), Integer.parseInt(selectedRule.get(3)), Integer.parseInt(selectedRule.get(4)), Integer.parseInt(selectedRule.get(5)), Integer.parseInt(selectedRule.get(6)));
+    					GUI.setRegraSelecionada(regra);
+    					//System.out.println(regra);
+    					//System.out.println(seleção);
     				}
     			}
     		}

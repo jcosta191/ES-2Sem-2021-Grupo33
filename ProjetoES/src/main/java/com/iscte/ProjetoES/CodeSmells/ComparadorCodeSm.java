@@ -2,11 +2,15 @@ package com.iscte.ProjetoES.CodeSmells;
 
 import java.io.IOException;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.iscte.ProjetoES.Gui.GUI;
 import org.apache.poi.ss.usermodel.Cell;
@@ -17,8 +21,8 @@ public class ComparadorCodeSm implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	// Variáveis - excel workbooks
-	private HSSFWorkbook metricasLerWorkbook;
-	private HSSFWorkbook codeSmLerWorkbook;
+	private XSSFWorkbook metricasLerWorkbook;
+	private XSSFWorkbook codeSmLerWorkbook;
 	
 	// Variáveis
 	//VP: Verdadeiros Positivos
@@ -57,12 +61,22 @@ public class ComparadorCodeSm implements Serializable {
 		
 		VP1 = 0; FP1 = 0; VN1 = 0; FN1 = 0;
 		
-		InputStream ficheiroExcelMetricas = new FileInputStream(GUI.getLocation());
-		metricasLerWorkbook = new HSSFWorkbook(ficheiroExcelMetricas);
+		File ficheiroExcelMetricas = new File(GUI.getLocation());
+		try {
+			metricasLerWorkbook = new XSSFWorkbook(ficheiroExcelMetricas);
+		} catch (InvalidFormatException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Sheet folhaExcelMetricas = metricasLerWorkbook.getSheetAt(0);
 		
-		InputStream ficheiroExcelCodeSm = new FileInputStream("Code_Smells.xls");
-		codeSmLerWorkbook = new HSSFWorkbook(ficheiroExcelCodeSm);
+		File ficheiroExcelCodeSm = new File("Code_Smells.xls");
+		try {
+			codeSmLerWorkbook = new XSSFWorkbook(ficheiroExcelCodeSm);
+		} catch (InvalidFormatException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Sheet folhaExcelCodeSm = codeSmLerWorkbook.getSheetAt(0);
 		
 		int i = 1;
@@ -105,11 +119,11 @@ public class ComparadorCodeSm implements Serializable {
 		VP2 = 0; FP2 = 0; VN2 = 0; FN2 = 0;
 		
 		InputStream ficheiroExcelMetricas = new FileInputStream(GUI.getLocation());
-		metricasLerWorkbook = new HSSFWorkbook(ficheiroExcelMetricas);
+		metricasLerWorkbook = new XSSFWorkbook(ficheiroExcelMetricas);
 		Sheet folhaExcelMetricas = metricasLerWorkbook.getSheetAt(0);
 		
 		InputStream ficheiroExcelCodeSm = new FileInputStream("Code_Smells.xls");
-		codeSmLerWorkbook = new HSSFWorkbook(ficheiroExcelCodeSm);
+		codeSmLerWorkbook = new XSSFWorkbook(ficheiroExcelCodeSm);
 		Sheet folhaExcelCodeSm = codeSmLerWorkbook.getSheetAt(0);
 		
 		int i = 1;

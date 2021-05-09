@@ -114,11 +114,11 @@ public class SeletorCodeSm extends JDialog {
 		janelaPrincipal.add(botaoAvaliarQualidade);
 	}
 	
-	public void detetorLM(String ficheiroALer, String escolhaMetrica1 , int escolhaValor1,  String regraAndOr, String escolhaMetrica2, int escolhaValor2) throws IOException {
-		DetetorCodeSm.detetorLM(ficheiroALer, escolhaMetrica1, escolhaValor1, regraAndOr, escolhaMetrica2, escolhaValor2);	
+	public void detetorLM(String ficheiroALer, String escolhaMetrica1 , int escolhaValor1, int escolhaValor2, String regraAndOr) throws IOException {
+		DetetorCodeSm.detetorLM(ficheiroALer, escolhaMetrica1, escolhaValor1, escolhaValor2, regraAndOr);	
 	}
 		
-	public void detetorGC(String ficheiroALer, String escolhaMetrica1 , int escolhaValor1,  String regraAndOr, String escolhaMetrica2, int escolhaValor2) throws IOException {
-		DetetorCodeSm.detetorGC(ficheiroALer, escolhaMetrica1, escolhaValor1, regraAndOr, escolhaMetrica2, escolhaValor2);
+	public void detetorGC(String ficheiroALer, String escolhaMetrica1, String escolhaMetrica2, int escolhaValor1, int escolhaValor2, String regraAndOr) throws IOException {
+		DetetorCodeSm.detetorGC(ficheiroALer, escolhaMetrica1, escolhaMetrica2, escolhaValor1, escolhaValor2, regraAndOr);
 	}		
 }
