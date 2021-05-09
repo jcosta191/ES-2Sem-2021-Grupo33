@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+<<<<<<< HEAD
   <component name="NewModuleRootManager">
     <output url="file:///production/ES-2Sem-2021-Grupo33" />
     <output-test url="file:///test/ES-2Sem-2021-Grupo33" />
+=======
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+>>>>>>> Rules
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
