@@ -1,6 +1,7 @@
 package com.iscte.ProjetoES.Gui;
 
 import GUI_Regras_Guardadas.Leitor_Regras_Guardadas;
+import GUI_Regras_Guardadas.Saver;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -14,6 +15,7 @@ import javax.swing.plaf.metal.OceanTheme;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static javax.swing.UIManager.setLookAndFeel;
@@ -47,6 +49,7 @@ public class GUI_Change_Rule {
         private JLabel NumeroDeLinhasDeCodigoDoMetodo;
         private JTextField JTMax5 ;
 
+        private Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("RuleFile.txt");
         
         private JCheckBox AND ;
         private JCheckBox OR ;
@@ -82,7 +85,7 @@ public class GUI_Change_Rule {
             panel.setLayout(layout);
 
             this.frame.getContentPane().add(panel, BorderLayout.NORTH);
-            Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("RuleFile.txt");
+
             ArrayList<String> allRules = new ArrayList<>();
             allRules = l.lineReaderFile();
             ArrayList<String> regra = new ArrayList<>();
@@ -241,8 +244,9 @@ public class GUI_Change_Rule {
 	         c.gridx = 2;
 	          c.gridy = 6;
 	          c.insets = new Insets(1,1,5,5);
+            if((Integer.parseInt(regra.get(6)))== 1) AND.setSelected(true);
 	          panel.add(AND, c);
-	          if((regra.get(6)) == String.valueOf(1)) AND.setSelected(true);
+
 	         
 	        /* JLabel OrLabel = new JLabel("OR");
 	        OrLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -264,11 +268,46 @@ public class GUI_Change_Rule {
             c.gridx = 0;
             c.gridy = 7;
             c.ipady =30;
+            class ListenerDefinirRegra implements ActionListener {
+
+                public void actionPerformed(ActionEvent e) {
+                    SaveRule();
+                }
+            }
+            button.addActionListener(new ListenerDefinirRegra());
             panel.add(button, c);
             c.gridwidth =1;
             
 
        }
+    public void SaveRule(){
+        ArrayList<String> regraGuardada = new ArrayList<>();
+        ArrayList<String> allRules = l.lineReaderFile();
+        Saver saver = new Saver();
+
+        String max1 = JTMax1.getText();
+        String max2 = JTMax2.getText();
+        String max3 = JTMax3.getText();
+        String max4 = JTMax4.getText();
+        String max5 = JTMax5.getText();
+        regraGuardada.add(s);
+        regraGuardada.add(max1);
+        regraGuardada.add(max2);
+        regraGuardada.add(max3);
+        regraGuardada.add(max4);
+        regraGuardada.add(max5);
+        if(AND.isSelected()){
+            regraGuardada.add("1");
+        }else{
+            regraGuardada.add("0");
+        }
+        l.EditText(s,regraGuardada,allRules);
+        try {
+            saver.EditRule(allRules, "RuleFile.txt");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
 
         public static void main(String[] args) {
             javax.swing.SwingUtilities.invokeLater(new Runnable() {

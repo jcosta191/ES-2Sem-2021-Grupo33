@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fc98a48-4ca5-4a4b-8a6c-58ec44c51f62" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/GUISelecionadorDeRegras.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Change_Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Change_Rule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/showFilexlsx.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/showFilexlsx.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +87,7 @@
       <command value="mvn clean package" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.GUI_Rule_Picker">
+  <component name="RunManager" selected="Application.GUI">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.Gui.GUI" />
       <module name="ProjetoES" />
@@ -109,12 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUISelecionadorDeRegras (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.GUISelecionadorDeRegras" />
+    <configuration name="GUI_Change_Rule" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.Gui.GUI_Change_Rule" />
       <module name="ProjetoES" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.iscte.ProjetoES.*" />
+          <option name="PATTERN" value="com.iscte.ProjetoES.Gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,8 +114,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI_Change_Rule" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.Gui.GUI_Change_Rule" />
+    <configuration name="GUI_New_Rule" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.iscte.ProjetoES.Gui.GUI_New_Rule" />
       <module name="ProjetoES" />
       <extension name="coverage">
         <pattern>
@@ -175,17 +167,17 @@
     <list>
       <item itemvalue="Application.Leitor_Regras_Guardadas" />
       <item itemvalue="Application.GUI_Rule_Picker" />
-      <item itemvalue="Application.GUISelecionadorDeRegras (1)" />
       <item itemvalue="Application.GUI" />
       <item itemvalue="Application.GUI_Change_Rule" />
+      <item itemvalue="Application.GUI_New_Rule" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GUI" />
         <item itemvalue="Application.GUI_Rule_Picker" />
+        <item itemvalue="Application.GUI_New_Rule" />
         <item itemvalue="Application.GUI_Change_Rule" />
         <item itemvalue="Application.Leitor_Regras_Guardadas" />
-        <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.GUISelecionadorDeRegras (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -281,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620304524911</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;Gui Change Rule mostra os limites das métricas usados">
+      <created>1620564205856</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1620564205857</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +318,7 @@
     <MESSAGE value="Alteração ao leitor de regras para poder selecionar apenas os nomes das regras" />
     <MESSAGE value="GUI já apresenta as regras que irá utilizar e as respetivas checkboxes, falta colocar os Listeners para selecionar msm a regra" />
     <MESSAGE value="Limpeza de código" />
-    <option name="LAST_COMMIT_MESSAGE" value="Limpeza de código" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;Gui Change Rule mostra os limites das métricas usados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;Gui Change Rule mostra os limites das métricas usados" />
   </component>
 </project>
