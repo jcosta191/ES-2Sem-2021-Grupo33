@@ -12,17 +12,17 @@ public class Verificacao {
 
 	public boolean verify(Regras r, ArrayList<Integer> leituras) {
 		if (r.lop == 0) //or
-			result = false;
+			r.isCodeSmell = false;
 		else // and
-			result = true;
+			r.isCodeSmell = true;
 		for (AuxRegra condition : r.metrics)
 			for (int i = 0; i < leituras.size(); i++)
-				if (condition.metrica == i)
+				if (condition.metrica == i+1)
 					if (check(condition.getLimite(), leituras.get(i)) != result) {
 						r.isCodeSmell=!r.isCodeSmell;
-						return !result;
+						return r.isCodeSmell;
 					}
-		return result;
+		return r.isCodeSmell;
 
 	}
 
@@ -38,4 +38,21 @@ public class Verificacao {
 		boolean [] b= new boolean[]{verify(god,leituras),verify(longM,leituras)};
 		return b;
 	}
-}
+
+
+	public boolean isTrueResult(Regras r, ArrayList<Integer> leituras){// pode receber verifyBase or
+		if (verifyBaseOR(leituras)[0]==true) System.out.println("God_Class");
+		if (verifyBaseOR(leituras)[1]==true) System.out.println("Long_Method");
+		if (verifyBaseOR(leituras)[0]==true||verifyBaseOR(leituras)[1]==true) {
+			if (verify(r,leituras))
+				return true;
+			else
+				return false;
+		} else {
+			if (!verify(r,leituras))
+				return true;
+			else
+				return false;
+		}
+	}
+ }

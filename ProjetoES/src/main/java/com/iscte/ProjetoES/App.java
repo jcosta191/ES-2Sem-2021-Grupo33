@@ -24,10 +24,11 @@ public class App {
 		Regras longMand = new Regras("Long Method and",0,0,0,50,10,1);
 		ArrayList<Integer> leituras= new ArrayList<Integer>();
 		ArrayList <Integer> leituras1= new ArrayList<Integer>();
-		leituras.add(4);leituras.add(18);leituras.add(400);leituras.add(3);leituras.add(1);
+		leituras.add(4);leituras.add(18);leituras.add(40);leituras.add(3);leituras.add(1);
 		leituras1.add(29);leituras1.add(1371);leituras1.add(328);leituras1.add(20);leituras1.add(50);
 
-
+		System.out.println("L-Regra godor  "+Verificacao.verify(godor,leituras1));
+		System.out.println("L-the result is correct: "+Verificacao.isTrueResult(godor,leituras1));
 
 		System.out.println("L-God Class or "+godor.isCodeSmell);
 		System.out.println("L");
