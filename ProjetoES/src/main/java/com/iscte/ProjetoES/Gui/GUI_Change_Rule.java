@@ -1,5 +1,7 @@
 package com.iscte.ProjetoES.Gui;
 
+import GUI_Regras_Guardadas.Leitor_Regras_Guardadas;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
@@ -12,6 +14,7 @@ import javax.swing.plaf.metal.OceanTheme;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import static javax.swing.UIManager.setLookAndFeel;
 
@@ -55,7 +58,7 @@ public class GUI_Change_Rule {
         }
 
 
-
+      //método open torna a janela visivel e permite o começo da sua utilização
         public void open() throws UnsupportedLookAndFeelException {
             this.frame.setVisible(true);
             this.frame.setSize(800,350);
@@ -71,16 +74,24 @@ public class GUI_Change_Rule {
         }
 
         public void addFrameContent(String s) throws UnsupportedLookAndFeelException {
-        	
-        	GridBagLayout layout = new GridBagLayout();
-        	GridBagConstraints c = new GridBagConstraints();
-        	panel.setLayout(layout);
-        	
-            this.frame.getContentPane().add(panel, BorderLayout.NORTH);   
-            
+            // aqui optámos por utilizar um gridBagLayout() porque era mais fácil de posicionar os elementos no local desejado
+            // a partir dos atributos gridx e gridy conseguimos colocar cada elemento criado na sua "coordenada" certa
+            // os valores dos JTextField e das CheckBoxes foram guardados como atributos da classe para serem mais facilmente acessíveis
+            GridBagLayout layout = new GridBagLayout();
+            GridBagConstraints c = new GridBagConstraints();
+            panel.setLayout(layout);
+
+            this.frame.getContentPane().add(panel, BorderLayout.NORTH);
+            Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("RuleFile.txt");
+            ArrayList<String> allRules = new ArrayList<>();
+            allRules = l.lineReaderFile();
+            ArrayList<String> regra = new ArrayList<>();
+            l.getRule(s, allRules,regra);
+
+
             c.weightx = 0.5;
             c.weighty = 0.5;
-        	
+
             JLabel NomeDaRegra = new JLabel("Nome da Regra: ");
             NomeDaRegra.setFont(new Font("Arial", Font.BOLD, 20));
             c.gridx = 0;
@@ -113,15 +124,13 @@ public class GUI_Change_Rule {
             c.insets = new Insets(1,0,5,5);
             panel.add(Max1, c);
 
-            JTMax1 = new JTextField();
+            JTMax1 = new JTextField(regra.get(1));
             c.gridx = 3;
             c.gridy = 1;
             c.gridwidth = 1;
             c.insets = new Insets(0,0,5,5);
             panel.add(JTMax1, c);
-            
-            
-             
+
              NumeroDeMetodosPorClasse = new JLabel("Número de métodos por classe: ");
              c.gridx = 0;
              c.gridy = 2;
@@ -135,15 +144,12 @@ public class GUI_Change_Rule {
              c.insets = new Insets(1,1,5,5);
              panel.add(Max2, c);
              
-              JTMax2 = new JTextField();
+              JTMax2 = new JTextField(regra.get(2));
              c.gridx = 3;
              c.gridy = 2;
              c.insets = new Insets(1,1,5,5);
              panel.add(JTMax2, c);
-             
-           
 
-             
              ComplexidadeCiclomaticaDaClasse = new JLabel("Complexidade Ciclomática da classe: ");
              c.gridx = 0;
              c.gridy = 3;
@@ -178,7 +184,7 @@ public class GUI_Change_Rule {
              c.insets = new Insets(1,1,5,5);
              panel.add(Max4, c);
              
-              JTMax4 = new JTextField();
+              JTMax4 = new JTextField(regra.get(4));
              c.gridx = 3;
              c.gridy = 4;
              c.insets = new Insets(1,1,5,5);
@@ -201,7 +207,7 @@ public class GUI_Change_Rule {
              c.insets = new Insets(1,1,5,5);
              panel.add(Max5, c);
              
-            JTMax5 = new JTextField();
+            JTMax5 = new JTextField(regra.get(5));
              c.gridx = 3;
              c.gridy = 5;
              c.insets = new Insets(1,1,5,5);
@@ -216,21 +222,29 @@ public class GUI_Change_Rule {
             c.insets = new Insets(1,1,5,5);
             panel.add(OperadorLogico, c);
             
-	          JLabel AndLabel = new JLabel("AND");
+	          JLabel AndLabel = new JLabel("AND/OR Checked/Unchecked");
 	         AndLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	          c.gridx = 1;
 	         c.gridy = 6;
 	         c.insets = new Insets(1,1,5,5);
 	         panel.add(AndLabel, c);
-	          
+
+            JLabel EmptyLabel = new JLabel("");
+            AndLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            c.gridx = 2;
+            c.gridy = 6;
+            c.insets = new Insets(1,1,5,5);
+            panel.add(EmptyLabel, c);
+
 	         AND = new JCheckBox();
 	         AND.setHorizontalAlignment(SwingConstants.CENTER);
 	         c.gridx = 2;
 	          c.gridy = 6;
 	          c.insets = new Insets(1,1,5,5);
 	          panel.add(AND, c);
+	          if((regra.get(6)) == String.valueOf(1)) AND.setSelected(true);
 	         
-	         JLabel OrLabel = new JLabel("OR");
+	        /* JLabel OrLabel = new JLabel("OR");
 	        OrLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	         c.gridx = 3;
 	        c.gridy = 6;
@@ -243,7 +257,7 @@ public class GUI_Change_Rule {
 	         c.gridy = 6;
 	         c.insets = new Insets(1,1,5,5);
 	         panel.add(OR, c);
-            
+            */
             JButton button = new JButton("Alterar Regra");
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridwidth = 20;

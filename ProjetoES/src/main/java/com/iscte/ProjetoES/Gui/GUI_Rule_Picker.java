@@ -6,7 +6,12 @@ import javax.swing.border.TitledBorder;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.MetalTheme;
 import javax.swing.plaf.metal.OceanTheme;
+
+import com.iscte.ProjetoES.Gui.GUI_Change_Rule;
 //import org.junit.runners.model.FrameworkMethod;
+
+import GUI_Regras_Guardadas.Leitor_Regras_Guardadas;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,28 +26,26 @@ public class GUI_Rule_Picker {
 	
         private JPanel panel = new JPanel();
         private JList<String> list = null;
-        private JFrame frame = new JFrame("Escolha uma das regras existentes: ");
+        private JFrame frame = new JFrame("Escolha uma das regras existentes:     (Carregue duas vezes)");
         private String s;
 
         public GUI_Rule_Picker(String s) throws UnsupportedLookAndFeelException {
             
-            // LISTA TESTE
-           ArrayList<String> myList = new ArrayList<>();
-            myList = new ArrayList<>(10);
+            // Inicialização da lista retirada do ficheiro .txt (que nos permite guardar as regras)
+        	 ArrayList<String> ruleNames;
+             Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("RuleFile.txt");
+             ruleNames = l.getSavedRuleNames();
+               System.out.println(ruleNames);
+              list = new JList<String>(ruleNames.toArray(new String[ruleNames.size()]));
             
-            for (int index = 1; index < 21; index++) {
-               myList.add("Regra Numero " + index);
-            }
-            list = new JList<String>(myList.toArray(new String[myList.size()]));
-            
+              //para utilizar esta lista basta carregar duas vezes na regra que se deseja alterar.
             MouseListener mouseListener = new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     if (e.getClickCount() == 2) {
 
 
                        String selectedItem = (String) list.getSelectedValue();
-                       // add selectedItem to your second list.
-                       System.out.println("Carregou em " + selectedItem);
+                       
                        try {
 						GUI_Change_Rule ruleChanger = new GUI_Change_Rule(selectedItem);
 						ruleChanger.open();
@@ -61,10 +64,10 @@ public class GUI_Rule_Picker {
         }
 
 
-
+      //método open torna a janela visivel e permite o começo da sua utilização
         public void open() throws UnsupportedLookAndFeelException {
             this.frame.setVisible(true);
-            this.frame.setSize(400,200);
+            this.frame.setSize(600,200);
            
             Point d3 = new Point();
             
@@ -77,10 +80,12 @@ public class GUI_Rule_Picker {
         }
 
         public void addFrameContent(String s) throws UnsupportedLookAndFeelException {
-        	
+        	//adicionada uma scroll list para escolher uma regra a alterar, dois cliques.
         	JScrollPane scrollPane = new JScrollPane();
         	scrollPane.setViewportView(list);
         	list.setLayoutOrientation(JList.VERTICAL);
+        	DefaultListCellRenderer renderer = (DefaultListCellRenderer) list.getCellRenderer();
+        	renderer.setHorizontalAlignment(SwingConstants.CENTER);
         	
         	frame.add(scrollPane);
         	

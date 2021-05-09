@@ -46,7 +46,7 @@ public class Leitor_Regras_Guardadas {
         for (String s1:changedRule){
             s2 = s2+s1+";";
         }
-        System.out.println(s2);
+       // System.out.println(s2);
         if(RuleExists(name)){
             for(int counter=0;counter<allRules.size(); counter++){
                 if(allRules.get(counter).contains(name)){
@@ -56,12 +56,29 @@ public class Leitor_Regras_Guardadas {
                 }
             }
         }
-        System.out.println(allRules);
+        //System.out.println(allRules);
         return allRules;
     }
+    public ArrayList<String> getRule(String name, ArrayList<String> allRules, ArrayList<String> arrayList){
+       int counter;
+       String[] arrOfStr = new  String[6];
+        for(counter=0;counter<allRules.size(); counter++){
+            if(allRules.get(counter).contains(name)){
+                System.out.println(allRules.get(counter));
+                arrOfStr = allRules. get(counter).split(";", -2);
+                break;
+            }
+        }
+        for (int c=0; c< arrOfStr.length;c++){
+            System.out.println(arrOfStr[c]);
+            arrayList.add(arrOfStr[c]);
+        }
+        return arrayList;
+    }
+
     public ArrayList getSavedRuleNames(){
        ArrayList<String> ruleNames = new ArrayList();
-       this.lineReaderFile();
+       text=lineReaderFile();
         for (String s : text){
             String[] arrOfStr = s.split(";", -2);
             ruleNames.add(arrOfStr[0]);
@@ -81,7 +98,10 @@ public class Leitor_Regras_Guardadas {
         Leitor_Regras_Guardadas l = new Leitor_Regras_Guardadas("RuleFile.txt");
         l.getSavedRuleNames();
         ArrayList<String> allRules = l.lineReaderFile();
-        l.EditText("Long rule", ruleNames,allRules);
+        //l.EditText("Long rule", ruleNames,allRules);
         s.EditRule(allRules,"RuleFile.txt" );
+        ArrayList<String> desiredvalues = new ArrayList<>();
+        l.getRule("TestRule", allRules, desiredvalues);
+        System.out.println(desiredvalues);
     }
 }
