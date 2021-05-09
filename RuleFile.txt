@@ -1,0 +1,4 @@
+i;i;i;i;i;
+TestRule;1000;;;40;100;0;
+Long Rule;500;20;;3;100;1;
+AnotherRule;600;3;20;;50;0;

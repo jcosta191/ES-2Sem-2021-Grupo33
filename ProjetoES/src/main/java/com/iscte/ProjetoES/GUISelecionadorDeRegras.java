@@ -30,7 +30,6 @@ import GUI_Regras_Guardadas.Leitor_Regras_Guardadas;
             this.frame.setDefaultCloseOperation(2);
         }
 
-
       //método open torna a janela visivel e permite o começo da sua utilização
         public void open() throws UnsupportedLookAndFeelException {
             this.frame.setVisible(true);
