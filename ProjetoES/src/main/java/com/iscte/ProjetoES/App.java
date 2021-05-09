@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Inicia o programa
  * 
- * @author dariop
+ * @author jcosta191
  *
  */
 public class App {
