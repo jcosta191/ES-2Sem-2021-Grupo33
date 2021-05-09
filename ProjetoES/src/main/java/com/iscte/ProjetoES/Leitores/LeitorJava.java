@@ -15,10 +15,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.AbstractTableModel;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import com.iscte.ProjetoES.Metodo;
 import com.iscte.ProjetoES.Escritores.EscritorExcel;
@@ -32,31 +30,16 @@ public class LeitorJava extends AbstractTableModel {
 	private String filepath;
 	private String name;
 	private File file;
-<<<<<<< HEAD
-=======
 	private Class cls;
->>>>>>> refs/remotes/joaof_ponto1/master
-
-	private LeitorJava() {
-	}
 
 	public void abrirJava() {
 		Workbook workbook;
-<<<<<<< HEAD
-		
-		escolherJava();
-		//try {
-			//workbook = WorkbookFactory.create(escolherJava());
-			//java = workbook.getSheetAt(0);
-		//} catch (NullPointerException | InvalidFormatException | IOException e) {
-=======
 
 		escolherJava();
 		// try {
 		// workbook = WorkbookFactory.create(escolherJava());
 		// java = workbook.getSheetAt(0);
 		// } catch (NullPointerException | InvalidFormatException | IOException e) {
->>>>>>> refs/remotes/joaof_ponto1/master
 //			System.out.println("Não foi possível abrir o ficheiro!" + e);
 //			System.exit(0);
 //		}
@@ -72,18 +55,13 @@ public class LeitorJava extends AbstractTableModel {
 		INSTANCIA = new LeitorJava();
 		return INSTANCIA;
 	}
-<<<<<<< HEAD
-	
-	public File escolherJava(){
-=======
 
 	public File escolherJava() {
->>>>>>> refs/remotes/joaof_ponto1/master
 		JFileChooser escolherJava = new JFileChooser();
 		escolherJava.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		
-		int option = escolherJava.showOpenDialog(null);
-        if(option == escolherJava.APPROVE_OPTION){
+		int opcaoEscolhida = escolherJava.showOpenDialog(null);
+        if(opcaoEscolhida == escolherJava.APPROVE_OPTION){
            file = escolherJava.getSelectedFile();
            filepath =  (String) file.getAbsolutePath();
            name = (String) file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("\\")+1);
@@ -91,36 +69,18 @@ public class LeitorJava extends AbstractTableModel {
            listAllFiles(file);
         }
 
-<<<<<<< HEAD
 		System.out.println("List of files and directories in the specified directory:" + file.getName());
 		
 		return file;
-=======
-		int option = escolherJava.showOpenDialog(null);
-		if (option == escolherJava.APPROVE_OPTION) {
+
+		int opcaoEscolhida = escolherJava.showOpenDialog(null);
+		if (opcaoEscolhida == escolherJava.APPROVE_OPTION) {
 			file = escolherJava.getSelectedFile();
 			filepath = (String) file.getAbsolutePath();
 			name = (String) file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("\\") + 1);
->>>>>>> refs/remotes/joaof_ponto1/master
 
-<<<<<<< HEAD
 	}
-	
-	public void listAllFiles(File folder){
-	    File[] fileNames = folder.listFiles();
-	    
-	    for(File file : fileNames){
-	      if(file.isDirectory()){
-    	  //Caso identifique que é uma subpasta lança outra vez o ListAllFiles
-	         listAllFiles(file);
-	      }else{
-	        if(file.getName().endsWith("java")) {
-	        	lerFicheiro(file);
-			}
-	      }
-	    }
-	  }
-	
+
 	private void lerFicheiro(File file) {
 			if (file.getName().endsWith(".java")) {
 				try {
@@ -139,12 +99,10 @@ public class LeitorJava extends AbstractTableModel {
 								Package = words[1];
 							}
 						}
-=======
+
 			listAllFiles(file);
 		}
->>>>>>> refs/remotes/joaof_ponto1/master
 
-<<<<<<< HEAD
 						
 						
 						if(procurarCYCLO("for",data) || procurarCYCLO("if",data) || procurarCYCLO("case",data) || procurarCYCLO("while",data)) {
@@ -160,7 +118,7 @@ public class LeitorJava extends AbstractTableModel {
 						Metodo met = new Metodo(MethodID, Package, Classe, method, NOM_class, LOC_class, WMC_class,
 								LOC_method, CYCLO_method);
 						EscritorExcel.adicionaLista(met);
-=======
+
 		System.out.println("List of files and directories in the specified directory:" + file.getName());
 
 		return file;
@@ -200,7 +158,6 @@ public class LeitorJava extends AbstractTableModel {
 
 						cls = Class.forName(Package + Classe);
 						NOM_class = cls.getDeclaredMethods().length;
->>>>>>> refs/remotes/joaof_ponto1/master
 					}
 				}
 
@@ -230,14 +187,13 @@ public class LeitorJava extends AbstractTableModel {
 					e.printStackTrace();
 				}
 
-<<<<<<< HEAD
+
 				/*
 				 * System.out.println("File name: "+file.getName());
 				 * System.out.println("File path: "+file.getAbsolutePath());
 				 * System.out.println("Size :"+file.getTotalSpace()); System.out.println(" ");
 				 */
 			}
-=======
 				System.out.println("File name: " + met.getClasse());
 
 			}
@@ -254,7 +210,6 @@ public class LeitorJava extends AbstractTableModel {
 		 * System.out.println("Size :"+file.getTotalSpace()); System.out.println(" ");
 		 */
 		// }
->>>>>>> refs/remotes/joaof_ponto1/master
 	}
 
 	public boolean procurarCYCLO(String a, String b) {
