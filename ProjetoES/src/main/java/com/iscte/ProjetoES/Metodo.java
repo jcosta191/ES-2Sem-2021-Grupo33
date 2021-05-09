@@ -3,7 +3,7 @@ package com.iscte.ProjetoES;
 /**
  * Classe que representa um Metodo
  * 
- * @author rmdca
+ * @author jcosta191
  *
  */
 public class Metodo {
@@ -65,7 +65,7 @@ public class Metodo {
 		return methodID;
 	}
 	
-	public String getpacote() {
+	public String getPackage() {
 		// TODO Auto-generated method stub
 		return pacote;
 	}
@@ -101,7 +101,10 @@ public class Metodo {
 		return WMC_class;
 	}
 	
-	
+	public int getWMC_class() {
+		// TODO Auto-generated method stub
+		return WMC_class;
+	}
 	
 	
 	
