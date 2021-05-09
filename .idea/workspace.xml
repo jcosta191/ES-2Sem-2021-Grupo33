@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3fc98a48-4ca5-4a4b-8a6c-58ec44c51f62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Saver.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/GUI_Regras_Guardadas/Saver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Change_Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Change_Rule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_New_Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_New_Rule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620565853591</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;Comentários acrescentados apenas falta criar objeto regra quando for selecionada uma regra">
+      <created>1620567173927</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1620567173927</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +333,7 @@
     <MESSAGE value="Limpeza de código" />
     <MESSAGE value="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;Gui Change Rule mostra os limites das métricas usados" />
     <MESSAGE value="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;UI Editor de regras todo funcional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;UI Editor de regras todo funcional" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;Comentários acrescentados apenas falta criar objeto regra quando for selecionada uma regra" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;Comentários acrescentados apenas falta criar objeto regra quando for selecionada uma regra" />
   </component>
 </project>
