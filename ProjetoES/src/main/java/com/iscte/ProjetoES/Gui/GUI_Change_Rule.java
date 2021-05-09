@@ -247,21 +247,6 @@ public class GUI_Change_Rule {
             if((Integer.parseInt(regra.get(6)))== 1) AND.setSelected(true);
 	          panel.add(AND, c);
 
-	         
-	        /* JLabel OrLabel = new JLabel("OR");
-	        OrLabel.setHorizontalAlignment(SwingConstants.CENTER);
-	         c.gridx = 3;
-	        c.gridy = 6;
-	        c.insets = new Insets(1,1,5,5);
-	        panel.add(OrLabel, c);
-	         
-	         OR = new JCheckBox();
-	         OR.setHorizontalAlignment(SwingConstants.CENTER);
-	        c.gridx = 4;
-	         c.gridy = 6;
-	         c.insets = new Insets(1,1,5,5);
-	         panel.add(OR, c);
-            */
             JButton button = new JButton("Alterar Regra");
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridwidth = 20;
@@ -284,7 +269,6 @@ public class GUI_Change_Rule {
         ArrayList<String> regraGuardada = new ArrayList<>();
         ArrayList<String> allRules = l.lineReaderFile();
         Saver saver = new Saver();
-
         String max1 = JTMax1.getText();
         String max2 = JTMax2.getText();
         String max3 = JTMax3.getText();

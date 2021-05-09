@@ -241,21 +241,6 @@ public class GUI_New_Rule {
         c.insets = new Insets(1, 1, 5, 5);
         panel.add(AND, c);
 
-      /*  JLabel OrLabel = new JLabel("OR");
-        OrLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        c.gridx = 3;
-        c.gridy = 6;
-        c.insets = new Insets(1, 1, 5, 5);
-        panel.add(OrLabel, c);
-
-        OR = new JCheckBox();
-        OR.setHorizontalAlignment(SwingConstants.CENTER);
-        c.gridx = 4;
-        c.gridy = 6;
-        c.insets = new Insets(1, 1, 5, 5);
-        panel.add(OR, c);
-*/
-
         JButton DefinirRegra = new JButton("Definir Regra");
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridwidth = 20;

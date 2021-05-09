@@ -17,6 +17,7 @@ public class Saver {
         path = new File("RuleFile.txt");
         path.createNewFile();
     }
+    //Escrever uma nova regra no Ficheiro de guardar regras
     public void  writeRule(ArrayList<String> rule, String pathname) throws IOException, NullPointerException {
         if(!(new File(pathname)).isFile()){
             System.out.println("File created");
@@ -31,6 +32,7 @@ public class Saver {
         bw.close();
         fw.close();
     }
+    //Editar regra no ficheiro dado um novo array com a alteração efetuada
     public void EditRule(ArrayList<String> newRules, String pathname) throws IOException {
         FileWriter fw = new FileWriter(pathname, false);
         BufferedWriter bw = new BufferedWriter(fw);
