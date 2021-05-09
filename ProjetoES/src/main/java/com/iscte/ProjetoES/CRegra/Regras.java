@@ -14,14 +14,15 @@ public class Regras {
 	public int lop; // 0-OR 1-AND
 	public boolean isCodeSmell; // boolean a usar na coluna da regra, culminar da sua verificacao perante um metodo
 
-	public Verificacao vr;
+	//public Verificacao vr;
 
-	public Regras(String name, int a, int b, int c, int d, int e, int lop){
+	public Regras(String name, int NOM_class, int LOC_class, int WMC_class, int LOC_method, int CYCLO_method, int lop){
+		// args de nom a cyclo correspondem a thresholds
 		this.nome=name;
 		if (lop!=0 && lop!=1) // se nao fpr 0 ou 1 nao corresponde a um dos operadores logicos suportados
 			throw new IllegalArgumentException (" lop invalido");
 		this.lop=lop;
-		int args[]={a,b,c,d,e};
+		int args[]={NOM_class,LOC_class,WMC_class,LOC_method,CYCLO_method};
 		ArrayList<AuxRegra> metrics=new ArrayList<AuxRegra>();
 		for (int i =0; i<args.length;i++)
 			if (args[i]>0) // valor 0 ou menor é considera-se que nao é para verificar a metrica em questao, logo nao se cria auxregra(condicão da regra)
@@ -31,7 +32,7 @@ public class Regras {
 			}
 		this.args=args;
 		this.metrics=metrics;
-		this.vr=vr;
+		//this.vr=vr;
 	}
 	ArrayList<Integer> leituras=new ArrayList<>();
 	public boolean check(int limite, int contagem){
