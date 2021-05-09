@@ -1,5 +1,7 @@
 package com.iscte.ProjetoES;
 
+import java.util.ArrayList;
+
 /**
  * Classe que representa um Metodo
  * 
@@ -93,19 +95,26 @@ public class Metodo {
 	
 	public int getLOC_method() {
 		// TODO Auto-generated method stub
-		return WMC_class;
+		return LOC_method;
 	}
 	
 	public int getCYCLO_method() {
 		// TODO Auto-generated method stub
-		return WMC_class;
+		return CYCLO_method;
 	}
 	
 	public int getWMC_class() {
 		// TODO Auto-generated method stub
 		return WMC_class;
 	}
-	
+
+	public ArrayList<Integer> getLeituras(){
+		ArrayList<Integer> leituras=new ArrayList<Integer>();
+		leituras.add(NOM_class);leituras.add(LOC_class);
+		leituras.add(WMC_class);leituras.add(LOC_method);
+		leituras.add(CYCLO_method);
+		return leituras;
+	}
 	
 	
 
