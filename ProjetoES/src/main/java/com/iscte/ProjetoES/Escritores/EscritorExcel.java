@@ -20,7 +20,6 @@ public class EscritorExcel {
 	private EscritorExcel() {
 	}
 
-
 	public static void escreverExcel(String a) throws IOException, InvalidFormatException {
 		// Create a Workbook
 		Workbook workbook = new XSSFWorkbook(); // new HSSFWorkbook() for generating `.xls` file
@@ -85,9 +84,7 @@ public class EscritorExcel {
 		workbook.close();
 	}
 	
-	
 	public static void adicionaLista(Metodo a) {
 		methods.add(a);
 		}
-
 }

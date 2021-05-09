@@ -1,7 +1,7 @@
 package com.iscte.ProjetoES;
 
 import com.iscte.ProjetoES.CRegra.Regras;
-import com.iscte.ProjetoES.CRegra.Verificacao;
+//import com.iscte.ProjetoES.CRegra.Verificacao;
 //import com.iscte.ProjetoES.Escritores.EscritorJTable;
 
 import java.util.ArrayList;

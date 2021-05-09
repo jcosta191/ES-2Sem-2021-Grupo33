@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.OceanTheme;
 
+import com.iscte.ProjetoES.GUISelecionadorDeRegras;
 import com.iscte.ProjetoES.CodeSmells.SeletorCodeSm;
 import com.iscte.ProjetoES.Escritores.EscritorJTable;
 import com.iscte.ProjetoES.Leitores.LeitorDiretorios;
@@ -12,6 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseWheelListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +45,8 @@ public class GUI {
         txtChooseAFile.setHorizontalAlignment(JTextField.CENTER);
         txtChooseAFile.setMaximumSize(new Dimension(400,500));
         pane.add(txtChooseAFile);
-
-        
+        addAButton("Importar Regras Existentes", pane);
+        ImportarRegrasButtonAction();
     }
 
     private static void addAButton(String text, Container container) {
@@ -126,9 +128,27 @@ public class GUI {
        });
     }
     
-    
+    private static void ImportarRegrasButtonAction(){
+    	//acesso à lista de botões e implementação do listener do botão selecionado
+        JButton button = buttonList.get(5);
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//mostar o ficheiro excel gerado numa nova janela
+				GUISelecionadorDeRegras selecionador;
+				try {
+					//lançamento da janela que permite selecionar e editar as regras a alterar
+					selecionador = new GUISelecionadorDeRegras();
+					selecionador.open();
+					selecionador.setVisible(true);  //preciso fazer com que volte a Janela inicial
+				} catch (UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
-			
+			}
+		});
+    }
     
     private static void ProcurarFicheiroButtonAction(){
         JButton button = buttonList.get(0);
@@ -187,6 +207,7 @@ public class GUI {
 		return excelLocation;
 	}
 	public void setLocation() {
-		excelLocation = filepath + "/" + name + "_metrics.xls";
+//		excelLocation = filepath + "/" + name + "_metrics.xls";
+		excelLocation = "C:\\Users\\jalve\\git\\ES-2Sem-2021-Grupo33\\ProjetoES\\_metricas.xl_metrics.xlsx";
 	}
 }
