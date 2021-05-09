@@ -1,7 +1,7 @@
 package com.iscte.ProjetoES.Leitores;
 
 import java.lang.*;
-
+import java.lang.reflect.Method;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.AbstractTableModel;
 
+import org.apache.commons.codec.binary.StringUtils;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -74,8 +75,6 @@ public class LeitorJava extends AbstractTableModel {
 			listAllFiles(file);
 		}
 
-		System.out.println("List of files and directories in the specified directory:" + file.getName());
-
 		return file;
 
 	}
@@ -89,6 +88,7 @@ public class LeitorJava extends AbstractTableModel {
 				listAllFiles(file);
 			} else {
 				if (file.getName().endsWith("java")) {
+					System.out.print(file.getName());
 					lerFicheiro(file, folder);
 				}
 			}
@@ -97,6 +97,7 @@ public class LeitorJava extends AbstractTableModel {
 
 	private void lerFicheiro(File file, File folder) {
 		// if (file.getName().endsWith(".java")) {
+		String[] words=null;
 		try {
 
 			int count = 0;
@@ -104,49 +105,43 @@ public class LeitorJava extends AbstractTableModel {
 			while (myReader.hasNextLine()) {
 				count++;
 				String data = myReader.nextLine();
-				LOC_class++;
-				String[] words = data.split(" ");
-				if (count == 1 && words.length > 0) {
-					if (words[0] == "package") {
-						Package = words[1];
-						Classe = file.getName().replace(".java", "");
-
-						cls = Class.forName(Package + Classe);
-						NOM_class = cls.getDeclaredMethods().length;
-					}
+				words = data.split(" ");
+				if (count == 1) {
+					Package = words[1].replace(";", "");
 				}
-
-				if (procurarCYCLO("for", data) || procurarCYCLO("if", data) || procurarCYCLO("case", data)
-						|| procurarCYCLO("while", data)) {
-					CYCLO_method++;
-				}
-
-				for (int i = 0; i <= NOM_class; i++) {
-
-					//if (myReader.hasNext(cls.getDeclaredMethods()[i].getName().replace("(", "")));
-					//MethodID++;
-				}
-
-				if (data.isEmpty()) {
-					//	if (data.isBlank()) {
-					LOC_class--;
-				}
-
-				Metodo met = new Metodo(MethodID, Package, Classe, method, NOM_class, LOC_class, WMC_class, LOC_method,
-						CYCLO_method);
-				EscritorExcel.adicionaLista(met);
-				try {
-					EscritorExcel.escreverExcel(folder.getName());
-				} catch (InvalidFormatException | IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-				System.out.println("File name: " + met.getClasse());
+				Classe = file.getName().replace(".java", "");
+				cls = Class.forName(Package + "." + Classe);
+				NOM_class = cls.getDeclaredMethods().length;
 
 			}
+			// System.out.println("File name: " + met.getClasse());
+			for (Method a : cls.getDeclaredMethods()) {
+
+				method = a.getName();
+				MethodID++;
+				LOC_method = saberLOC_method(a, file);
+				for (int i = 0; i <= words.length - 1; i++) {
+					if (words[i].contains("if") || words[i].contains("for") || words[i].contains("case")
+							|| words[i].contains("while")) {
+						CYCLO_method++;
+
+					}
+
+				}
+				Metodo met = new Metodo(MethodID, Package, Classe, method, NOM_class, count, WMC_class, LOC_method,
+						CYCLO_method);
+				EscritorExcel.adicionaLista(met);
+
+			}
+
+			try {
+				EscritorExcel.escreverExcel(folder.getName());
+			} catch (InvalidFormatException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			myReader.close();
-			
+
 		} catch (FileNotFoundException | ClassNotFoundException e) {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
@@ -158,6 +153,27 @@ public class LeitorJava extends AbstractTableModel {
 		 * System.out.println("Size :"+file.getTotalSpace()); System.out.println(" ");
 		 */
 		// }
+	}
+
+	public int saberLOC_method(Method a, File b) throws FileNotFoundException {
+		Scanner myReader = new Scanner(b);
+		int LOC_method1 = 0;
+		while (myReader.hasNextLine()) {
+			String data = myReader.nextLine();
+			String[] words = data.split(" ");
+			for (int i = 0; i <= words.length - 1; i++) {
+				// String newStr = words[i].substring(0, words[i].indexOf("("));
+
+				// if (newStr == a.getName()) {
+				LOC_method1++;
+
+				// }
+				// System.out.print(words[i].substring(0, words[i].indexOf("(")));
+
+			}
+
+		}
+		return LOC_method1;
 	}
 
 	public boolean procurarCYCLO(String a, String b) {

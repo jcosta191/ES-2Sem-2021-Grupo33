@@ -204,26 +204,7 @@ public class LeitorExcel extends AbstractTableModel {
 		return excelfile;
 
 	}
-
-	/**
-	 * Adiciona o ficheiro do tipo excel diretamente do diretorio a fim de uso para
-	 * testes
-	 */
-	public void setFile(boolean s) {
-		File f = null;
-		if (s) {
-			f = new File(System.getProperty("user.dir") + "/Long-Method.xlsx");
-		}
-		Workbook workbook;
-		try {
-			workbook = WorkbookFactory.create(f);
-			sheet = workbook.getSheetAt(0);
-		} catch (NullPointerException | InvalidFormatException | IOException e) {
-			System.out.println("Ficheiro não aberto!");
-		}
-
-	}
-
+	
 	public ArrayList<Metodo> getListaMetodo() {
 		return metodos;
 	}
