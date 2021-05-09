@@ -12,7 +12,9 @@ public class Regras {
 	public int[] args; //array the thresholds
 	public String nome; // nome da regra
 	public int lop; // 0-OR 1-AND
-	private boolean isCodeSmell; // boolean a usar na coluna da regra, culminar da sua verificacao perante um metodo
+	public boolean isCodeSmell; // boolean a usar na coluna da regra, culminar da sua verificacao perante um metodo
+
+	public Verificacao vr;
 
 	public Regras(String name, int a, int b, int c, int d, int e, int lop){
 		this.nome=name;
@@ -29,13 +31,14 @@ public class Regras {
 			}
 		this.args=args;
 		this.metrics=metrics;
+		this.vr=vr;
 	}
 	ArrayList<Integer> leituras=new ArrayList<>();
 	public boolean check(int limite, int contagem){
 		return limite<=contagem;
 	}
 
-	public void verify(Regras r, ArrayList<Integer> leituras){
+/*	public void verify(Regras r, ArrayList<Integer> leituras){
 		if(this.metrics.size()>0) { // evitar resultados falsos
 			if (this.lop == 0) //or
 				isCodeSmell = false;
@@ -48,5 +51,19 @@ public class Regras {
 					isCodeSmell = !isCodeSmell; // troca caso refutacao
 		}
 		else System.out.println("Regra vazia!"); // nao deve acontecer
+	}
+/*
+	public void detecao (ArrayList<Integer> leituras){
+		boolean one =vr.detection(leituras)[0];
+		boolean two =vr.detection(leituras)[1];
+		boolean [] quality=new boolean [2];
+		quality[1]=this.isCodeSmell;
+		if((one)
+
+
+	}*/
+
+	public ArrayList<AuxRegra> getMetrics() {
+		return metrics;
 	}
 }

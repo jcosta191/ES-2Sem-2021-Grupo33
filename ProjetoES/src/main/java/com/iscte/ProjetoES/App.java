@@ -25,31 +25,49 @@ public class App {
 		ArrayList<Integer> leituras= new ArrayList<Integer>();
 		ArrayList <Integer> leituras1= new ArrayList<Integer>();
 		leituras.add(4);leituras.add(18);leituras.add(400);leituras.add(3);leituras.add(1);
-		leituras1.add(29);leituras1.add(1371);leituras1.add(328);leituras1.add(20);leituras1.add(50+);
+		leituras1.add(29);leituras1.add(1371);leituras1.add(328);leituras1.add(20);leituras1.add(50);
 
-		Verificacao.Verify(godor,leituras);
+
+	
 		System.out.println("L-God Class or "+godor.isCodeSmell);
+		System.out.println("L");
+		System.out.println("OR => God_Class ->"+Verificacao.verifyBaseOR(leituras)[0]+"    Long_Method ->"+Verificacao.verifyBaseOR(leituras)[1]);
+		System.out.println("AND => God_Class ->"+Verificacao.verifyBaseAND(leituras)[0]+"    Long_Method ->"+Verificacao.verifyBaseAND(leituras)[1]);
+		System.out.println("L1");
+		System.out.println("OR => God_Class ->"+Verificacao.verifyBaseOR(leituras1)[0]+"    Long_Method ->"+Verificacao.verifyBaseOR(leituras1)[1]);
+		System.out.println("AND => God_Class ->"+Verificacao.verifyBaseAND(leituras1)[0]+"    Long_Method ->"+Verificacao.verifyBaseAND(leituras1)[1]);
 
-		Verificacao.Verify(godand,leituras);
-		System.out.println("L-God Class and "+godand.isCodeSmell);
+		System.out.println();
+		System.out.println();
 
-		Verificacao.Verify(longMor,leituras);
-		System.out.println("L-Long Method or "+longMor.isCodeSmell);
 
-		Verificacao.Verify(longMand,leituras);
-		System.out.println("L-Long Method and "+longMand.isCodeSmell);
+		System.out.println("   "+godor.nome+"      "+godand.nome+"       "+longMor.nome+"      "+longMand.nome);
 
-		Verificacao.Verify(godor,leituras1);
-		System.out.println("L1-God Class or "+godor.isCodeSmell);
+		System.out.print("L -");
+		Verificacao.verify(godor,leituras);
+		System.out.print(godor.isCodeSmell);
 
-		Verificacao.Verify(godand,leituras1);
-		System.out.println("L1-God Class and "+godand.isCodeSmell);
+		Verificacao.verify(godand,leituras);
+		System.out.print("     ||     "+godand.isCodeSmell);
 
-		Verificacao.Verify(longMor,leituras1);
-		System.out.println("L1-Long Method or "+longMor.isCodeSmell);
+		Verificacao.verify(longMor,leituras);
+		System.out.print("     ||     "+longMor.isCodeSmell);
 
-		Verificacao.Verify(longMand,leituras1);
-		System.out.println("L1-Long Method and "+longMand.isCodeSmell);
+		Verificacao.verify(longMand,leituras);
+		System.out.println("     ||     "+longMand.isCodeSmell);
 
-	*/}
+		System.out.print("L1-");
+
+		Verificacao.verify(godor,leituras1);
+		System.out.print(godor.isCodeSmell);
+
+		Verificacao.verify(godand,leituras1);
+		System.out.print("     ||     "+godand.isCodeSmell);
+
+		Verificacao.verify(longMor,leituras1);
+		System.out.print("     ||     "+longMor.isCodeSmell);
+
+		Verificacao.verify(longMand,leituras1);
+		System.out.print("     ||     "+longMand.isCodeSmell);
+		*/}
 }
