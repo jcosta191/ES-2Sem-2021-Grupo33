@@ -47,19 +47,12 @@ public class EscritorExcel {
 		// Create a Row
 		Row headerRow = sheet.createRow(0);
 
-		// Create cells
-	/*	for (int i = 0; i < columns.length; i++) {
-			Cell cell = headerRow.createCell(i);
-			cell.setCellValue(columns[i]);
-			cell.setCellStyle(headerCellStyle);
-		}*/
-
 		// Create Other rows and cells with employees data
 		int rowNum = 1;
 		for (Metodo method : methods) {
 			Row row = sheet.createRow(rowNum++);
 
-		/*	row.createCell(0).setCellValue(method.getMethodID());
+			row.createCell(0).setCellValue(method.getMethodID());
 
 			row.createCell(1).setCellValue(method.getPackage());
 
@@ -75,13 +68,13 @@ public class EscritorExcel {
 			
 			row.createCell(7).setCellValue(method.getLOC_method());
 			
-			row.createCell(8).setCellValue(method.getCYCLO_method());	*/
+			row.createCell(8).setCellValue(method.getCYCLO_method());	
 		}
 
 		// Resize all columns to fit the content size
-		/*for (int i = 0; i < columns.length; i++) {
+		for (int i = 0; i < 9; i++) {
 			sheet.autoSizeColumn(i);
-		}*/
+		}
 
 		// Write the output to a file
 		FileOutputStream fileOut = new FileOutputStream(a+"_metrics.xlsx");

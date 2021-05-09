@@ -5,13 +5,16 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.iscte.ProjetoES.Metodo;
 import com.iscte.ProjetoES.Leitores.LeitorExcel;
+import com.iscte.ProjetoES.Leitores.LeitorJava;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -121,30 +124,22 @@ public class EscritorJTable extends JFrame {
 	 */
 	public void openFile() {
 		LeitorExcel.getInstance().addFile();
+		ArrayList<Metodo> a = LeitorExcel.getInstance().getListaMetodo();
+		System.out.print(a.size());
+
+	    for (int i = 1; i <= LeitorExcel.getInstance().getListaMetodo().size(); i++) {
+			System.out.print(a.get(i+1).getPackage());
+			 if (a.get(i).getPackage() != a.get(i + 1).getPackage()) {
+		       numberPackage++;
+			 }
+		}
 		table.setModel(LeitorExcel.getInstance());
 
-		for (int i = 0; i <= LeitorExcel.getInstance().getRowCount(); i++) {
-			/* String a1 = (String) DataModel.getInstance().getValueAt(i,1); */
-			/*
-			 * String a2 = (String)DataModel.getInstance().getValueAt(i+1,2);
-			 * if(a1.compareTo(a2)==1){ numberPackage++; }
-			 */
 
-		}
-
-		info_panel.add(new JLabel(LeitorExcel.getInstance().getNumberPackages() + " Packages"));
+		info_panel.add(new JLabel(numberPackage + " Packages"));
 		info_panel.add(new JLabel(LeitorExcel.getInstance().getRowCount() + "Métodos"));
 		// info_panel.add(new JLabel(DataModel.getInstance().getValueAt() + " Linhas"));
 		setVisible(true);
-
-	}
-
-	public boolean contPackages(Object a, Object c) {
-		if (a.toString() == c.toString()) {
-			return true;
-
-		}
-		return false;
 
 	}
 

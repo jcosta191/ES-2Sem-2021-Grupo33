@@ -35,6 +35,7 @@ public class GUI {
         txtChooseAFile.setHorizontalAlignment(JTextField.CENTER);
         txtChooseAFile.setMaximumSize(new Dimension(400,500));
         pane.add(txtChooseAFile);
+
         
     }
 

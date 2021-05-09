@@ -33,6 +33,7 @@ public class LeitorExcel extends AbstractTableModel {
 	private static LeitorExcel INSTANCE;
 	private Sheet sheet;
 	public int numberP, numberLOC;
+	public static ArrayList<Metodo> metodos = new ArrayList<>();
 
 	private LeitorExcel() {
 	}
@@ -45,7 +46,7 @@ public class LeitorExcel extends AbstractTableModel {
 		try {
 			workbook = WorkbookFactory.create(fileChooser());
 			sheet = workbook.getSheetAt(0);
-			numberP=1;
+			numberP = 1;
 		} catch (NullPointerException | InvalidFormatException | IOException e) {
 			System.out.println("Ficheiro não aberto!");
 			System.exit(0);
@@ -60,8 +61,7 @@ public class LeitorExcel extends AbstractTableModel {
 	 * @throws IOException
 	 */
 	public ArrayList<Metodo> getContent() throws EncryptedDocumentException, InvalidFormatException, IOException {
-		ArrayList<Metodo> metodos = new ArrayList<Metodo>();
-        int numberLOC1=0;
+		int numberLOC1 = 0;
 		if (sheet != null) {
 			DataFormatter dataFormatter = new DataFormatter();
 			int j = 1;
@@ -77,13 +77,14 @@ public class LeitorExcel extends AbstractTableModel {
 				int WMC_class = (int) linha.getCell(6).getNumericCellValue();
 				int LOC_method = (int) linha.getCell(7).getNumericCellValue();
 				int CYCLO_method = (int) linha.getCell(8).getNumericCellValue();
-				numberLOC1+=LOC_method;
+				numberLOC1 += LOC_method;
 				setNumberLOC(numberLOC1);
-				System.out.print("LOCCCCC"+numberLOC);
-			    System.out.print("PACKAGE:   "+numberP);
+				System.out.print("LOCCCCC" + numberLOC);
+				System.out.print("PACKAGE:   " + numberP);
 				Metodo met = new Metodo(methodID, Package, Class, method, NOM_class, LOC_class, WMC_class, LOC_method,
 						CYCLO_method);
 				metodos.add(met);
+				System.out.print(met.getClass());
 				j++;
 			}
 		}
@@ -103,17 +104,17 @@ public class LeitorExcel extends AbstractTableModel {
 	public int getNumberPackages() {
 		return numberP;
 	}
-	
+
 	public void setNumberPackage(int a) {
-		numberP=a;
-		
+		numberP = a;
+
 	}
-	
+
 	public void setNumberLOC(int a) {
-		numberLOC=a;
-		
+		numberLOC = a;
+
 	}
-	
+
 	public int getNumberLOC() {
 		return numberLOC;
 	}
@@ -221,6 +222,10 @@ public class LeitorExcel extends AbstractTableModel {
 			System.out.println("Ficheiro não aberto!");
 		}
 
+	}
+
+	public ArrayList<Metodo> getListaMetodo() {
+		return metodos;
 	}
 
 }
