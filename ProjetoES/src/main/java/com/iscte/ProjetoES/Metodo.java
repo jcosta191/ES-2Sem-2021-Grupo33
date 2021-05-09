@@ -110,8 +110,10 @@ public class Metodo {
 
 	public ArrayList<Integer> getLeituras(){
 		ArrayList<Integer> leituras=new ArrayList<Integer>();
-		leituras.add(NOM_class);leituras.add(LOC_class);
-		leituras.add(WMC_class);leituras.add(LOC_method);
+		leituras.add(NOM_class);
+		leituras.add(LOC_class);
+		leituras.add(WMC_class);
+		leituras.add(LOC_method);
 		leituras.add(CYCLO_method);
 		return leituras;
 	}
