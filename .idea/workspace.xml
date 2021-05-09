@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fc98a48-4ca5-4a4b-8a6c-58ec44c51f62" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +22,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/GUI+Leitura_de_Ficheiro_de_Regras" />
+    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -293,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620567173927</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Merge remote-tracking branch 'origin/GUI+Leitura_de_Ficheiro_de_Regras' into Regra&#10;&#10;# Conflicts:&#10;#&#9;.idea/vcs.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;ProjetoES/.classpath&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/GUISelecionadorDeRegras.java&#10;#&#9;ProjetoES/src/main/java/GUI_Regras_Guardadas/Leitor_Regras_Guardadas.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/GUI_New_Rule.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI.java&#10;#&#9;ProjetoES/src/main/java/com/iscte/ProjetoES/Gui/GUI_Rule_Picker.java&#10;&#10;Comentários acrescentados apenas falta criar objeto regra quando for selecionada uma regra">
+      <created>1620567975101</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1620567975101</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

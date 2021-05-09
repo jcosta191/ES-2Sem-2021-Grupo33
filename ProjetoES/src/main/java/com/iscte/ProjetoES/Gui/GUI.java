@@ -1,8 +1,6 @@
 package com.iscte.ProjetoES.Gui;
 
 import com.iscte.ProjetoES.GUISelecionadorDeRegras;
-import com.iscte.ProjetoES.showFilexlsx;
-
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.metal.MetalLookAndFeel;
@@ -15,37 +13,33 @@ import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
+import com.iscte.ProjetoES.Escritores.EscritorJTable;
+import com.iscte.ProjetoES.Leitores.LeitorDiretorios;
+
 
 import static javax.swing.JFrame.*;
 
 public class GUI {
     private static List<JButton> buttonList = new ArrayList<>();
     private static JTextField txtChooseAFile = new JTextField("Nome do Ficheiro");
-   
+
     public static void addComponentsToPane(Container pane) {
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
-        
+
         //Criação dos botões e do textfield da janela inicial da GUI
         addAButton("Criar Regra", pane);
         NewRuleButtonAction();
+        addAButton("Visualizar Extração das Métricas", pane);
+        VisualizarExtraçãoButtonAction();
         addAButton("Alterar Regra Existente", pane);
         ChangeRuleButtonAction();
         addAButton("Procurar Ficheiro", pane);
         ProcurarFicheiroButtonAction();
-        
         txtChooseAFile.setHorizontalAlignment(JTextField.CENTER);
-
         txtChooseAFile.setMaximumSize(new Dimension(600,500));
         pane.add(txtChooseAFile);
-
-        
         addAButton("Importar Regras Existentes", pane);
         ImportarRegrasButtonAction();
-        
-        addAButton("Visualizar Extração das Métricas", pane);
-        VisualizarExtraçãoButtonAction();
-        
-        
     }
 
     //função para automatizar a criação de botões
@@ -86,10 +80,10 @@ public class GUI {
            }
        });
     }
-   
+
     private static void ChangeRuleButtonAction(){
     	//acesso à lista de botões e implementação do listener do botão selecionado
-        JButton button = buttonList.get(1);
+        JButton button = buttonList.get(2);
        button.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
@@ -110,31 +104,22 @@ public class GUI {
            }
        });
     }
-    
+
     private static void ProcurarFicheiroButtonAction(){
     	//acesso à lista de botões e implementação do listener do botão selecionado
-        JButton button = buttonList.get(2);
-		button.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//Selecionar um ficheiro e filtrar ficheiros java
-				JFileChooser fc= new JFileChooser();
-			
-				FileNameExtensionFilter filter=new FileNameExtensionFilter("*Java Files","JAVA", "Ficheiro JAVA");
-				fc.setFileFilter(filter);
-				//Verificar o File filter
-				int returnVal= fc.showOpenDialog(fc);
-				if(returnVal == JFileChooser.APPROVE_OPTION) {
-				File selectedFile= fc.getSelectedFile();
-				txtChooseAFile.setText(selectedFile.getPath());
-				}
-			}
-		});
+        JButton button = buttonList.get(3);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LeitorDiretorios java = new LeitorDiretorios();
+                java.openDir();
+            }
+        });
     }
-    
+
     private static void ImportarRegrasButtonAction(){
     	//acesso à lista de botões e implementação do listener do botão selecionado
-        JButton button = buttonList.get(3);
+        JButton button = buttonList.get(4);
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -149,25 +134,26 @@ public class GUI {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+
 			}
 		});
     }
-    
+
+
     private static void VisualizarExtraçãoButtonAction(){
-    	//acesso à lista de botões e implementação do listener do botão selecionado
-        JButton button = buttonList.get(4);
-		button.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//mostar o ficheiro excel gerado numa nova janela
-				showFilexlsx excel= new showFilexlsx();
-				excel.setVisible(true);  //preciso fazer com que volte a Janela inicial
-				
-			}
-		});
-    }
-    
+            JButton button = buttonList.get(1);
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //mostar o ficheiro excel gerado numa nova janela
+                    EscritorJTable a = new EscritorJTable();
+                    a.openFile();  //preciso fazer com que volte a Janela inicial
+                }
+            });
+        }
+
+
+
     private static void createAndShowGUI() throws UnsupportedLookAndFeelException {
     	//Lançamento da gui e de especificações de visualização da frame
         JFrame.setDefaultLookAndFeelDecorated(true);
@@ -180,11 +166,11 @@ public class GUI {
         frame.setVisible(true);
         frame.setSize(600,200);
         frame.setResizable(true);
-        
+
         Point d3 = new Point();
 		d3.x = (int)((Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2)-frame.getWidth()/2);
 		d3.y = (int)((Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2)-frame.getHeight()/2);
-		
+
 		frame.setLocation(d3);
 
         MouseWheelListener mouseWheelListener = null;
