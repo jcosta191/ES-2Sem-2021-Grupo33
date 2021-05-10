@@ -17,6 +17,8 @@ public class AnalizadorCodeSm extends JDialog {
 	// Variáveis
 	DefaultPieDataset dadosGrafico = null;
 	
+	
+	// Criação do gráfico com os valores do dataset
 	public JFreeChart createChart(DefaultPieDataset dadosGrafico, String CodeSmells) {
 
         JFreeChart graficoTarte = ChartFactory.createPieChart(
@@ -24,7 +26,21 @@ public class AnalizadorCodeSm extends JDialog {
 
         return graficoTarte;
     }
+	
+	// Criação do dataset e atribuição dos respetivos valores, no final devolve-se o dataset
+	public DefaultPieDataset criarDataSet(int VP, int FP, int VN, int FN) {
 
+        DefaultPieDataset dadosGrafico = new DefaultPieDataset();
+        
+        dadosGrafico.setValue("Verdadeiros Positivos [VP] = " + VP, VP);
+        dadosGrafico.setValue("Falsos Positivos [FP] = " + FP, FP);
+        dadosGrafico.setValue("Verdadeiros Negativos [VN] = " + VN, VN);
+        dadosGrafico.setValue("Falsos Negativos [FN] = " + FN, FN);
+
+        return dadosGrafico;
+    }
+
+	// Criacao do grafico com os valores dos VP, FP, VN, FN do codesmell
     public void createChart(int VP, int FP, int VN, int FN, String CodeSmell) {
         // Criação Gráfico
     	dadosGrafico = criarDataSet(VP,FP,VN,FN);
@@ -42,19 +58,6 @@ public class AnalizadorCodeSm extends JDialog {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         
-    }
-    
-    public DefaultPieDataset criarDataSet(int VP, int FP, int VN, int FN) {
-
-    	// Criação do dataset e atribuição dos respetivos valores, no final devolve-se o dataset
-        DefaultPieDataset dadosGrafico = new DefaultPieDataset();
-        
-        dadosGrafico.setValue("Verdadeiros Positivos (VP) = " +VP, VP);
-        dadosGrafico.setValue("Falsos Positivos (FP) = " +FP, FP);
-        dadosGrafico.setValue("Verdadeiros Negativos (VN) = " +VN, VN);
-        dadosGrafico.setValue("Falsos Negativos (FN) = " +FN, FN);
-
-        return dadosGrafico;
     }
 
     // Metodo para correr o Analizador dos CodeSmells

@@ -114,6 +114,7 @@ public class SeletorCodeSm extends JDialog {
 		janelaPrincipal.add(botaoAvaliarQualidade);
 	}
 	
+	// Procedimentos que invocam os detetores da classe DetetorCodeSm
 	public void detetorLM(String ficheiroALer, String escolhaMetrica1 , int escolhaValor1, int escolhaValor2, String regraAndOr) throws IOException {
 		DetetorCodeSm.detetorLM(ficheiroALer, escolhaMetrica1, escolhaValor1, escolhaValor2, regraAndOr);	
 	}
