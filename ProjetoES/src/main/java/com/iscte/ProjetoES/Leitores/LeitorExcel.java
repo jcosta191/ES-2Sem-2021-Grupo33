@@ -33,7 +33,7 @@ public class LeitorExcel extends AbstractTableModel {
 	private static LeitorExcel INSTANCE;
 	private Sheet sheet;
 	public int numberP, numberLOC;
-	public static ArrayList<Metodo> metodos = new ArrayList<>();
+	public ArrayList<Metodo> metodos = new ArrayList<>();
 
 	private LeitorExcel() {
 	}
@@ -66,7 +66,6 @@ public class LeitorExcel extends AbstractTableModel {
 			DataFormatter dataFormatter = new DataFormatter();
 			int j = 1;
 			while (j <= sheet.getLastRowNum()) {
-
 				Row linha = sheet.getRow(j);
 				int methodID = (int) linha.getCell(0).getNumericCellValue();
 				String Package = dataFormatter.formatCellValue(linha.getCell(1));
@@ -79,12 +78,10 @@ public class LeitorExcel extends AbstractTableModel {
 				int CYCLO_method = (int) linha.getCell(8).getNumericCellValue();
 				numberLOC1 += LOC_method;
 				setNumberLOC(numberLOC1);
-				System.out.print("LOCCCCC" + numberLOC);
-				System.out.print("PACKAGE:   " + numberP);
 				Metodo met = new Metodo(methodID, Package, Class, method, NOM_class, LOC_class, WMC_class, LOC_method,
 						CYCLO_method);
+				System.out.println(met);
 				metodos.add(met);
-				System.out.print(met.getClass());
 				j++;
 			}
 		}
@@ -102,6 +99,15 @@ public class LeitorExcel extends AbstractTableModel {
 	}
 
 	public int getNumberPackages() {
+		DataFormatter dataFormatter = new DataFormatter();
+		for(int i=0; i<sheet.getLastRowNum()-1; i++){
+			Row row = sheet.getRow(i);
+			Row nextRow = sheet.getRow(i+1);
+			String pack = dataFormatter.formatCellValue(row.getCell(1));
+			String nextPack = dataFormatter.formatCellValue(nextRow.getCell(1));
+			if(!(pack.equals(nextPack))) numberP++;
+		}
+		System.out.println(numberP);
 		return numberP;
 	}
 
@@ -116,6 +122,21 @@ public class LeitorExcel extends AbstractTableModel {
 	}
 
 	public int getNumberLOC() {
+		DataFormatter dataFormatter = new DataFormatter();
+		Row r = sheet.getRow(1);
+		String s = dataFormatter.formatCellValue(r.getCell(5));
+		numberLOC=Integer.parseInt(s);
+		for(int i=0; i<sheet.getLastRowNum()-1; i++){
+			Row row = sheet.getRow(i);
+			Row nextRow = sheet.getRow(i+1);
+			String pack = dataFormatter.formatCellValue(row.getCell(5));
+			String nextPack = dataFormatter.formatCellValue(nextRow.getCell(5));
+			if(!pack.equals(nextPack)){
+				int x = Integer.parseInt(nextPack);
+				numberLOC=numberLOC+x;
+			}
+		}
+
 		return numberLOC;
 	}
 
@@ -147,19 +168,18 @@ public class LeitorExcel extends AbstractTableModel {
 
 			switch (arg1) {
 			case 0:
-				return (int) cell.getNumericCellValue();
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+				case 8:
+					return (int) cell.getNumericCellValue();
 			case 1:
 			case 2:
 			case 3:
 				return cell.getStringCellValue();
-			case 4:
-			case 5:
-			case 6:
-			case 7:
-			case 8:
-				return (int) cell.getNumericCellValue();
 
-			default:
+				default:
 				return null;
 			}
 		} else {

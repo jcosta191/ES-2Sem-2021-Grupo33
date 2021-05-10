@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExcludeFromValidation">
+    <file url="file://$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/CodeSmells/SeletorCodeSm.java" />
+    <file url="file://$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Escritores/EscritorJTable.java" />
+    <file url="file://$PROJECT_DIR$/ProjetoES/src/main/java/com/iscte/ProjetoES/Leitores/LeitorDiretorios.java" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>

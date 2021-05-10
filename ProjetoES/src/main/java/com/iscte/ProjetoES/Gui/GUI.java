@@ -11,10 +11,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseWheelListener;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.iscte.ProjetoES.Escritores.EscritorJTable;
 import com.iscte.ProjetoES.Leitores.LeitorDiretorios;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 
 import static javax.swing.JFrame.*;
@@ -147,7 +149,13 @@ public class GUI {
                 public void actionPerformed(ActionEvent e) {
                     //mostar o ficheiro excel gerado numa nova janela
                     EscritorJTable a = new EscritorJTable();
-                    a.openFile();  //preciso fazer com que volte a Janela inicial
+                    try {
+                        a.openFile();  //preciso fazer com que volte a Janela inicial
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    } catch (InvalidFormatException invalidFormatException) {
+                        invalidFormatException.printStackTrace();
+                    }
                 }
             });
         }

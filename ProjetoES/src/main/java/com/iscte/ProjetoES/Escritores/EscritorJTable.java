@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -15,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import com.iscte.ProjetoES.Metodo;
 import com.iscte.ProjetoES.Leitores.LeitorExcel;
 import com.iscte.ProjetoES.Leitores.LeitorJava;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -122,23 +124,12 @@ public class EscritorJTable extends JFrame {
 	/**
 	 * Torna visivel a janela e abre a o JFileChooser para escolher o ficheiro
 	 */
-	public void openFile() {
+	public void openFile() throws IOException, InvalidFormatException {
 		LeitorExcel.getInstance().addFile();
-		ArrayList<Metodo> a = LeitorExcel.getInstance().getListaMetodo();
-		System.out.print(a.size());
-
-	    for (int i = 1; i <= LeitorExcel.getInstance().getListaMetodo().size(); i++) {
-			System.out.print(a.get(i+1).getPackage());
-			 if (a.get(i).getPackage() != a.get(i + 1).getPackage()) {
-		       numberPackage++;
-			 }
-		}
 		table.setModel(LeitorExcel.getInstance());
-
-
-		info_panel.add(new JLabel(numberPackage + " Packages"));
+		info_panel.add(new JLabel(LeitorExcel.getInstance().getNumberPackages() + " Packages"));
 		info_panel.add(new JLabel(LeitorExcel.getInstance().getRowCount() + "Métodos"));
-		// info_panel.add(new JLabel(DataModel.getInstance().getValueAt() + " Linhas"));
+		info_panel.add(new JLabel(LeitorExcel.getInstance().getNumberLOC() + " Linhas"));
 		setVisible(true);
 
 	}
