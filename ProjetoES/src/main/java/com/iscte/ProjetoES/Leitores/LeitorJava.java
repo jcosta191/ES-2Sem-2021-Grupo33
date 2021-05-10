@@ -121,11 +121,8 @@ public class LeitorJava extends AbstractTableModel {
 			for (Method a : cls.getDeclaredMethods()) {
 				method = a.getName();
 				LOC_method = saberLOC_method(a, file);
-<<<<<<< Upstream, based on origin/master
-				
-=======
+
 				MethodID++;
->>>>>>> d317d5b Retoques finais
 				Metodo met = new Metodo(MethodID, Package, Classe, method, NOM_class, count, WMC_class, LOC_method,
 						CYCLO_method);
 				EscritorExcel.adicionaLista(met);
@@ -147,43 +144,18 @@ public class LeitorJava extends AbstractTableModel {
 	public int saberLOC_method(Method a, File b) throws FileNotFoundException {
 		Scanner myReader = new Scanner(b);
 		int LOC_method1 = 0;
-<<<<<<< Upstream, based on origin/master
-=======
+
 		int CYCLO_method1 = 0;
->>>>>>> d317d5b Retoques finais
 		boolean ativadoContarLOC = false;
 		while (myReader.hasNextLine()) {
 			String data = myReader.nextLine();
 			String[] words = data.split(" ");
-<<<<<<< Upstream, based on origin/master
-			
-			if ((data.contains("public") || data.contains("private") || data.contains("protected")) && (!data.contains("class") && !data.contains(";") && data.contains("{") && data.contains(a.getName()))) {
-				ativadoContarLOC = true;
-				System.out.println(data + " " + ativadoContarLOC);
-=======
 
 			if ((data.contains("public") || data.contains("private") || data.contains("protected"))
 					&& (!data.contains("class") && !data.contains(";") && data.contains("{")
 							&& data.contains(a.getName()))) {
 				ativadoContarLOC = true;
-
->>>>>>> d317d5b Retoques finais
 			}
-<<<<<<< Upstream, based on origin/master
-			
-			if ((data.contains("public") || data.contains("private") || data.contains("private")) && ((data.contains(";") || data.contains("{")) && !data.contains(a.getName()))) {
-				ativadoContarLOC = false;
-				System.out.println(data + " " + ativadoContarLOC);
-			}
-			
-			if ((data.contains("public") || data.contains("private") || data.contains("private")) && (data.contains(";") && !data.contains("{") && !data.contains(a.getName()))) {
-				ativadoContarLOC = false;
-				System.out.println(data + " " + ativadoContarLOC);
-			}
-			
-			if (ativadoContarLOC == true) {
-				LOC_method1++;
-=======
 
 			if ((data.contains("public") || data.contains("private") || data.contains("private"))
 					&& ((data.contains(";") || data.contains("{")) && !data.contains(a.getName()))) {
@@ -205,35 +177,31 @@ public class LeitorJava extends AbstractTableModel {
 
 				}
 				setCYCLO(CYCLO_method1);
->>>>>>> d317d5b Retoques finais
+
 			}
 		}
-<<<<<<< Upstream, based on origin/master
 		myReader.close();
-		return LOC_method1-1>0?LOC_method1-1:0;
+		return LOC_method1 - 1 > 0 ? LOC_method1 - 1 : 0;
 	}
-	
+
 	public int saberWMC_class(File b) throws FileNotFoundException {
 		Scanner myReader = new Scanner(b);
 		int cyclo_methods = 0;
 		boolean ativadoContarLOC = false;
 		while (myReader.hasNextLine()) {
 			String data = myReader.nextLine();
-				if ((data.contains("private") || data.contains("public")) && !data.contains(";") && !data.contains("=") 
-						&& !data.contains("class") && data.contains("(")){
-					cyclo_methods++;
-				}
-				if ((data.contains("while") || data.contains("else") || data.contains("for") || data.contains("if"))
-						&& !data.endsWith(";")) {
-					cyclo_methods++;
-				}
+			if ((data.contains("private") || data.contains("public")) && !data.contains(";") && !data.contains("=")
+					&& !data.contains("class") && data.contains("(")) {
+				cyclo_methods++;
+			}
+			if ((data.contains("while") || data.contains("else") || data.contains("for") || data.contains("if"))
+					&& !data.endsWith(";")) {
+				cyclo_methods++;
+			}
 		}
 		myReader.close();
 		System.out.println("The class has a complexity of " + cyclo_methods + ".");
 		return cyclo_methods;
-=======
-		return LOC_method1 - 1 > 0 ? LOC_method1 - 1 : 0;
->>>>>>> d317d5b Retoques finais
 	}
 
 	public boolean saberCYCLO(String words) throws FileNotFoundException {
