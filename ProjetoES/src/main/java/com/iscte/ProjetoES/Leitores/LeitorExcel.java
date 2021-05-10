@@ -101,10 +101,6 @@ public class LeitorExcel extends AbstractTableModel {
 		}
 	}
 
-	public int getNumberPackages() {
-		return numberP;
-	}
-
 	public void setNumberPackage(int a) {
 		numberP = a;
 
@@ -113,10 +109,6 @@ public class LeitorExcel extends AbstractTableModel {
 	public void setNumberLOC(int a) {
 		numberLOC = a;
 
-	}
-
-	public int getNumberLOC() {
-		return numberLOC;
 	}
 
 	@Override
@@ -203,6 +195,37 @@ public class LeitorExcel extends AbstractTableModel {
 		File excelfile = filechooser.getSelectedFile();
 		return excelfile;
 
+	}
+	
+	public int getNumberLOC() {
+		DataFormatter dataFormatter = new DataFormatter();
+		Row r = sheet.getRow(1);
+		String s = dataFormatter.formatCellValue(r.getCell(5));
+		numberLOC=Integer.parseInt(s);
+		for(int i=0; i<sheet.getLastRowNum()-1; i++){
+			Row row = sheet.getRow(i);
+			Row nextRow = sheet.getRow(i+1);
+			String pack = dataFormatter.formatCellValue(row.getCell(5));
+			String nextPack = dataFormatter.formatCellValue(nextRow.getCell(5));
+			if(!pack.equals(nextPack)){
+				int x = Integer.parseInt(nextPack);
+				numberLOC=numberLOC+x;
+			}
+		}
+		return numberLOC;
+	}
+	
+	public int getNumberPackages() {
+		DataFormatter dataFormatter = new DataFormatter();
+		for(int i=0; i<sheet.getLastRowNum()-1; i++){
+			Row row = sheet.getRow(i);
+			Row nextRow = sheet.getRow(i+1);
+			String pack = dataFormatter.formatCellValue(row.getCell(1));
+			String nextPack = dataFormatter.formatCellValue(nextRow.getCell(1));
+			if(!(pack.equals(nextPack))) numberP++;
+		}
+		System.out.println(numberP);
+		return numberP;
 	}
 	
 	public ArrayList<Metodo> getListaMetodo() {

@@ -5,12 +5,15 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.iscte.ProjetoES.Metodo;
 import com.iscte.ProjetoES.Leitores.LeitorExcel;
@@ -23,7 +26,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 /**
- * Classe para visualizar um ficheiro Excel
+ * Classe que representa a escrita do import Excel no JTable
  * 
  * @author jcosta191
  *
@@ -69,9 +72,6 @@ public class EscritorJTable extends JFrame {
 	 */
 	private void initTable() {
 		table = new JTable() {
-			/**
-			 * 
-			 */
 			private static final long serialVersionUID = -1528885477774668184L;
 
 			public String getToolTipText(MouseEvent e) {
@@ -120,27 +120,15 @@ public class EscritorJTable extends JFrame {
 	}
 
 	/**
-	 * Torna visivel a janela e abre a o JFileChooser para escolher o ficheiro
+	 * Torna visivel a janela e abre a o JFileChooser para escolher o Excel
 	 */
-	public void openFile() {
+	public void openFile() throws IOException, InvalidFormatException {
 		LeitorExcel.getInstance().addFile();
-		ArrayList<Metodo> a = LeitorExcel.getInstance().getListaMetodo();
-		System.out.print(a.size());
-
-	    for (int i = 1; i <= LeitorExcel.getInstance().getListaMetodo().size(); i++) {
-			System.out.print(a.get(i+1).getPackage());
-			 if (a.get(i).getPackage() != a.get(i + 1).getPackage()) {
-		       numberPackage++;
-			 }
-		}
 		table.setModel(LeitorExcel.getInstance());
-
-
-		info_panel.add(new JLabel(numberPackage + " Packages"));
+		info_panel.add(new JLabel(LeitorExcel.getInstance().getNumberPackages() + " Packages"));
 		info_panel.add(new JLabel(LeitorExcel.getInstance().getRowCount() + "Métodos"));
-		// info_panel.add(new JLabel(DataModel.getInstance().getValueAt() + " Linhas"));
+		info_panel.add(new JLabel(LeitorExcel.getInstance().getNumberLOC() + " Linhas"));
 		setVisible(true);
-
 	}
 
 	/**

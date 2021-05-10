@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.OceanTheme;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+
 import com.iscte.ProjetoES.GUISelecionadorDeRegras;
 import com.iscte.ProjetoES.CRegra.Regras;
 import com.iscte.ProjetoES.CodeSmells.SeletorCodeSm;
@@ -127,7 +129,7 @@ public class GUI {
 							}
 
 							GUI.setLocation();
-							
+
 							// TEM DE SER "LOC_Method"
 							dialog.detetorLM(getLocation(), "LOC_Method", GUI.regraSelecionada.getLOCM(),
 									GUI.regraSelecionada.getCYCLOM(), operadorLogico);
@@ -136,7 +138,7 @@ public class GUI {
 							// "NOM_class"
 							dialog.detetorGC(getLocation(), "LOC_class", "NOM_class", GUI.regraSelecionada.getLOCC(),
 									GUI.regraSelecionada.getNOM(), operadorLogico);
-							
+
 						} catch (NumberFormatException | IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -187,7 +189,12 @@ public class GUI {
 			public void actionPerformed(ActionEvent e) {
 				// mostar o ficheiro excel gerado numa nova janela
 				EscritorJTable a = new EscritorJTable();
-				a.openFile(); // preciso fazer com que volte a Janela inicial
+				try {
+					a.openFile();
+				} catch (InvalidFormatException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} // preciso fazer com que volte a Janela inicial
 			}
 		});
 	}
