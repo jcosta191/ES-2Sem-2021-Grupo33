@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- * Inicia o programa
+ * Inicia o programa com a Classe GUI
  * 
  * @author jcosta191
  *

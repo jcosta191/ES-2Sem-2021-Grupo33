@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,9 +14,7 @@ import javax.swing.border.EmptyBorder;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
-import com.iscte.ProjetoES.Metodo;
 import com.iscte.ProjetoES.Leitores.LeitorExcel;
-import com.iscte.ProjetoES.Leitores.LeitorJava;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -35,12 +32,15 @@ public class EscritorJTable extends JFrame {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUI3D = 5646410931104674210L;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
 	private JPanel contentPane, excel_panel, info_panel;
 	private JTable table;
 	private JMenuBar menuBar;
 	private JMenu mnFicheiro;
-	private JMenuItem mImportarExcel, mNovaRegra, mComparador;
+	private JMenuItem mImportarExcel;
 	public int numberPackage = 1;
 
 	/**
@@ -120,7 +120,8 @@ public class EscritorJTable extends JFrame {
 	}
 
 	/**
-	 * Torna visivel a janela e abre a o JFileChooser para escolher o Excel
+	 * Torna visivel a janela e abre a o JFileChooser para escolher o Excel e mostra
+	 * o nº de packages, metodos e linhas totais
 	 */
 	public void openFile() throws IOException, InvalidFormatException {
 		LeitorExcel.getInstance().addFile();
