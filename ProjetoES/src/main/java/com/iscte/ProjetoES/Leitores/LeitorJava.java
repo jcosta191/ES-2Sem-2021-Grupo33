@@ -35,29 +35,37 @@ import com.iscte.ProjetoES.Gui.GUI;
 public class LeitorJava extends AbstractTableModel {
 	private static final long serialVersionUID = -4220550076295049347L;
 	private static LeitorJava INSTANCIA;
-	private Sheet java;
-	private int MethodID, NOM_class, LOC_class, WMC_class, LOC_method, CYCLO_method;
+	private int MethodID, NOM_class, WMC_class, LOC_method, CYCLO_method;
 	private String Package, Classe, method;
-	private String filepath;
-	private String name;
+	private String filepath, name;
 	private File file;
 	private Class cls;
 
 	private LeitorJava() {
 	}
 
+	/**
+	 * Classe que abre o escolherJava
+	 *
+	 */
 	public void abrirJava() {
-		Workbook workbook;
-
 		escolherJava();
 	}
 
+	/**
+	 * Cria a instancia
+	 *
+	 */
 	public static LeitorJava getInstance() {
 		if (INSTANCIA == null)
 			INSTANCIA = new LeitorJava();
 		return INSTANCIA;
 	}
 
+	/**
+	 * Classe que abre o filechooser e retorna os files javas
+	 *
+	 */
 	public File escolherJava() {
 		JFileChooser escolherJava = new JFileChooser();
 		escolherJava.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -75,6 +83,10 @@ public class LeitorJava extends AbstractTableModel {
 
 	}
 
+	/**
+	 * Classe que vai percorrer os files Java e faz a seleção
+	 *
+	 */
 	public void listAllFiles(File folder) {
 		File[] fileNames = folder.listFiles();
 
@@ -91,6 +103,10 @@ public class LeitorJava extends AbstractTableModel {
 		}
 	}
 
+	/**
+	 * Classe que vai ler os ficheiros e preencher as colunas do excel
+	 *
+	 */
 	private void lerFicheiro(File file, File folder) {
 		// if (file.getName().endsWith(".java")) {
 		String[] words = null;
@@ -110,14 +126,6 @@ public class LeitorJava extends AbstractTableModel {
 				Classe = file.getName().replace(".java", "");
 				cls = Class.forName(Package + "." + Classe);
 				NOM_class = cls.getDeclaredMethods().length;
-				for (int i = 0; i <= words.length - 1; i++) {
-					System.out.println(words[i]);
-					if (words[i].contains("if") || words[i].contains("for") || words[i].contains("case")
-							|| words[i].contains("while")) {
-						CYCLO_method++;
-					}
-
-				}
 			}
 			for (Method a : cls.getDeclaredMethods()) {
 				method = a.getName();
@@ -143,6 +151,10 @@ public class LeitorJava extends AbstractTableModel {
 		}
 	}
 
+	/**
+	 * Classe que vai poder saber o LOC_METHOD
+	 *
+	 */
 	public int saberLOC_method(Method a, File b) throws FileNotFoundException {
 		Scanner myReader = new Scanner(b);
 		int LOC_method1 = 0;
@@ -186,6 +198,11 @@ public class LeitorJava extends AbstractTableModel {
 		return LOC_method1 - 1 > 0 ? LOC_method1 - 1 : 0;
 	}
 
+	/**
+	 *
+	 * Classe que poder saber o WMC_class
+	 *
+	 */
 	public int saberWMC_class(File b) throws FileNotFoundException {
 		Scanner myReader = new Scanner(b);
 		int cyclo_methods = 0;
@@ -206,6 +223,10 @@ public class LeitorJava extends AbstractTableModel {
 		return cyclo_methods;
 	}
 
+	/**
+	 * Classe que vai poder saber se é CYCLO com boolean para depois ser usado no saber_LOCmethod
+	 *
+	 */
 	public boolean saberCYCLO(String words) throws FileNotFoundException {
 		// boolean ativadoContarLinhas = false;
 		// String newStr = words[i].substring(0, words[i].indexOf("("));
@@ -222,6 +243,10 @@ public class LeitorJava extends AbstractTableModel {
 		return false;
 	}
 
+	/**
+	 * Classe que vai dar set ao CYCLO_method declarado em cima
+	 *
+	 */
 	public void setCYCLO(int a) {
 		// TODO Auto-generated method stub
 		CYCLO_method = a;

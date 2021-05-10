@@ -265,6 +265,10 @@ public class GUI_Change_Rule {
             
 
        }
+    /**
+     * Função para extrair os parametros dados por input do utilizador e escrever as alterações no ficheiro usado para guardar regras
+     * @author Bernardo Marques
+     */
     public void SaveRule(){
         ArrayList<String> regraGuardada = new ArrayList<>();
         ArrayList<String> allRules = l.lineReaderFile();
