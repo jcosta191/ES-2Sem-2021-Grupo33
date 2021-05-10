@@ -9,6 +9,10 @@ package com.iscte.ProjetoES.CRegra;
  * limite- limite da metrica mencionada
  * lop-operador logico
  * */
+
+// @author tmots90
+
+
 public class AuxRegra {
 	public final int metrica;
 	private String nomeMetrica;

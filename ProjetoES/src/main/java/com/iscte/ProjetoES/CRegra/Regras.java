@@ -6,13 +6,18 @@ import java.util.ArrayList;
  *Classe Regra recebe como argumentos um arrayList em cada posi��o uma m�trica selecionada pelo user, o respetivo limite e operador l�gico
  *a considerar para a forma��o de express�es com as metricas.
  */
+
+
+// @author tmots90
+// dmcaa
+
 public class Regras {
 	public ArrayList<AuxRegra> metrics=new ArrayList<AuxRegra>(); // conjunto de condicoes que compoem a regra
 
 	public int[] args; //array the thresholds
 	public String nome; // nome da regra
 	public int lop; // 0-OR 1-AND
-	private boolean isCodeSmell; // boolean a usar na coluna da regra, culminar da sua verificacao perante um metodo
+	private boolean isCodeSmell; // boolean a usar na coluna da regra, resultado da sua verificacao perante um metodo
 
 	public int a;
 	public int b;
@@ -41,19 +46,8 @@ public class Regras {
 		return limite<=contagem;
 	}
 
-	public void verify(Regras r, ArrayList<Integer> leituras){
-		if(this.metrics.size()>0) { // evitar resultados falsos
-			if (this.lop == 0) //or
-				isCodeSmell = false;
-			else // and
-				isCodeSmell = true;
-			for (AuxRegra condition : this.metrics)
-				if (check(condition.getLimite(), leituras.get(condition.metrica)) != isCodeSmell)
-					// se o lop for OR o primeiro true acaba a verificação
-					// se for AND o primeiro false termina o processo
-					isCodeSmell = !isCodeSmell; // troca caso refutacao
-		}
-		else System.out.println("Regra vazia!"); // nao deve acontecer
+	public ArrayList<AuxRegra> getMetrics() {
+		return metrics;
 	}
 	
 	public int getLOCC() { return a; }
