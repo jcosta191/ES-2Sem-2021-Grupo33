@@ -18,7 +18,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class App {
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
-		GUI a = new GUI();
+		GUI a = new GUI() ;
 		try {
 			a.createAndShowGUI();
 		} catch (UnsupportedLookAndFeelException e) {
