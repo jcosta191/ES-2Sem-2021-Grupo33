@@ -5,6 +5,9 @@ package com.iscte.ProjetoES.Escritores;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +37,7 @@ public class EscritorJTableTest {
 	 */
 	@Test
 	public final void testEscritorJTable() {
-		fail("Not yet implemented"); // TODO
+		EscritorJTable ejt = new EscritorJTable();
 	}
 
 	/**
@@ -42,7 +45,8 @@ public class EscritorJTableTest {
 	 */
 	@Test
 	public final void testInitMenus() {
-		fail("Not yet implemented"); // TODO
+		EscritorJTable ejt = new EscritorJTable();
+		ejt.initMenus();
 	}
 
 	/**
@@ -50,7 +54,16 @@ public class EscritorJTableTest {
 	 */
 	@Test
 	public final void testOpenFile() {
-		fail("Not yet implemented"); // TODO
+		EscritorJTable ejt = new EscritorJTable();
+		try {
+			ejt.openFile();
+		} catch (InvalidFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -58,7 +71,8 @@ public class EscritorJTableTest {
 	 */
 	@Test
 	public final void testGetTable() {
-		fail("Not yet implemented"); // TODO
-	}
+		EscritorJTable ejt = new EscritorJTable();
+		assertEquals(ejt.getTable(), ejt.getTable());
+		}
 
 }

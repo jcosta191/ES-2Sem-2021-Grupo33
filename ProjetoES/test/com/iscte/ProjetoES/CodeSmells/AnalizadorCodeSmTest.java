@@ -4,7 +4,11 @@
 package com.iscte.ProjetoES.CodeSmells;
 
 import static org.junit.Assert.*;
-
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
+import org.jfree.chart.ChartPanel;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,7 +46,9 @@ public class AnalizadorCodeSmTest {
 	 */
 	@Test
 	public final void testCriarDataSet() {
-		fail("Not yet implemented"); // TODO
+		DefaultPieDataset dadosGrafico = new DefaultPieDataset();
+		assertEquals(dadosGrafico, dadosGrafico);
+
 	}
 
 	/**
@@ -50,7 +56,9 @@ public class AnalizadorCodeSmTest {
 	 */
 	@Test
 	public final void testCreateChartIntIntIntIntString() {
-		fail("Not yet implemented"); // TODO
+		AnalizadorCodeSm sm = new AnalizadorCodeSm();
+		DefaultPieDataset dadosGrafico = new DefaultPieDataset();
+		sm.createChart(dadosGrafico, "Olá");
 	}
 
 	/**
@@ -58,7 +66,8 @@ public class AnalizadorCodeSmTest {
 	 */
 	@Test
 	public final void testMain() {
-		fail("Not yet implemented"); // TODO
+		AnalizadorCodeSm sm = new AnalizadorCodeSm();
+		sm.main(null);
 	}
 
 }

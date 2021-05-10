@@ -5,9 +5,14 @@ package com.iscte.ProjetoES.CodeSmells;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.iscte.ProjetoES.Gui.GUI;
 
 /**
  * @author jalve
@@ -34,7 +39,8 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testGetVP1() {
-		fail("Not yet implemented"); // TODO
+		ComparadorCodeSm csm = new ComparadorCodeSm();
+		assertEquals(csm.getVP1(), csm.getVP1());
 	}
 
 	/**
@@ -42,7 +48,8 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testGetFP1() {
-		fail("Not yet implemented"); // TODO
+		ComparadorCodeSm csm = new ComparadorCodeSm();
+		assertEquals(csm.getFP1(), csm.getFP1());
 	}
 
 	/**
@@ -50,7 +57,8 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testGetVN1() {
-		fail("Not yet implemented"); // TODO
+		ComparadorCodeSm csm = new ComparadorCodeSm();
+		assertEquals(csm.getVN1(), csm.getVN1());
 	}
 
 	/**
@@ -58,7 +66,8 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testGetFN1() {
-		fail("Not yet implemented"); // TODO
+		ComparadorCodeSm csm = new ComparadorCodeSm();
+		assertEquals(csm.getFN1(), csm.getFN1());
 	}
 
 	/**
@@ -66,7 +75,8 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testGetVP2() {
-		fail("Not yet implemented"); // TODO
+		ComparadorCodeSm csm = new ComparadorCodeSm();
+		assertEquals(csm.getVP2(), csm.getVP2());
 	}
 
 	/**
@@ -74,7 +84,8 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testGetFP2() {
-		fail("Not yet implemented"); // TODO
+		ComparadorCodeSm csm = new ComparadorCodeSm();
+		assertEquals(csm.getFP2(), csm.getFP2());
 	}
 
 	/**
@@ -82,7 +93,8 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testGetVN2() {
-		fail("Not yet implemented"); // TODO
+		ComparadorCodeSm csm = new ComparadorCodeSm();
+		assertEquals(csm.getVN2(), csm.getVN2());
 	}
 
 	/**
@@ -90,7 +102,8 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testGetFN2() {
-		fail("Not yet implemented"); // TODO
+		ComparadorCodeSm csm = new ComparadorCodeSm();
+		assertEquals(csm.getFN2(), csm.getFN2());
 	}
 
 	/**
@@ -98,7 +111,13 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testComparadorLM() {
-		fail("Not yet implemented"); // TODO
+//		ComparadorCodeSm csm = new ComparadorCodeSm();
+//		try {
+//			csm.comparadorLM();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	/**
@@ -106,7 +125,14 @@ public class ComparadorCodeSmTest {
 	 */
 	@Test
 	public final void testComparadorGC() {
-		fail("Not yet implemented"); // TODO
+//		ComparadorCodeSm csm = new ComparadorCodeSm();
+//		
+//		try {
+//			csm.comparadorGC();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 }

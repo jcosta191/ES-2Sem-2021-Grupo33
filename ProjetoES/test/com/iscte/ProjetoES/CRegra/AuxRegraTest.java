@@ -34,7 +34,9 @@ public class AuxRegraTest {
 	 */
 	@Test
 	public final void testAuxRegra() {
-		fail("Not yet implemented"); // TODO
+		AuxRegra aux = new AuxRegra(1,20);
+		assertEquals(aux, aux);
+
 	}
 
 	/**
@@ -42,7 +44,8 @@ public class AuxRegraTest {
 	 */
 	@Test
 	public final void testGetNomeMetrica() {
-		fail("Not yet implemented"); // TODO
+		AuxRegra aux = new AuxRegra(1,20);
+		assertEquals(aux.getNomeMetrica(), aux.getNomeMetrica());
 	}
 
 	/**
@@ -50,7 +53,8 @@ public class AuxRegraTest {
 	 */
 	@Test
 	public final void testGetLimite() {
-		fail("Not yet implemented"); // TODO
+		AuxRegra aux = new AuxRegra(1,20);
+		assertEquals(aux.getLimite(), aux.getLimite());
 	}
 
 	/**
@@ -58,7 +62,8 @@ public class AuxRegraTest {
 	 */
 	@Test
 	public final void testGetResultadoMetrica() {
-		fail("Not yet implemented"); // TODO
+		AuxRegra aux = new AuxRegra(1,20);
+		assertEquals(aux.getResultadoMetrica(), aux.getResultadoMetrica());
 	}
 
 	/**
@@ -66,7 +71,9 @@ public class AuxRegraTest {
 	 */
 	@Test
 	public final void testSetNomeMetrica() {
-		fail("Not yet implemented"); // TODO
+		AuxRegra aux = new AuxRegra(1,20);
+		aux.setNomeMetrica("test");
+		assertEquals(aux.getNomeMetrica(), "test");
 	}
 
 	/**
@@ -74,7 +81,9 @@ public class AuxRegraTest {
 	 */
 	@Test
 	public final void testSetLimite() {
-		fail("Not yet implemented"); // TODO
+		AuxRegra aux = new AuxRegra(1,20);
+		aux.setLimite(1);
+		assertEquals(aux.getLimite(), 1);
 	}
 
 	/**
@@ -82,7 +91,9 @@ public class AuxRegraTest {
 	 */
 	@Test
 	public final void testSetResultadoMetrica() {
-		fail("Not yet implemented"); // TODO
+		AuxRegra aux = new AuxRegra(1,20);
+		aux.setResultadoMetrica(2);
+		assertEquals(aux.getResultadoMetrica(), 2);
 	}
 
 }

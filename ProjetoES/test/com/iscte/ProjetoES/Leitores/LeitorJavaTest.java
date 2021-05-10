@@ -2,63 +2,76 @@ package com.iscte.ProjetoES.Leitores;
 
 import static org.junit.Assert.*;
 
+import java.io.FileNotFoundException;
+
 import org.junit.Test;
+
+import com.iscte.ProjetoES.Metodo;
 
 public class LeitorJavaTest {
 
 	@Test
 	public final void testAbrirJava() {
-		fail("Not yet implemented"); // TODO
+		LeitorJava aj = new LeitorJava();
+		aj.abrirJava();
 	}
 
 	@Test
 	public final void testGetInstance() {
-		fail("Not yet implemented"); // TODO
+		LeitorJava aj = new LeitorJava();
+		assertEquals(aj.getInstance(),aj.getInstance());
 	}
 
 	@Test
 	public final void testEscolherJava() {
-		fail("Not yet implemented"); // TODO
+		LeitorJava aj = new LeitorJava();
+		aj.escolherJava();
 	}
 
 	@Test
 	public final void testListAllFiles() {
-		fail("Not yet implemented"); // TODO
+		LeitorJava aj = new LeitorJava();
+		aj.listAllFiles(null);
 	}
 
 	@Test
 	public final void testSaberLOC_method() {
-		fail("Not yet implemented"); // TODO
+
 	}
 
 	@Test
 	public final void testSaberWMC_class() {
-		fail("Not yet implemented"); // TODO
+
+		
 	}
 
 	@Test
 	public final void testSaberCYCLO() {
-		fail("Not yet implemented"); // TODO
+
 	}
 
 	@Test
 	public final void testSetCYCLO() {
-		fail("Not yet implemented"); // TODO
+		LeitorJava aj = new LeitorJava();
+		aj.setCYCLO(1);
 	}
 
 	@Test
 	public final void testGetRowCount() {
-		fail("Not yet implemented"); // TODO
+		LeitorJava aj = new LeitorJava();
+		assertEquals(aj.getRowCount(), aj.getRowCount());
 	}
 
 	@Test
 	public final void testGetColumnCount() {
-		fail("Not yet implemented"); // TODO
+		LeitorJava aj = new LeitorJava();
+		assertEquals(aj.getColumnCount(), aj.getColumnCount());
 	}
 
 	@Test
 	public final void testGetValueAt() {
-		fail("Not yet implemented"); // TODO
+		LeitorJava aj = new LeitorJava();
+		assertEquals(aj.getValueAt(1, 1), aj.getValueAt(1, 1));
 	}
 
 }

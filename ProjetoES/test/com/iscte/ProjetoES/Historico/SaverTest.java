@@ -5,6 +5,9 @@ package com.iscte.ProjetoES.Historico;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +37,7 @@ public class SaverTest {
 	 */
 	@Test
 	public final void testSaver() {
-		fail("Not yet implemented"); // TODO
+		Saver save = new Saver();
 	}
 
 	/**
@@ -42,7 +45,13 @@ public class SaverTest {
 	 */
 	@Test
 	public final void testCreateFile() {
-		fail("Not yet implemented"); // TODO
+		Saver save = new Saver();
+		try {
+			save.createFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -50,7 +59,17 @@ public class SaverTest {
 	 */
 	@Test
 	public final void testWriteRule() {
-		fail("Not yet implemented"); // TODO
+		Saver save = new Saver();
+		ArrayList<String> a = new ArrayList<String>();
+		try {
+			save.writeRule(a, "OLA");
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -58,7 +77,14 @@ public class SaverTest {
 	 */
 	@Test
 	public final void testEditRule() {
-		fail("Not yet implemented"); // TODO
+		ArrayList<String> a = new ArrayList<String>();
+		Saver save = new Saver();
+		try {
+			save.EditRule(a, "OLA");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -5,9 +5,14 @@ package com.iscte.ProjetoES.Escritores;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.iscte.ProjetoES.Metodo;
 
 /**
  * @author jalve
@@ -34,7 +39,16 @@ public class EscritorExcelTest {
 	 */
 	@Test
 	public final void testEscreverExcel() {
-		fail("Not yet implemented"); // TODO
+		EscritorExcel ee = new EscritorExcel();
+		try {
+			ee.escreverExcel("a");
+		} catch (InvalidFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -42,7 +56,8 @@ public class EscritorExcelTest {
 	 */
 	@Test
 	public final void testAdicionaLista() {
-		fail("Not yet implemented"); // TODO
+		EscritorExcel ee = new EscritorExcel();
+		ee.adicionaLista(new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1));
 	}
 
 }

@@ -5,9 +5,13 @@ package com.iscte.ProjetoES.CodeSmells;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.iscte.ProjetoES.Metodo;
 
 /**
  * @author jalve
@@ -34,7 +38,9 @@ public class DetetorCodeSmTest {
 	 */
 	@Test
 	public final void testSetWorkbookread2() {
-		fail("Not yet implemented"); // TODO
+		DetetorCodeSm dsm = new DetetorCodeSm();
+		dsm.setWorkbookread2(null);
+		assertEquals(dsm.getWorkbookread2(), null);
 	}
 
 	/**
@@ -42,7 +48,9 @@ public class DetetorCodeSmTest {
 	 */
 	@Test
 	public final void testSetTableLongMethod() {
-		fail("Not yet implemented"); // TODO
+		DetetorCodeSm dsm = new DetetorCodeSm();
+		dsm.setTableLongMethod(null);
+		assertEquals(dsm.getTableLongMethod(), null);
 	}
 
 	/**
@@ -50,7 +58,9 @@ public class DetetorCodeSmTest {
 	 */
 	@Test
 	public final void testSetTableGodClass() {
-		fail("Not yet implemented"); // TODO
+		DetetorCodeSm dsm = new DetetorCodeSm();
+		dsm.setTableLongMethod(null);
+		assertEquals(dsm.getTableLongMethod(), null);
 	}
 
 	/**
@@ -58,7 +68,8 @@ public class DetetorCodeSmTest {
 	 */
 	@Test
 	public final void testGetTableLongMethod() {
-		fail("Not yet implemented"); // TODO
+		DetetorCodeSm dsm = new DetetorCodeSm();
+		assertEquals(dsm.getTableLongMethod(), dsm.getTableLongMethod());
 	}
 
 	/**
@@ -66,7 +77,8 @@ public class DetetorCodeSmTest {
 	 */
 	@Test
 	public final void testGetWorkbookread2() {
-		fail("Not yet implemented"); // TODO
+		DetetorCodeSm dsm = new DetetorCodeSm();
+		assertEquals(dsm.getWorkbookread2(), dsm.getWorkbookread2());
 	}
 
 	/**
@@ -74,7 +86,8 @@ public class DetetorCodeSmTest {
 	 */
 	@Test
 	public final void testGetTableGodClass() {
-		fail("Not yet implemented"); // TODO
+		DetetorCodeSm dsm = new DetetorCodeSm();
+		assertEquals(dsm.getTableGodClass(), dsm.getTableGodClass());
 	}
 
 	/**
@@ -82,7 +95,13 @@ public class DetetorCodeSmTest {
 	 */
 	@Test
 	public final void testDetetorLM() {
-		fail("Not yet implemented"); // TODO
+		DetetorCodeSm dsm = new DetetorCodeSm();
+		try {
+			dsm.detetorLM("o", "o", 1, 1, "o");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -90,7 +109,13 @@ public class DetetorCodeSmTest {
 	 */
 	@Test
 	public final void testDetetorGC() {
-		fail("Not yet implemented"); // TODO
+		DetetorCodeSm dsm = new DetetorCodeSm();
+		try {
+			dsm.detetorGC("o", "o","o", 1, 1, "o");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

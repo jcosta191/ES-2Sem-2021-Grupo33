@@ -41,7 +41,7 @@ public class LeitorJava extends AbstractTableModel {
 	private File file;
 	private Class cls;
 
-	private LeitorJava() {
+	LeitorJava() {
 	}
 
 	/**

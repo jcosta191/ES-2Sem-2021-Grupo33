@@ -62,4 +62,5 @@ public class AuxRegra {
 	public void setResultadoMetrica(int resultadoMetrica) {
 		this.resultadoMetrica = resultadoMetrica;
 	}
+
 }

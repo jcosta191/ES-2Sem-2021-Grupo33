@@ -2,6 +2,10 @@ package com.iscte.ProjetoES.CodeSmells;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,22 +22,47 @@ public class SeletorCodeSmTest {
 
 	@Test
 	public final void testMain() {
-		fail("Not yet implemented"); // TODO
+		SeletorCodeSm sm = new SeletorCodeSm();
+		sm.main(null);
 	}
 
 	@Test
 	public final void testSeletorCodeSm() {
-		fail("Not yet implemented"); // TODO
+		SeletorCodeSm sm = new SeletorCodeSm();
 	}
 
 	@Test
 	public final void testDetetorLM() {
-		fail("Not yet implemented"); // TODO
+		SeletorCodeSm sm = new SeletorCodeSm();
+		try {
+			sm.detetorLM("o", "o", 1, 1, "o");
+		} catch (EncryptedDocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public final void testDetetorGC() {
-		fail("Not yet implemented"); // TODO
+		SeletorCodeSm sm = new SeletorCodeSm();
+		try {
+			sm.detetorGC("a", "a", "a", 0, 0, "a");
+		} catch (EncryptedDocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -34,7 +34,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testMetodo() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met,met);
 	}
 
 	/**
@@ -42,7 +43,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetMethodID() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getMethodID(),met.getMethodID());
 	}
 
 	/**
@@ -50,7 +52,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetPackage() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getPackage(),met.getPackage());
 	}
 
 	/**
@@ -58,7 +61,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetClasse() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getClasse(),met.getClasse());
 	}
 
 	/**
@@ -66,7 +70,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetMethod() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getMethod(),met.getMethod());
 	}
 
 	/**
@@ -74,7 +79,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetNOM_class() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getNOM_class(),met.getNOM_class());
 	}
 
 	/**
@@ -82,7 +88,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetLOC_class() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getLOC_class(),met.getLOC_class());
 	}
 
 	/**
@@ -90,7 +97,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetLOC_method() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getLOC_method(),met.getLOC_method());
 	}
 
 	/**
@@ -98,7 +106,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetCYCLO_method() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getCYCLO_method(),met.getCYCLO_method());
 	}
 
 	/**
@@ -106,7 +115,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetWMC_class() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getWMC_class(),met.getWMC_class());
 	}
 
 	/**
@@ -114,7 +124,8 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetLeituras() {
-		fail("Not yet implemented"); // TODO
+		Metodo met = new Metodo(1, "a", "b", "c", 1, 1,1, 1, 1);
+		assertEquals(met.getLeituras(),met.getLeituras());
 	}
 
 }

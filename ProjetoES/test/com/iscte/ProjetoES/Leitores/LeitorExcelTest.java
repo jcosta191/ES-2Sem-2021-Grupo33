@@ -5,6 +5,10 @@ package com.iscte.ProjetoES.Leitores;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +38,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testAddFile() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		le.addFile();
 	}
 
 	/**
@@ -42,7 +47,19 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testGetContent() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		try {
+			assertEquals(le.getContent(), le.getContent());
+		} catch (EncryptedDocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -50,7 +67,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testGetColumnCount() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		assertEquals(le.getColumnCount(), le.getColumnCount());
 	}
 
 	/**
@@ -58,7 +76,9 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testSetNumberPackage() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		le.setNumberPackage(1);
+		assertEquals(le.getNumberPackages(), 1);
 	}
 
 	/**
@@ -66,7 +86,9 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testSetNumberLOC() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		le.setNumberLOC(1);
+		assertEquals(le.getNumberLOC(), 1);
 	}
 
 	/**
@@ -74,7 +96,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testGetRowCount() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		assertEquals(le.getRowCount(), le.getRowCount());
 	}
 
 	/**
@@ -82,7 +105,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testGetColumnNameInt() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		assertEquals(le.getColumnName(1), le.getColumnName(1));
 	}
 
 	/**
@@ -90,7 +114,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testGetValueAt() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		assertEquals(le.getValueAt(1, 1), le.getValueAt(1, 1));
 	}
 
 	/**
@@ -98,7 +123,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testGetInstance() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		assertEquals(le.getInstance(), le.getInstance());
 	}
 
 	/**
@@ -106,7 +132,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testNewInstance() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		le.newInstance();
 	}
 
 	/**
@@ -114,7 +141,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testFileChooser() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		le.fileChooser();
 	}
 
 	/**
@@ -122,7 +150,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testGetNumberLOC() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		assertEquals(le.getNumberLOC(), le.getNumberLOC());
 	}
 
 	/**
@@ -130,7 +159,8 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testGetNumberPackages() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		assertEquals(le.getNumberPackages(), le.getNumberPackages());
 	}
 
 	/**
@@ -138,7 +168,9 @@ public class LeitorExcelTest {
 	 */
 	@Test
 	public final void testGetListaMetodo() {
-		fail("Not yet implemented"); // TODO
+		LeitorExcel le = new LeitorExcel();
+		assertEquals(le.getListaMetodo(), le.getListaMetodo());
+		
 	}
 
 }

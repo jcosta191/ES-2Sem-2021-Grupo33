@@ -20,7 +20,7 @@ import java.util.List;
 public class EscritorExcel {
 	private static List<Metodo> methods = new ArrayList<>();
 
-	private EscritorExcel() {
+	public EscritorExcel() {
 	}
 
 	public static void escreverExcel(String a) throws IOException, InvalidFormatException {

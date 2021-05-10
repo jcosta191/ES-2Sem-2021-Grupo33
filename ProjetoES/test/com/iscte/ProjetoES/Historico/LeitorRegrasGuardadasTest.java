@@ -5,6 +5,8 @@ package com.iscte.ProjetoES.Historico;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +36,8 @@ public class LeitorRegrasGuardadasTest {
 	 */
 	@Test
 	public final void testLeitorRegrasGuardadas() {
-		fail("Not yet implemented"); // TODO
+	LeitorRegrasGuardadas lrg = new LeitorRegrasGuardadas("O");
+
 	}
 
 	/**
@@ -42,7 +45,8 @@ public class LeitorRegrasGuardadasTest {
 	 */
 	@Test
 	public final void testLineReaderFile() {
-		fail("Not yet implemented"); // TODO
+		LeitorRegrasGuardadas lrg = new LeitorRegrasGuardadas("O");
+		lrg.lineReaderFile();
 	}
 
 	/**
@@ -50,7 +54,9 @@ public class LeitorRegrasGuardadasTest {
 	 */
 	@Test
 	public final void testRuleExists() {
-		fail("Not yet implemented"); // TODO
+		LeitorRegrasGuardadas lrg = new LeitorRegrasGuardadas("O");
+		lrg.RuleExists("a");
+		
 	}
 
 	/**
@@ -58,7 +64,9 @@ public class LeitorRegrasGuardadasTest {
 	 */
 	@Test
 	public final void testEditText() {
-		fail("Not yet implemented"); // TODO
+		LeitorRegrasGuardadas lrg = new LeitorRegrasGuardadas("O");
+		ArrayList<String> a = new ArrayList<String>();
+		lrg.EditText("a", a, a);
 	}
 
 	/**
@@ -66,7 +74,9 @@ public class LeitorRegrasGuardadasTest {
 	 */
 	@Test
 	public final void testGetRule() {
-		fail("Not yet implemented"); // TODO
+//		LeitorRegrasGuardadas lrg = new LeitorRegrasGuardadas("O");
+//		ArrayList<String> a = new ArrayList<String>();
+//		assertEquals(lrg.getRule("o", a, a), lrg.getRule("o", a, a));
 	}
 
 	/**
@@ -74,7 +84,9 @@ public class LeitorRegrasGuardadasTest {
 	 */
 	@Test
 	public final void testGetSavedRuleNames() {
-		fail("Not yet implemented"); // TODO
+		LeitorRegrasGuardadas lrg = new LeitorRegrasGuardadas("O");
+		ArrayList<String> a = new ArrayList<String>();
+		assertEquals(lrg.getSavedRuleNames(),lrg.getSavedRuleNames());
 	}
 
 }

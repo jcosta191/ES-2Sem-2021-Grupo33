@@ -31,7 +31,7 @@ public class LeitorExcel extends AbstractTableModel {
 	public int numberP, numberLOC;
 	public static ArrayList<Metodo> metodos = new ArrayList<>();
 
-	private LeitorExcel() {
+	LeitorExcel() {
 	}
 
 	/**

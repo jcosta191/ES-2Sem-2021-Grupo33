@@ -237,6 +237,7 @@ public class GUI {
 	}
 
 	public static String getLocation() {
+		System.out.println(excelLocation);
 		return excelLocation;
 	}
 

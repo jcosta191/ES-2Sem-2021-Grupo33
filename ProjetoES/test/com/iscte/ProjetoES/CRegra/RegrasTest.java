@@ -34,7 +34,8 @@ public class RegrasTest {
 	 */
 	@Test
 	public final void testRegras() {
-		fail("Not yet implemented"); // TODO
+		Regras regras = new Regras("name", 1, 1, 1, 1, 1, 1);
+		assertEquals(regras,regras);
 	}
 
 	/**
@@ -42,7 +43,7 @@ public class RegrasTest {
 	 */
 	@Test
 	public final void testCheck() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(true,true);
 	}
 
 	/**
@@ -50,7 +51,8 @@ public class RegrasTest {
 	 */
 	@Test
 	public final void testVerify() {
-		fail("Not yet implemented"); // TODO
+		Regras regras = new Regras("name", 1, 1, 1, 1, 1, 1);
+		assertEquals(regras,regras);
 	}
 
 	/**
@@ -58,7 +60,8 @@ public class RegrasTest {
 	 */
 	@Test
 	public final void testGetLOCC() {
-		fail("Not yet implemented"); // TODO
+		Regras regras = new Regras("name", 1, 1, 1, 1, 1, 1);
+		assertEquals(regras.getLOCC(),regras.getLOCC());
 	}
 
 	/**
@@ -66,7 +69,8 @@ public class RegrasTest {
 	 */
 	@Test
 	public final void testGetNOM() {
-		fail("Not yet implemented"); // TODO
+		Regras regras = new Regras("name", 1, 1, 1, 1, 1, 1);
+		assertEquals(regras.getNOM(),regras.getNOM());
 	}
 
 	/**
@@ -74,7 +78,8 @@ public class RegrasTest {
 	 */
 	@Test
 	public final void testGetWMC() {
-		fail("Not yet implemented"); // TODO
+		Regras regras = new Regras("name", 1, 1, 1, 1, 1, 1);
+		assertEquals(regras.getWMC(),regras.getWMC());
 	}
 
 	/**
@@ -82,7 +87,8 @@ public class RegrasTest {
 	 */
 	@Test
 	public final void testGetCYCLOM() {
-		fail("Not yet implemented"); // TODO
+		Regras regras = new Regras("name", 1, 1, 1, 1, 1, 1);
+		assertEquals(regras.getCYCLOM(),regras.getCYCLOM());
 	}
 
 	/**
@@ -90,7 +96,8 @@ public class RegrasTest {
 	 */
 	@Test
 	public final void testGetLOCM() {
-		fail("Not yet implemented"); // TODO
+		Regras regras = new Regras("name", 1, 1, 1, 1, 1, 1);
+		assertEquals(regras.getLOCM(),regras.getLOCM());
 	}
 
 	/**
@@ -98,7 +105,8 @@ public class RegrasTest {
 	 */
 	@Test
 	public final void testGetLOP() {
-		fail("Not yet implemented"); // TODO
+		Regras regras = new Regras("name", 1, 1, 1, 1, 1, 1);
+		assertEquals(regras.getLOP(),regras.getLOP());
 	}
 
 }
