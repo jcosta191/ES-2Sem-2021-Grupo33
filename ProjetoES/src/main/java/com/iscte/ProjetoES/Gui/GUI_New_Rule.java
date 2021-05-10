@@ -293,6 +293,11 @@ public class GUI_New_Rule {
                 }
             }
     }
+
+    /**
+     * Função para extrair os parametros dados por input do utilizador e escrever no ficheiro usado para guardar regras
+     * @author Bernardo Marques
+     */
     public void SaveRule(){
         ArrayList<String> regraGuardada = new ArrayList<>();
         String rulename = JTNomeDaRegra.getText();

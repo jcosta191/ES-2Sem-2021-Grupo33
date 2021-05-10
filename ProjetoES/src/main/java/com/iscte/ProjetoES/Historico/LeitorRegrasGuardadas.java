@@ -5,7 +5,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+/**
+ * Classe para ler as regras guardadas permanenente, colectar a informação
+ * e editar os arrays usados pela classe Saver
+ *
+ *
+ * @author Bernardo Marques
+ *
+ */
 public class LeitorRegrasGuardadas {
     private static String filePath;
     private BufferedReader reader;
@@ -15,7 +22,9 @@ public class LeitorRegrasGuardadas {
         this.filePath = filePath;
 
     }
-    //Função para colocar toda a informação do Ficheiro de regras guardadas numa ArrayList
+    /**
+     * Função para colocar toda a informação do Ficheiro de regras guardadas numa ArrayList
+     */
 
     public ArrayList lineReaderFile() {
         ArrayList<String> text1 = new ArrayList();
@@ -34,7 +43,9 @@ public class LeitorRegrasGuardadas {
         return text1;
     }
 
-    //Verifica se a regra existe no ficheiro
+    /**
+     * Função para a verificação da existência da regra dado o nome dentro do ficheiro
+     */
     public boolean RuleExists(String name) {
         text = lineReaderFile();
         for (String s : text) {
@@ -45,8 +56,10 @@ public class LeitorRegrasGuardadas {
         }
         return false;
     }
-
-    //Editar Array para colocar a regra q se deseja editar do ficheiro
+    /**
+     * Função usada para editar o texto do ficheiro de regras substituindo os parâmetros da regra desejada
+     * de forma a enviar o novo array de regras para ser usado pela classe Saver
+     */
     public ArrayList EditText(String name, ArrayList<String> changedRule, ArrayList<String> allRules) {
         String s2 = "";
         for (String s1 : changedRule) {
@@ -63,26 +76,27 @@ public class LeitorRegrasGuardadas {
         }
         return allRules;
     }
-
-    //Selecionar regra dado o array de todas as regras
+    /**
+     * Procurar String da regra num array contendo todas as regras e colocar as suas métricas todas num array
+     */
     public ArrayList<String> getRule(String name, ArrayList<String> allRules, ArrayList<String> arrayList) {
         int counter;
         String[] arrOfStr = new String[6];
         for (counter = 0; counter < allRules.size(); counter++) {
             if (allRules.get(counter).contains(name)) {
-                System.out.println(allRules.get(counter));
                 arrOfStr = allRules.get(counter).split(";", -2);
                 break;
             }
         }
         for (int c = 0; c < arrOfStr.length; c++) {
-            System.out.println(arrOfStr[c]);
             arrayList.add(arrOfStr[c]);
         }
         return arrayList;
     }
 
-    //Getter para os nomes de todas as regras existentes no ficheiro de regras guardadas
+    /**
+     * Obter nomes das regras guardadas no ficheiro Rulefiles.txt
+     */
     public ArrayList getSavedRuleNames() {
         ArrayList<String> ruleNames = new ArrayList();
         text = lineReaderFile();
@@ -90,7 +104,6 @@ public class LeitorRegrasGuardadas {
             String[] arrOfStr = s.split(";", -2);
             ruleNames.add(arrOfStr[0]);
         }
-        System.out.println(ruleNames);
         return ruleNames;
     }
 }

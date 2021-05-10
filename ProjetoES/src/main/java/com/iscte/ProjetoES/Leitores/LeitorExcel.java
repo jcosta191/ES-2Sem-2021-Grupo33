@@ -182,9 +182,9 @@ public class LeitorExcel extends AbstractTableModel {
 	}
 	
 	/**
-	 * Classe que permite saber o numero de linhas total
+	 * Método para retornar o número de linhas total do projeto
 	 * 
-	 * 
+	 * @author Bernardo Marques
 	 */
 	public int getNumberLOC() {
 		DataFormatter dataFormatter = new DataFormatter();
@@ -205,9 +205,8 @@ public class LeitorExcel extends AbstractTableModel {
 	}
 	
 	/**
-	 * Classe que permite saber o numero total de packages
-	 * 
-	 * 
+	 * Método para retornar o número de packages total
+	 * @author Bernardo Marques
 	 */
 	public int getNumberPackages() {
 		DataFormatter dataFormatter = new DataFormatter();
