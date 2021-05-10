@@ -1,11 +1,6 @@
 package com.iscte.ProjetoES;
 
-import com.iscte.ProjetoES.CRegra.Regras;
-//import com.iscte.ProjetoES.CRegra.Verificacao;
-//import com.iscte.ProjetoES.Escritores.EscritorJTable;
 import com.iscte.ProjetoES.Gui.GUI;
-
-import java.util.ArrayList;
 
 import javax.swing.UnsupportedLookAndFeelException;
 

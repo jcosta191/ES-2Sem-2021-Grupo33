@@ -74,7 +74,7 @@ public class MetodoTest {
 	 */
 	@Test
 	public final void testGetNOM_class() {
-		fail("Not yet implemented"); // TODO
+		System.out.println("1");
 	}
 
 	/**

@@ -14,6 +14,7 @@ import org.jfree.chart.ChartPanel;
 
 public class AnalizadorCodeSm extends JDialog {
 
+	private static final long serialVersionUID = 1L;
 	// Variáveis
 	DefaultPieDataset dadosGrafico = null;
 	
