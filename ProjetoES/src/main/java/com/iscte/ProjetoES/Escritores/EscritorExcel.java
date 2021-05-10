@@ -11,11 +11,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import java.util.List;
-
+/**
+ * Classe que representa a escrita do import Diretorio no excel
+ * 
+ * @author jcosta191
+ *
+ */
 public class EscritorExcel {
 	private static List<Metodo> methods = new ArrayList<>();
-
-	// Initializing employees data to insert into the excel file
 
 	private EscritorExcel() {
 	}

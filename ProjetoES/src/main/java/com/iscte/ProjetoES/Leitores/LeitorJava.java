@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,6 +25,12 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import com.iscte.ProjetoES.Metodo;
 import com.iscte.ProjetoES.Escritores.EscritorExcel;
 
+/**
+ * Classe que representa o leitor dos ficheiros Java
+ * 
+ * @author jcosta191
+ *
+ */
 public class LeitorJava extends AbstractTableModel {
 	private static final long serialVersionUID = -4220550076295049347L;
 	private static LeitorJava INSTANCIA;
@@ -42,23 +49,11 @@ public class LeitorJava extends AbstractTableModel {
 		Workbook workbook;
 
 		escolherJava();
-		// try {
-		// workbook = WorkbookFactory.create(escolherJava());
-		// java = workbook.getSheetAt(0);
-		// } catch (NullPointerException | InvalidFormatException | IOException e) {
-//			System.out.println("Não foi possível abrir o ficheiro!" + e);
-//			System.exit(0);
-//		}
 	}
 
 	public static LeitorJava getInstance() {
 		if (INSTANCIA == null)
 			INSTANCIA = new LeitorJava();
-		return INSTANCIA;
-	}
-
-	public static LeitorJava newInstance() {
-		INSTANCIA = new LeitorJava();
 		return INSTANCIA;
 	}
 
@@ -97,7 +92,8 @@ public class LeitorJava extends AbstractTableModel {
 
 	private void lerFicheiro(File file, File folder) {
 		// if (file.getName().endsWith(".java")) {
-		String[] words=null;
+		String[] words = null;
+		ArrayList<String> data1 = new ArrayList<String>();
 		try {
 			WMC_class = saberWMC_class(file);
 			int count = 0;
@@ -105,6 +101,7 @@ public class LeitorJava extends AbstractTableModel {
 			while (myReader.hasNextLine()) {
 				count++;
 				String data = myReader.nextLine();
+				data1.add(data);
 				words = data.split(" ");
 				if (words.length > 0 && count == 1) {
 					Package = words[1].replace(";", "");
@@ -121,19 +118,15 @@ public class LeitorJava extends AbstractTableModel {
 
 				}
 			}
-			// System.out.println("File name: " + met.getClasse());
 			for (Method a : cls.getDeclaredMethods()) {
-
 				method = a.getName();
-				MethodID++;
 				LOC_method = saberLOC_method(a, file);
-				
+
+				MethodID++;
 				Metodo met = new Metodo(MethodID, Package, Classe, method, NOM_class, count, WMC_class, LOC_method,
 						CYCLO_method);
 				EscritorExcel.adicionaLista(met);
-
 			}
-
 			try {
 				EscritorExcel.escreverExcel(folder.getName());
 			} catch (InvalidFormatException | IOException e) {
@@ -151,62 +144,85 @@ public class LeitorJava extends AbstractTableModel {
 	public int saberLOC_method(Method a, File b) throws FileNotFoundException {
 		Scanner myReader = new Scanner(b);
 		int LOC_method1 = 0;
+
+		int CYCLO_method1 = 0;
 		boolean ativadoContarLOC = false;
 		while (myReader.hasNextLine()) {
 			String data = myReader.nextLine();
 			String[] words = data.split(" ");
-			
-			if ((data.contains("public") || data.contains("private") || data.contains("protected")) && (!data.contains("class") && !data.contains(";") && data.contains("{") && data.contains(a.getName()))) {
+
+			if ((data.contains("public") || data.contains("private") || data.contains("protected"))
+					&& (!data.contains("class") && !data.contains(";") && data.contains("{")
+							&& data.contains(a.getName()))) {
 				ativadoContarLOC = true;
-				System.out.println(data + " " + ativadoContarLOC);
 			}
-			
-			if ((data.contains("public") || data.contains("private") || data.contains("private")) && ((data.contains(";") || data.contains("{")) && !data.contains(a.getName()))) {
+
+			if ((data.contains("public") || data.contains("private") || data.contains("private"))
+					&& ((data.contains(";") || data.contains("{")) && !data.contains(a.getName()))) {
 				ativadoContarLOC = false;
-				System.out.println(data + " " + ativadoContarLOC);
+				// System.out.println(data + " " + ativadoContarLOC);
 			}
-			
-			if ((data.contains("public") || data.contains("private") || data.contains("private")) && (data.contains(";") && !data.contains("{") && !data.contains(a.getName()))) {
+
+			if ((data.contains("public") || data.contains("private") || data.contains("private"))
+					&& (data.contains(";") && !data.contains("{") && !data.contains(a.getName()))) {
 				ativadoContarLOC = false;
-				System.out.println(data + " " + ativadoContarLOC);
+				// System.out.println(data + " " + ativadoContarLOC);
 			}
-			
+
 			if (ativadoContarLOC == true) {
 				LOC_method1++;
+				if (saberCYCLO(data)) {
+					CYCLO_method1++;
+					System.out.println(CYCLO_method1);
+
+				}
+				setCYCLO(CYCLO_method1);
+
 			}
 		}
 		myReader.close();
-		return LOC_method1-1>0?LOC_method1-1:0;
+		return LOC_method1 - 1 > 0 ? LOC_method1 - 1 : 0;
 	}
-	
+
 	public int saberWMC_class(File b) throws FileNotFoundException {
 		Scanner myReader = new Scanner(b);
 		int cyclo_methods = 0;
 		boolean ativadoContarLOC = false;
 		while (myReader.hasNextLine()) {
 			String data = myReader.nextLine();
-				if ((data.contains("private") || data.contains("public")) && !data.contains(";") && !data.contains("=") 
-						&& !data.contains("class") && data.contains("(")){
-					cyclo_methods++;
-				}
-				if ((data.contains("while") || data.contains("else") || data.contains("for") || data.contains("if"))
-						&& !data.endsWith(";")) {
-					cyclo_methods++;
-				}
+			if ((data.contains("private") || data.contains("public")) && !data.contains(";") && !data.contains("=")
+					&& !data.contains("class") && data.contains("(")) {
+				cyclo_methods++;
+			}
+			if ((data.contains("while") || data.contains("else") || data.contains("for") || data.contains("if"))
+					&& !data.endsWith(";")) {
+				cyclo_methods++;
+			}
 		}
 		myReader.close();
 		System.out.println("The class has a complexity of " + cyclo_methods + ".");
 		return cyclo_methods;
 	}
 
-	public boolean procurarCYCLO(String a, String b) {
-		Pattern p = Pattern.compile(a);
-		Matcher m = p.matcher(b);
-		if (m.find()) {
-			return true;
+	public boolean saberCYCLO(String words) throws FileNotFoundException {
+		// boolean ativadoContarLinhas = false;
+		// String newStr = words[i].substring(0, words[i].indexOf("("));
+		Pattern pattern = Pattern.compile(
+				"(\\&\\&|\\|\\|)|((^| +|\\}|\\;|\t)((if|for|while|catch)( +|\\()))|(\\?.*\\:)|((\t|^|\\;|\\{\\})(case +|continue;))",
+				Pattern.MULTILINE);
+		String cleanText = words.replaceAll("\\/\\/(.*)|\\/\\*([\\s\\S]*?)\\*\\/", "");
+		System.out.println(cleanText);
+		Matcher matcher = pattern.matcher(cleanText);
+
+		while (matcher.find()) {
+			return true; // setCYCLO(CYCLO_method);
 		}
 		return false;
+	}
 
+	public void setCYCLO(int a) {
+		// TODO Auto-generated method stub
+		CYCLO_method = a;
 	}
 
 	@Override
