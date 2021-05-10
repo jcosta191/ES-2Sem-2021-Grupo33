@@ -25,10 +25,6 @@ import org.apache.poi.ss.usermodel.*;
  *
  */
 public class LeitorExcel extends AbstractTableModel {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4220550076295049347L;
 	private static LeitorExcel INSTANCE;
 	private Sheet sheet;
@@ -55,10 +51,8 @@ public class LeitorExcel extends AbstractTableModel {
 
 	/**
 	 * 
-	 * @return um ArrayList que contém todos os metodos presentes no ficheiro excel
-	 * @throws EncryptedDocumentException
-	 * @throws InvalidFormatException
-	 * @throws IOException
+	 *Classe que vai ler os dados do excel por coluna e linha
+	 *
 	 */
 	public ArrayList<Metodo> getContent() throws EncryptedDocumentException, InvalidFormatException, IOException {
 		int numberLOC1 = 0;
@@ -160,31 +154,21 @@ public class LeitorExcel extends AbstractTableModel {
 
 	}
 
-	/**
-	 * 
-	 * @return a Instance of this class
-	 */
 	public static LeitorExcel getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new LeitorExcel();
 		return INSTANCE;
 	}
 
-	/**
-	 * 
-	 * @return a new Instance of this class
-	 */
 	public static LeitorExcel newInstance() {
 		INSTANCE = new LeitorExcel();
 		return INSTANCE;
 	}
 
 	/**
-	 * Abre um seletor de ficheiros para o utilizador poder abrir um ficheiro do
-	 * tipo Excel
+	 * Classe que um seletor de ficheiros para o utilizador poder abrir um ficheiro do tipo Excel
 	 * 
-	 * @return o ficheiro selecionado pelo utilizador (null se não foi selecionado
-	 *         nenhum)
+	 * 
 	 */
 	public File fileChooser() {
 		JFileChooser filechooser = new JFileChooser();
@@ -197,6 +181,11 @@ public class LeitorExcel extends AbstractTableModel {
 
 	}
 	
+	/**
+	 * Classe que permite saber o numero de linhas total
+	 * 
+	 * 
+	 */
 	public int getNumberLOC() {
 		DataFormatter dataFormatter = new DataFormatter();
 		Row r = sheet.getRow(1);
@@ -215,6 +204,11 @@ public class LeitorExcel extends AbstractTableModel {
 		return numberLOC;
 	}
 	
+	/**
+	 * Classe que permite saber o numero total de packages
+	 * 
+	 * 
+	 */
 	public int getNumberPackages() {
 		DataFormatter dataFormatter = new DataFormatter();
 		for(int i=0; i<sheet.getLastRowNum()-1; i++){

@@ -199,7 +199,7 @@ public class GUI {
 		});
 	}
 
-	private static void createAndShowGUI() throws UnsupportedLookAndFeelException {
+	public static void createAndShowGUI() throws UnsupportedLookAndFeelException {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		MetalLookAndFeel.setCurrentTheme(new OceanTheme());
 		UIManager.setLookAndFeel(new MetalLookAndFeel());
