@@ -99,20 +99,27 @@ public class LeitorJava extends AbstractTableModel {
 		// if (file.getName().endsWith(".java")) {
 		String[] words=null;
 		try {
-
+			WMC_class = saberWMC_class(file);
 			int count = 0;
 			Scanner myReader = new Scanner(file);
 			while (myReader.hasNextLine()) {
 				count++;
 				String data = myReader.nextLine();
 				words = data.split(" ");
-				if (count == 1) {
+				if (words.length > 0 && count == 1) {
 					Package = words[1].replace(";", "");
 				}
 				Classe = file.getName().replace(".java", "");
 				cls = Class.forName(Package + "." + Classe);
 				NOM_class = cls.getDeclaredMethods().length;
+				for (int i = 0; i <= words.length - 1; i++) {
+					System.out.println(words[i]);
+					if (words[i].contains("if") || words[i].contains("for") || words[i].contains("case")
+							|| words[i].contains("while")) {
+						CYCLO_method++;
+					}
 
+				}
 			}
 			// System.out.println("File name: " + met.getClasse());
 			for (Method a : cls.getDeclaredMethods()) {
@@ -120,14 +127,7 @@ public class LeitorJava extends AbstractTableModel {
 				method = a.getName();
 				MethodID++;
 				LOC_method = saberLOC_method(a, file);
-				for (int i = 0; i <= words.length - 1; i++) {
-					if (words[i].contains("if") || words[i].contains("for") || words[i].contains("case")
-							|| words[i].contains("while")) {
-						CYCLO_method++;
-
-					}
-
-				}
+				
 				Metodo met = new Metodo(MethodID, Package, Classe, method, NOM_class, count, WMC_class, LOC_method,
 						CYCLO_method);
 				EscritorExcel.adicionaLista(met);
@@ -146,34 +146,57 @@ public class LeitorJava extends AbstractTableModel {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		}
-
-		/*
-		 * System.out.println("File name: "+file.getName());
-		 * System.out.println("File path: "+file.getAbsolutePath());
-		 * System.out.println("Size :"+file.getTotalSpace()); System.out.println(" ");
-		 */
-		// }
 	}
 
 	public int saberLOC_method(Method a, File b) throws FileNotFoundException {
 		Scanner myReader = new Scanner(b);
 		int LOC_method1 = 0;
+		boolean ativadoContarLOC = false;
 		while (myReader.hasNextLine()) {
 			String data = myReader.nextLine();
 			String[] words = data.split(" ");
-			for (int i = 0; i <= words.length - 1; i++) {
-				// String newStr = words[i].substring(0, words[i].indexOf("("));
-
-				// if (newStr == a.getName()) {
-				LOC_method1++;
-
-				// }
-				// System.out.print(words[i].substring(0, words[i].indexOf("(")));
-
+			
+			if ((data.contains("public") || data.contains("private") || data.contains("protected")) && (!data.contains("class") && !data.contains(";") && data.contains("{") && data.contains(a.getName()))) {
+				ativadoContarLOC = true;
+				System.out.println(data + " " + ativadoContarLOC);
 			}
-
+			
+			if ((data.contains("public") || data.contains("private") || data.contains("private")) && ((data.contains(";") || data.contains("{")) && !data.contains(a.getName()))) {
+				ativadoContarLOC = false;
+				System.out.println(data + " " + ativadoContarLOC);
+			}
+			
+			if ((data.contains("public") || data.contains("private") || data.contains("private")) && (data.contains(";") && !data.contains("{") && !data.contains(a.getName()))) {
+				ativadoContarLOC = false;
+				System.out.println(data + " " + ativadoContarLOC);
+			}
+			
+			if (ativadoContarLOC == true) {
+				LOC_method1++;
+			}
 		}
-		return LOC_method1;
+		myReader.close();
+		return LOC_method1-1>0?LOC_method1-1:0;
+	}
+	
+	public int saberWMC_class(File b) throws FileNotFoundException {
+		Scanner myReader = new Scanner(b);
+		int cyclo_methods = 0;
+		boolean ativadoContarLOC = false;
+		while (myReader.hasNextLine()) {
+			String data = myReader.nextLine();
+				if ((data.contains("private") || data.contains("public")) && !data.contains(";") && !data.contains("=") 
+						&& !data.contains("class") && data.contains("(")){
+					cyclo_methods++;
+				}
+				if ((data.contains("while") || data.contains("else") || data.contains("for") || data.contains("if"))
+						&& !data.endsWith(";")) {
+					cyclo_methods++;
+				}
+		}
+		myReader.close();
+		System.out.println("The class has a complexity of " + cyclo_methods + ".");
+		return cyclo_methods;
 	}
 
 	public boolean procurarCYCLO(String a, String b) {
