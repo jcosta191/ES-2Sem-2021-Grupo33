@@ -131,9 +131,7 @@ public class EscritorJTable extends JFrame {
 		info_panel.add(new JLabel(LeitorExcel.getInstance().getRowCount() + "Métodos"));
 		info_panel.add(new JLabel(LeitorExcel.getInstance().getNumberLOC() + " Linhas"));
 		setVisible(true);
-
 	}
-
 	/**
 	 * 
 	 * @return a JTable que guarda os dados do Excel

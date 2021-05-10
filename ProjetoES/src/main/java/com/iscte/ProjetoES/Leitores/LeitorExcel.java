@@ -136,7 +136,6 @@ public class LeitorExcel extends AbstractTableModel {
 				numberLOC=numberLOC+x;
 			}
 		}
-
 		return numberLOC;
 	}
 
