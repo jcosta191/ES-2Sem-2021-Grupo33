@@ -14,6 +14,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.iscte.ProjetoES.Gui.GUI;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+
 import java.io.Serializable;
 
 public class ComparadorCodeSm implements Serializable {
@@ -70,7 +72,7 @@ public class ComparadorCodeSm implements Serializable {
 		}
 		Sheet folhaExcelMetricas = metricasLerWorkbook.getSheetAt(0);
 		
-		File ficheiroExcelCodeSm = new File("Code_Smells.xls");
+		File ficheiroExcelCodeSm = new File("Code_Smells.xlsx");
 		try {
 			codeSmLerWorkbook = new XSSFWorkbook(ficheiroExcelCodeSm);
 		} catch (InvalidFormatException | IOException e) {
@@ -79,31 +81,33 @@ public class ComparadorCodeSm implements Serializable {
 		}
 		Sheet folhaExcelCodeSm = codeSmLerWorkbook.getSheetAt(0);
 		
+		DataFormatter dataFormatter = new DataFormatter();
 		int i = 1;
 		while (i <= folhaExcelMetricas.getLastRowNum()) {
 			Row linhaExcel = folhaExcelMetricas.getRow(i);
-			Cell nomeClasse = linhaExcel.getCell(2);
-			Cell methodname = linhaExcel.getCell(3);
-			Cell isLongMethod = linhaExcel.getCell(9);
+			String nomeClasse = dataFormatter.formatCellValue(linhaExcel.getCell(2));
+			String methodname = dataFormatter.formatCellValue(linhaExcel.getCell(3));
+			String isLongMethod = dataFormatter.formatCellValue(linhaExcel.getCell(9));
 			
 			int j = 1;
 			while (j <= folhaExcelCodeSm.getLastRowNum()) {
 				Row linhaExcel2 = folhaExcelCodeSm.getRow(j);
-				Cell nomeClasse2 = linhaExcel2.getCell(2);
-				Cell methodname2 = linhaExcel2.getCell(3);
-				Cell isLongMethod2 = linhaExcel2.getCell(10);
-				if (nomeClasse.toString().equals(nomeClasse2.toString())
-						&& methodname.toString().equals(methodname2.toString())) {
-					if (isLongMethod2.getBooleanCellValue() == true && isLongMethod.getBooleanCellValue() == true) {
+				String nomeClasse2 = dataFormatter.formatCellValue(linhaExcel2.getCell(2));
+				String methodname2 = dataFormatter.formatCellValue(linhaExcel2.getCell(3));
+				String isLongMethod2 = dataFormatter.formatCellValue(linhaExcel2.getCell(10));
+				System.out.println(nomeClasse + " " + nomeClasse2 + "         " + methodname + " " + methodname2);
+				if (nomeClasse == nomeClasse2 && methodname == methodname2) {
+					System.out.println("KELLLLLLLLLLLLLLLLLLLL");
+					if (isLongMethod2.equals("TRUE") && isLongMethod.equals("TRUE")) {
 						VP1++;
 					}
-					if (isLongMethod.getBooleanCellValue() == false && isLongMethod2.getBooleanCellValue() == false) {
+					if (isLongMethod.equals("FALSE") && isLongMethod2.equals("FALSE")) {
 						VN1++;
 					}
-					if (isLongMethod.getBooleanCellValue() == false && isLongMethod2.getBooleanCellValue() == true) {
+					if (isLongMethod.equals("FALSE") && isLongMethod2.equals("TRUE")) {
 						FN1++;
 					}
-					if (isLongMethod2.getBooleanCellValue() == false && isLongMethod.getBooleanCellValue() == true) {
+					if (isLongMethod2.equals("FALSE") && isLongMethod.equals("TRUE")) {
 						FP1++;
 					}
 				}
@@ -122,7 +126,7 @@ public class ComparadorCodeSm implements Serializable {
 		metricasLerWorkbook = new XSSFWorkbook(ficheiroExcelMetricas);
 		Sheet folhaExcelMetricas = metricasLerWorkbook.getSheetAt(0);
 		
-		InputStream ficheiroExcelCodeSm = new FileInputStream("Code_Smells.xls");
+		InputStream ficheiroExcelCodeSm = new FileInputStream("Code_Smells.xlsx");
 		codeSmLerWorkbook = new XSSFWorkbook(ficheiroExcelCodeSm);
 		Sheet folhaExcelCodeSm = codeSmLerWorkbook.getSheetAt(0);
 		

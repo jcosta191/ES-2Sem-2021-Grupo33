@@ -81,8 +81,8 @@ import com.iscte.ProjetoES.Historico.LeitorRegrasGuardadas;
     					l.getRule(seleção, rules, selectedRule);
     					Regras regra = new Regras(selectedRule.get(0), Integer.parseInt(selectedRule.get(1)), Integer.parseInt(selectedRule.get(2)), Integer.parseInt(selectedRule.get(3)), Integer.parseInt(selectedRule.get(4)), Integer.parseInt(selectedRule.get(5)), Integer.parseInt(selectedRule.get(6)));
     					GUI.setRegraSelecionada(regra);
-    					//System.out.println(regra);
-    					//System.out.println(seleção);
+    					System.out.println(Integer.parseInt(selectedRule.get(6))+" LOP");
+//    					System.out.println(seleção);
     				}
     			}
     		}

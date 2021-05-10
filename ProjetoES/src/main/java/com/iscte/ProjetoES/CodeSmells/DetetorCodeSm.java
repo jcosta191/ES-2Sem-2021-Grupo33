@@ -10,6 +10,8 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import java.io.IOException;
 import javax.swing.JTable;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+
 import javax.swing.table.DefaultTableModel;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -53,31 +55,40 @@ public class DetetorCodeSm implements Serializable {
 	// Procedimento que irá detetar os Long Methods 
 	public void detetorLM(String ficheiroParaLerPath, String metrica1, int valor1, int valor2, String regraAndOr) throws IOException {
 		try {
-		    XSSFWorkbook ficheiroExcelFormatoWorkbook = new XSSFWorkbook(ficheiroParaLerPath);
+//		    XSSFWorkbook ficheiroExcelFormatoWorkbook = new XSSFWorkbook(ficheiroParaLerPath);
 			
-			Sheet folhaExcel = ficheiroExcelFormatoWorkbook.getSheetAt(0);
+			InputStream excelFile = new FileInputStream(ficheiroParaLerPath);
+			ficheiroExcelFormatoWorkbook = new XSSFWorkbook(excelFile);
+			org.apache.poi.ss.usermodel.Sheet folhaExcel = ficheiroExcelFormatoWorkbook.getSheetAt(0);
 			XSSFRow colunaDosNomes = (XSSFRow) folhaExcel.getRow(0);
 			colunaDosNomes.createCell(9).setCellValue("is_LM");
-			
+			DataFormatter dataFormatter = new DataFormatter();
 			int i = 1;
 			while (i <= folhaExcel.getLastRowNum()) {
 				boolean a = false;
 				Row linhaExcel = folhaExcel.getRow(i);
-				Cell id = linhaExcel.getCell(0);
-				Cell loc_method = linhaExcel.getCell(7);
-				Cell cyclo_method = linhaExcel.getCell(8);
-				String loc = loc_method.toString();
-				String cyclo = cyclo_method.toString();
+				String _id = dataFormatter.formatCellValue(linhaExcel.getCell(0));
+				String _loc_method = dataFormatter.formatCellValue(linhaExcel.getCell(7));
+				String _cyclo_method = dataFormatter.formatCellValue(linhaExcel.getCell(8));
+				
+				int id = Integer.parseInt(_id);
+				int loc = Integer.parseInt(_loc_method);
+				int cyclo = Integer.parseInt(_cyclo_method);
+//				String id = 
+				
+//				String loc = loc_method.toString();
+//				String cyclo = cyclo_method.toString();
 				DefaultTableModel model = (DefaultTableModel) tabelaDosLM.getModel();
+				System.out.println("Ciclo detetorlm: " + linhaExcel);
 				if (regraAndOr.equals("AND")) {
 					if (metrica1.equals("LOC_Method")) {
-						if (Integer.parseInt(loc) > valor1 && Integer.parseInt(cyclo) > valor2) {
+						if (loc > (int) valor1 && cyclo > (int) valor2) {
 							a = true;
 						} else {
 							a = false;
 						}
 					} else {
-						if (Integer.parseInt(cyclo) > valor1 && Integer.parseInt(loc) > valor2) {
+						if (cyclo > (int) valor1 && loc > (int) valor2) {
 							a = true;
 						} else {
 							a = false;
@@ -87,13 +98,13 @@ public class DetetorCodeSm implements Serializable {
 				linhaExcel.createCell(9).setCellValue(a);
 				} else {
 						if (metrica1.equals("LOC_Method")) {
-							if (Integer.parseInt(loc) > valor1 || Integer.parseInt(cyclo) > valor2) {
+							if (loc > valor1 || cyclo > valor2) {
 								a = true;
 							} else {
 								a = false;
 							}
 						} else {
-							if (Integer.parseInt(cyclo) > valor1 || Integer.parseInt(loc) > valor2) {
+							if (cyclo > valor1 || loc > valor2) {
 								a = true;
 							} else {
 								a = false;
@@ -116,30 +127,38 @@ public class DetetorCodeSm implements Serializable {
 	// Procedimento que irá detetar as God Class
 	public void detetorGC(String ficheiroParaLerPath, String metrica3, String metrica4, int valor3, int valor4, String regraAndOr) throws IOException {
 		try {
-
-		    setWorkbookread2(new XSSFWorkbook(ficheiroParaLerPath));
+			InputStream excelFile = new FileInputStream(ficheiroParaLerPath);
+		    setWorkbookread2(new XSSFWorkbook(excelFile));
 		    
-            Sheet folhaExcel = getWorkbookread2().getSheetAt(0);
-            HSSFRow colunaDosNomes = (HSSFRow) folhaExcel.getRow(0);
+		    org.apache.poi.ss.usermodel.Sheet folhaExcel = getWorkbookread2().getSheetAt(0);
+            XSSFRow colunaDosNomes = (XSSFRow) folhaExcel.getRow(0);
             colunaDosNomes.createCell(10).setCellValue("is_GC");
-            
+            DataFormatter dataFormatter = new DataFormatter();
 				for (int i = 1; i <= folhaExcel.getLastRowNum(); i++){ 
 				boolean a = false;
 				Row linhaExcel = folhaExcel.getRow(i);
 				Row linhaAnterior = folhaExcel.getRow(i-1);
-				Cell classname = linhaExcel.getCell(2);
-				Cell classname2 = linhaAnterior.getCell(2);
-                Cell nom_class = linhaExcel.getCell(4);
-                Cell loc_class = linhaExcel.getCell(5);
-                Cell wmc_class = linhaExcel.getCell(6);
-                String nom = nom_class.toString();
-                String loc = loc_class.toString();
-                String wmc = wmc_class.toString();
+				
+				String classname = dataFormatter.formatCellValue(linhaExcel.getCell(2));
+				String classname2 = dataFormatter.formatCellValue(linhaAnterior.getCell(2));
+				
+                String nom_class = dataFormatter.formatCellValue(linhaExcel.getCell(4));
+				String loc_class = dataFormatter.formatCellValue(linhaExcel.getCell(5));
+				String wmc_class = dataFormatter.formatCellValue(linhaExcel.getCell(6));
+				
+				int nom = Integer.parseInt(nom_class);
+				int loc = Integer.parseInt(loc_class);
+				int wmc = Integer.parseInt(wmc_class);
+                
+                
                 DefaultTableModel model = (DefaultTableModel) tabelaDasGC.getModel();
+                
+                System.out.println("Ciclo detetorgc: " + linhaExcel); //DEBUG
+                
                 if(classname.toString().equals(classname2.toString())==false) {
                 if (regraAndOr.equals("AND")) {
                 if (metrica3.equals("LOC_class") && metrica4.equals("NOM_class")) {
-                	if (Integer.parseInt(loc) > valor3 && Integer.parseInt(nom) > valor4) {
+                	if (loc > valor3 && nom > valor4) {
                 		a=true;
                 	}
                 	else {
@@ -148,7 +167,7 @@ public class DetetorCodeSm implements Serializable {
                 }
                 
                 if (metrica3.equals("LOC_class") && metrica4.equals("WMC_class")) {
-                	if(Integer.parseInt(loc) > valor3 && Integer.parseInt(wmc) > valor4) {
+                	if(loc > valor3 && wmc > valor4) {
                 		a=true;
                 	}
                 	else {
@@ -156,7 +175,7 @@ public class DetetorCodeSm implements Serializable {
                 	}
                 }
                 if (metrica3.equals("WMC_class") && metrica4.equals("NOM_class")) {
-                	if (Integer.parseInt(wmc) > valor3 && Integer.parseInt(nom) > valor4) {
+                	if (wmc > valor3 && nom > valor4) {
                 		a=true;
                 	}
                 	else {
@@ -165,7 +184,7 @@ public class DetetorCodeSm implements Serializable {
                 }
                 
                 if (metrica3.equals("WMC_class") && metrica4.equals("LOC_class")) {
-                	if(Integer.parseInt(wmc) > valor3 && Integer.parseInt(loc) > valor4) {
+                	if(wmc > valor3 && loc > valor4) {
                 		a=true;
                 	}
                 	else {
@@ -173,7 +192,7 @@ public class DetetorCodeSm implements Serializable {
                 	}
                 }
                 if (metrica3.equals("NOM_class") && metrica4.equals("LOC_class")) {
-                	if (Integer.parseInt(nom) > valor3 && Integer.parseInt(loc) > valor4) {
+                	if (nom > valor3 && loc > valor4) {
                 		a=true;
                 	}
                 	else {
@@ -182,7 +201,7 @@ public class DetetorCodeSm implements Serializable {
                 }
                 
                 if (metrica3.equals("NOM_class") && metrica4.equals("WMC_class")) {
-                	if(Integer.parseInt(nom) > valor3 && Integer.parseInt(wmc) > valor4) {
+                	if(nom > valor3 && wmc > valor4) {
                 		a=true;
                 	}
                 	else {
@@ -196,7 +215,7 @@ public class DetetorCodeSm implements Serializable {
 				else {//OR
 				
 		                if (metrica3.equals("LOC_class") && metrica4.equals("NOM_class")) {
-		                	if (Integer.parseInt(loc) > valor3 || Integer.parseInt(nom) > valor4) {
+		                	if (loc > valor3 || nom > valor4) {
 		                		a=true;
 		                	}
 		                	else {
@@ -205,7 +224,7 @@ public class DetetorCodeSm implements Serializable {
 		                }
 		                
 		                if (metrica3.equals("LOC_class") && metrica4.equals("WMC_class")) {
-		                	if(Integer.parseInt(loc) > valor3 || Integer.parseInt(wmc) > valor4) {
+		                	if(loc > valor3 || wmc > valor4) {
 		                		a=true;
 		                	}
 		                	else {
@@ -213,7 +232,7 @@ public class DetetorCodeSm implements Serializable {
 		                	}
 		                }
 		                if (metrica3.equals("WMC_class")&&metrica4.equals("NOM_class")) {
-		                	if (Integer.parseInt(wmc)>valor3 || Integer.parseInt(nom)>valor4) {
+		                	if (wmc > valor3 || nom > valor4) {
 		                		a=true;
 		                	}
 		                	else {
@@ -222,7 +241,7 @@ public class DetetorCodeSm implements Serializable {
 		                }
 		                
 		                if (metrica3.equals("WMC_class") && metrica4.equals("LOC_class")) {
-		                	if(Integer.parseInt(wmc) > valor3 || Integer.parseInt(loc) > valor4) {
+		                	if(wmc > valor3 || loc > valor4) {
 		                		a=true;
 		                	}
 		                	else {
@@ -230,7 +249,7 @@ public class DetetorCodeSm implements Serializable {
 		                	}
 		                }
 		                if (metrica3.equals("NOM_class") && metrica4.equals("LOC_class")) {
-		                	if (Integer.parseInt(nom) > valor3 || Integer.parseInt(loc) > valor4) {
+		                	if (nom > valor3 || loc > valor4) {
 		                		a=true;
 		                	}
 		                	else {
@@ -239,7 +258,7 @@ public class DetetorCodeSm implements Serializable {
 		                }
 		                
 		                if (metrica3.equals("NOM_class") && metrica4.equals("WMC_class")) {
-		                	if(Integer.parseInt(nom) > valor3 || Integer.parseInt(wmc) > valor4) {
+		                	if(nom > valor3 || wmc > valor4) {
 		                		a=true;
 		                	}
 		                	else {

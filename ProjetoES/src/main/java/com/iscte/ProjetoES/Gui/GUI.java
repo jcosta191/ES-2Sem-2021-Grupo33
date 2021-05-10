@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.OceanTheme;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.iscte.ProjetoES.GUISelecionadorDeRegras;
@@ -48,7 +49,7 @@ public class GUI {
 		addAButton("Detetar CodeSmells", pane);
 		acaoBotaoDetetarCodesmells();
 		txtChooseAFile.setHorizontalAlignment(JTextField.CENTER);
-		txtChooseAFile.setMaximumSize(new Dimension(400, 500));
+		txtChooseAFile.setMaximumSize(new Dimension(400, 550));
 		pane.add(txtChooseAFile);
 		addAButton("Importar Regras Existentes", pane);
 		ImportarRegrasButtonAction();
@@ -121,6 +122,7 @@ public class GUI {
 						SeletorCodeSm dialog = new SeletorCodeSm();
 						dialog.setVisible(true);
 						try {
+							setLocation("teste"); //DEBUG
 							String operadorLogico;
 							if (GUI.regraSelecionada.getLOP() == 1) {
 								operadorLogico = "AND";
@@ -140,6 +142,12 @@ public class GUI {
 						} catch (NumberFormatException | IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
+						} catch (EncryptedDocumentException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (InvalidFormatException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
 						}
 					}
 				});
@@ -233,7 +241,7 @@ public class GUI {
 	}
 
 	public static void setLocation(String nomeFicheiro) {
-		excelLocation = nomeFicheiro + "_metrics.xls";
+		excelLocation = nomeFicheiro + "_metrics.xlsx";
 	}
 
 	public static void setRegraSelecionada(Regras regraSelecionada) {

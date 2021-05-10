@@ -35,6 +35,12 @@ public class Regras {
 			}
 		this.args=args;
 		this.metrics=metrics;
+		
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		this.d = d;
+		this.e = e;
 	}
 	ArrayList<Integer> leituras=new ArrayList<>();
 	public boolean check(int limite, int contagem){

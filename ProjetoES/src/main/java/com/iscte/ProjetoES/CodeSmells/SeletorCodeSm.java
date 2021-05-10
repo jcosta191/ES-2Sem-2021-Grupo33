@@ -10,6 +10,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+
+import com.iscte.ProjetoES.Gui.GUI;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -115,11 +120,12 @@ public class SeletorCodeSm extends JDialog {
 	}
 	
 	// Procedimentos que invocam os detetores da classe DetetorCodeSm
-	public void detetorLM(String ficheiroALer, String escolhaMetrica1 , int escolhaValor1, int escolhaValor2, String regraAndOr) throws IOException {
+	public void detetorLM(String ficheiroALer, String escolhaMetrica1 , int escolhaValor1, int escolhaValor2, String regraAndOr) throws IOException, EncryptedDocumentException, InvalidFormatException {
+		System.out.println("VALOR DETETORLM SELETOR : " + escolhaValor1 + " " + escolhaValor2 + " " + regraAndOr + " " + escolhaMetrica1);
 		DetetorCodeSm.detetorLM(ficheiroALer, escolhaMetrica1, escolhaValor1, escolhaValor2, regraAndOr);	
 	}
 		
-	public void detetorGC(String ficheiroALer, String escolhaMetrica1, String escolhaMetrica2, int escolhaValor1, int escolhaValor2, String regraAndOr) throws IOException {
-		DetetorCodeSm.detetorGC(ficheiroALer, escolhaMetrica1, escolhaMetrica2, escolhaValor1, escolhaValor2, regraAndOr);
+	public void detetorGC(String ficheiroALer, String escolhaMetrica1, String escolhaMetrica2, int escolhaValor1, int escolhaValor2, String regraAndOr) throws IOException, EncryptedDocumentException, InvalidFormatException {
+		DetetorCodeSm.detetorGC(ficheiroALer, escolhaMetrica1, escolhaMetrica2, (int) escolhaValor1, (int) escolhaValor2, regraAndOr);
 	}		
 }
