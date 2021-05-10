@@ -128,8 +128,6 @@ public class GUI {
 								operadorLogico = "OR";
 							}
 
-							GUI.setLocation();
-
 							// TEM DE SER "LOC_Method"
 							dialog.detetorLM(getLocation(), "LOC_Method", GUI.regraSelecionada.getLOCM(),
 									GUI.regraSelecionada.getCYCLOM(), operadorLogico);
@@ -199,7 +197,7 @@ public class GUI {
 		});
 	}
 
-	private static void createAndShowGUI() throws UnsupportedLookAndFeelException {
+	public static void createAndShowGUI() throws UnsupportedLookAndFeelException {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		MetalLookAndFeel.setCurrentTheme(new OceanTheme());
 		UIManager.setLookAndFeel(new MetalLookAndFeel());
@@ -234,9 +232,8 @@ public class GUI {
 		return excelLocation;
 	}
 
-	public static void setLocation() {
-//		excelLocation = filepath + "/" + name + "_metrics.xls";
-		excelLocation = "code_smells.xlsx";
+	public static void setLocation(String nomeFicheiro) {
+		excelLocation = nomeFicheiro + "_metrics.xls";
 	}
 
 	public static void setRegraSelecionada(Regras regraSelecionada) {

@@ -24,6 +24,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import com.iscte.ProjetoES.Metodo;
 import com.iscte.ProjetoES.Escritores.EscritorExcel;
+import com.iscte.ProjetoES.Gui.GUI;
 
 /**
  * Classe que representa o leitor dos ficheiros Java
@@ -129,6 +130,7 @@ public class LeitorJava extends AbstractTableModel {
 			}
 			try {
 				EscritorExcel.escreverExcel(folder.getName());
+				GUI.setLocation(folder.getName());
 			} catch (InvalidFormatException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
