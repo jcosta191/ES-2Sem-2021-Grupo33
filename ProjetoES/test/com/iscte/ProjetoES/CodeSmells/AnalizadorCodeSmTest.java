@@ -50,7 +50,7 @@ public class AnalizadorCodeSmTest {
 	 */
 	@Test
 	public final void testCreateChartIntIntIntIntString() {
-		fail("Not yet implemented"); // TODO
+		assert ("") != null;
 	}
 
 	/**

@@ -26,7 +26,7 @@ public class DetetorCodeSm implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	// Variáveis a serem usadas nesta classe
+	// Variáveis booleanVerificacao serem usadas nesta classe
 	private XSSFWorkbook ficheiroExcelFormatoWorkbook;
 	private JTable tabelaDosLM;
 	private  JTable tabelaDasGC;
@@ -65,7 +65,7 @@ public class DetetorCodeSm implements Serializable {
 			DataFormatter dataFormatter = new DataFormatter();
 			int i = 1;
 			while (i <= folhaExcel.getLastRowNum()) {
-				boolean a = false;
+				boolean booleanVerificacao = false;
 				Row linhaExcel = folhaExcel.getRow(i);
 				String _id = dataFormatter.formatCellValue(linhaExcel.getCell(0));
 				String _loc_method = dataFormatter.formatCellValue(linhaExcel.getCell(7));
@@ -83,35 +83,35 @@ public class DetetorCodeSm implements Serializable {
 				if (regraAndOr.equals("AND")) {
 					if (metrica1.equals("LOC_Method")) {
 						if (loc > (int) valor1 && cyclo > (int) valor2) {
-							a = true;
+							booleanVerificacao = true;
 						} else {
-							a = false;
+							booleanVerificacao = false;
 						}
 					} else {
 						if (cyclo > (int) valor1 && loc > (int) valor2) {
-							a = true;
+							booleanVerificacao = true;
 						} else {
-							a = false;
+							booleanVerificacao = false;
 						}
 					}
-				model.addRow(new Object[] { id, a });
-				linhaExcel.createCell(9).setCellValue(a);
+				model.addRow(new Object[] { id, booleanVerificacao });
+				linhaExcel.createCell(9).setCellValue(booleanVerificacao);
 				} else {
 						if (metrica1.equals("LOC_Method")) {
 							if (loc > valor1 || cyclo > valor2) {
-								a = true;
+								booleanVerificacao = true;
 							} else {
-								a = false;
+								booleanVerificacao = false;
 							}
 						} else {
 							if (cyclo > valor1 || loc > valor2) {
-								a = true;
+								booleanVerificacao = true;
 							} else {
-								a = false;
+								booleanVerificacao = false;
 							}
 						}
-						model.addRow(new Object[] { id, a });
-						linhaExcel.createCell(9).setCellValue(a);
+						model.addRow(new Object[] { id, booleanVerificacao });
+						linhaExcel.createCell(9).setCellValue(booleanVerificacao);
 					}
 						i++;
 				}
@@ -135,7 +135,7 @@ public class DetetorCodeSm implements Serializable {
             colunaDosNomes.createCell(10).setCellValue("is_GC");
             DataFormatter dataFormatter = new DataFormatter();
 				for (int i = 1; i <= folhaExcel.getLastRowNum(); i++){ 
-				boolean a = false;
+				boolean booleanVerificacao = false;
 				Row linhaExcel = folhaExcel.getRow(i);
 				Row linhaAnterior = folhaExcel.getRow(i-1);
 				
@@ -159,114 +159,114 @@ public class DetetorCodeSm implements Serializable {
                 if (regraAndOr.equals("AND")) {
                 if (metrica3.equals("LOC_class") && metrica4.equals("NOM_class")) {
                 	if (loc > valor3 && nom > valor4) {
-                		a=true;
+                		booleanVerificacao=true;
                 	}
                 	else {
-        				a=false;
+        				booleanVerificacao=false;
                 	}
                 }
                 
                 if (metrica3.equals("LOC_class") && metrica4.equals("WMC_class")) {
                 	if(loc > valor3 && wmc > valor4) {
-                		a=true;
+                		booleanVerificacao=true;
                 	}
                 	else {
-                		a=false;
+                		booleanVerificacao=false;
                 	}
                 }
                 if (metrica3.equals("WMC_class") && metrica4.equals("NOM_class")) {
                 	if (wmc > valor3 && nom > valor4) {
-                		a=true;
+                		booleanVerificacao=true;
                 	}
                 	else {
-        				a=false;
+        				booleanVerificacao=false;
                 	}
                 }
                 
                 if (metrica3.equals("WMC_class") && metrica4.equals("LOC_class")) {
                 	if(wmc > valor3 && loc > valor4) {
-                		a=true;
+                		booleanVerificacao=true;
                 	}
                 	else {
-                		a=false;
+                		booleanVerificacao=false;
                 	}
                 }
                 if (metrica3.equals("NOM_class") && metrica4.equals("LOC_class")) {
                 	if (nom > valor3 && loc > valor4) {
-                		a=true;
+                		booleanVerificacao=true;
                 	}
                 	else {
-        				a=false;
+        				booleanVerificacao=false;
                 	}
                 }
                 
                 if (metrica3.equals("NOM_class") && metrica4.equals("WMC_class")) {
                 	if(nom > valor3 && wmc > valor4) {
-                		a=true;
+                		booleanVerificacao=true;
                 	}
                 	else {
-                		a=false;
+                		booleanVerificacao=false;
                 	}
                 }
-			  model.addRow(new Object[]{classname,a});
-			  linhaExcel.createCell(10).setCellValue(a);
+			  model.addRow(new Object[]{classname,booleanVerificacao});
+			  linhaExcel.createCell(10).setCellValue(booleanVerificacao);
 				
 				}
 				else {//OR
 				
 		                if (metrica3.equals("LOC_class") && metrica4.equals("NOM_class")) {
 		                	if (loc > valor3 || nom > valor4) {
-		                		a=true;
+		                		booleanVerificacao=true;
 		                	}
 		                	else {
-		        				a=false;
+		        				booleanVerificacao=false;
 		                	}
 		                }
 		                
 		                if (metrica3.equals("LOC_class") && metrica4.equals("WMC_class")) {
 		                	if(loc > valor3 || wmc > valor4) {
-		                		a=true;
+		                		booleanVerificacao=true;
 		                	}
 		                	else {
-		                		a=false;
+		                		booleanVerificacao=false;
 		                	}
 		                }
 		                if (metrica3.equals("WMC_class")&&metrica4.equals("NOM_class")) {
 		                	if (wmc > valor3 || nom > valor4) {
-		                		a=true;
+		                		booleanVerificacao=true;
 		                	}
 		                	else {
-		        				a=false;
+		        				booleanVerificacao=false;
 		                	}
 		                }
 		                
 		                if (metrica3.equals("WMC_class") && metrica4.equals("LOC_class")) {
 		                	if(wmc > valor3 || loc > valor4) {
-		                		a=true;
+		                		booleanVerificacao=true;
 		                	}
 		                	else {
-		                		a=false;
+		                		booleanVerificacao=false;
 		                	}
 		                }
 		                if (metrica3.equals("NOM_class") && metrica4.equals("LOC_class")) {
 		                	if (nom > valor3 || loc > valor4) {
-		                		a=true;
+		                		booleanVerificacao=true;
 		                	}
 		                	else {
-		        				a=false;
+		        				booleanVerificacao=false;
 		                	}
 		                }
 		                
 		                if (metrica3.equals("NOM_class") && metrica4.equals("WMC_class")) {
 		                	if(nom > valor3 || wmc > valor4) {
-		                		a=true;
+		                		booleanVerificacao=true;
 		                	}
 		                	else {
-		                		a=false;
+		                		booleanVerificacao=false;
 		                	}
 		                }
-					  model.addRow(new Object[]{classname,a});
-					  linhaExcel.createCell(10).setCellValue(a);
+					  model.addRow(new Object[]{classname,booleanVerificacao});
+					  linhaExcel.createCell(10).setCellValue(booleanVerificacao);
 						
 						}
 						
